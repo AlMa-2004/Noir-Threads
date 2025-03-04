@@ -1,0 +1,53 @@
+  
+  body {
+    font-family: 'Garamond', serif;
+    background-color: #222;
+    color: #ddd;
+    margin: 100;
+    padding: 100;
+  }
+  
+  h1, h2 {
+    font-family: 'Garamond', serif;
+    color: #b80000;
+  }
+  
+  p {
+    font-size: 18px;
+    color: #ccc;
+    margin-bottom: 10px;
+  }
+
+  section{
+    background-color: #333;
+    padding: 10px;
+  }
+
+  footer{
+    background-color: #333;
+    padding: 10px;
+  }
+  
+  a {
+    color: #b80000;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  nav {
+    background-color: #333;
+    padding: 10px;
+  }
+  
+  nav a:hover {
+    color:#b80000;
+  }
+  
+  img, video {
+    width: 50%;
+    max-width: 100%;
+    min-width: 200px; 
+  }
+  
