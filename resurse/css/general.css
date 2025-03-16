@@ -1,53 +1,192 @@
+html{
+
+  /* --culoare-titlu: #e63946; 
+  --spatiere-pagina: 100px;
+  --culoare-text: #e5e5e5; 
+  --culoare-fundal: #111111; 
+  --culoare-chenar: #1e1e1e; 
+  --culoare-highlight: #8f43ee; */
+
+  --culoare-titlu: #e63946;
+  --culoare-text: #d9c5b2; 
+  --culoare-fundal:#14110f; 
+  --culoare-chenar: #34312d; 
+  --culoare-highlight: #e63946; 
+  --culoare-umbra: #7E7F83;
+  --margine: 50px;
+
+  font-size: 18px;
+  font-family: 'Garamond', serif;
+}
+
+body{
+  background-color: var(--culoare-fundal);
+  color: var(--culoare-text);
+  margin: var(--margine);
+  --spatiere-pagina: 100px;
+}
+
+main {
+  padding-left:var(--spatiere-pagina);
+  padding-right:var(--spatiere-pagina);
+  padding-bottom: var(--spatiere-pagina);  
+}
+
+#grid-continut {
+  display: grid;
+  grid-template-areas:
+        "anunturi anunturi anunturi"
+        "despre despre poza1"
+        "produse noutati noutati"
+        "produse noutati noutati"
+        "qa qa qa";
+  gap: 20px;
+}
+
+#anunturi{
+  grid-area: anunturi;
+}
+
+#poza1{
+  grid-area: poza1;
+}
+
+#noutati { 
+  grid-area: noutati; 
+}
+#despre { 
+  grid-area: despre; 
+}
+#categorii-haine { 
+  grid-area: categorii-haine; 
+}
+#comenzi { 
+  grid-area: comenzi; 
+}
+#trupe { 
+  grid-area: trupe; 
+}
+
+#produse {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 
+        "categorii-haine"
+        "trupe"
+        "marci";
+  gap: 10px;
+}
+#marci { 
+  grid-area: marci; 
+}
+#colaborare { grid-area: colaborare; 
+}
+#qa { 
+  grid-area: qa; 
+}
+
+
+
+h1{
+  font-size: 5rem;
+
+}
+h1, h2 {    
+  color: var(--culoare-titlu);
+  align-items: center;
+  width: 100%;
+}
+
+
+header {
+  text-align: center;
+}
+
+section{
+  background-color: var(--culoare-chenar);
+  padding: 10px;
+  border-radius: 20px;
+  border-style: groove;
+  border-color: var(--culoare-fundal);
+  box-shadow: 5px 10px var(--culoare-umbra);
+
+}
+
+footer{
+  background-color: var(--culoare-chenar);
+  padding: 10px;
+  border-radius: 20px;
+}
   
-  body {
-    font-family: 'Garamond', serif;
-    background-color: #222;
-    color: #ddd;
-    margin: 100;
-    padding: 100;
+
+
+a {
+  color: var(--culoare-text);
+ }
+  
+nav {
+  background-color: var(--culoare-chenar);
+  padding: 10px;
+  border-radius: 20px;
+  margin-bottom: var(--margine);
+}
+  
+nav a:hover {
+  color: var(--culoare-highlight);
+}
+  
+img, video {
+  align-content: center;
+  width: 50%;
+  max-width: 100%;
+  min-width: 200px; 
+}
+
+figcaption{
+  text-align:center;
+}
+
+
+  
+@media screen and (max-width:1200px){
+
+  html{
+    font-size: 14px;
   }
-  
-  h1, h2 {
-    font-family: 'Garamond', serif;
-    color: #b80000;
-  }
-  
-  p {
-    font-size: 18px;
-    color: #ccc;
-    margin-bottom: 10px;
+  body{
+    --spatiere-pagina:50px;
+  }   
+  #grid-continut {
+    display: grid;
+    grid-template-areas: 
+          "anunturi anunturi"
+          "despre poza1"
+          "produse noutati"
+          "produse noutati"
+          "qa qa";
+    gap: 20px;
   }
 
-  section{
-    background-color: #333;
-    padding: 10px;
+}
+
+@media screen and (max-width:800px){
+
+  html{
+    font-size: 10px;
+  }
+  body{
+    --spatiere-pagina:25px;
+  }
+  #grid-continut{
+    display: grid;
+    grid-template-areas: 
+          "anunturi"
+          "despre"
+          "poza1"
+          "noutati"
+          "produse"
+          "qa";
+    gap: 10px;
   }
 
-  footer{
-    background-color: #333;
-    padding: 10px;
-  }
-  
-  a {
-    color: #b80000;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
-  nav {
-    background-color: #333;
-    padding: 10px;
-  }
-  
-  nav a:hover {
-    color:#b80000;
-  }
-  
-  img, video {
-    width: 50%;
-    max-width: 100%;
-    min-width: 200px; 
-  }
-  
+}
