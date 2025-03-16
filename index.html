@@ -21,33 +21,33 @@
  <body>
     <header>
         <h1>Noir Threads</h1>
+        <nav>
+            <ul>
+                <li><a href="#anunturi">Anunțuri</a></li>
+                <li><a href="#noutati">Noutăți</a></li>
+                <li><a href="#produse">Produse</a>
+                    <ul>
+                        <li><a href="#categorii-haine">Cateogorii de haine</a>
+                            <ul>
+                                <li><a href="#tricouri">Tricouri</a></li>
+                                <li><a href="rochii">Rochii</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#trupe">Trupe</a></li>
+                        <li><a href="#marci">Mărci populare</a></li>
+                    </ul>
+                </li>
+                <li><a href="#qa">Q&A</a>
+                    <ul>
+                        <li><a href="#comenzi">Comenzi</a></li>
+                        <li><a href="#produse-qa">Produse</a></li>
+                        <li><a href="#colaborare">Colaborare</a></li>
+                    </ul>
+                </li>
+                <li><a href="#despre">Despre noi</a></li>
+            </ul>
+        </nav>
     </header>
-    <nav>
-        <ul>
-            <li><a href="#anunturi">Anunțuri</a></li>
-            <li><a href="#noutati">Noutăți</a></li>
-            <li><a href="#produse">Produse</a>
-                <ul>
-                    <li><a href="#categorii-haine">Cateogorii de haine</a>
-                        <ul>
-                            <li><a href="#tricouri">Tricouri</a></li>
-                            <li><a href="rochii">Rochii</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#trupe">Trupe</a></li>
-                    <li><a href="#marci">Mărci populare</a></li>
-                </ul>
-            </li>
-            <li><a href="#qa">Q&A</a>
-                <ul>
-                    <li><a href="#comenzi">Comenzi</a></li>
-                    <li><a href="#produse-qa">Produse</a></li>
-                    <li><a href="#colaborare">Colaborare</a></li>
-                </ul>
-            </li>
-            <li><a href="#despre">Despre noi</a></li>
-        </ul>
-    </nav>
     <main>
         <div id="grid-continut">
             <section id="anunturi">
@@ -156,11 +156,20 @@
                                     <embed src="./resurse/documente/regulament.pdf" type="application/pdf" width="600" height="400">
                                 <p>Dacă profilul tău se potrivește cu viziunea noastră, te vom contacta pentru a participa la un <i>photoshoot</i>!</p>
                                     
-                                <p>Aruncă o privire la acest itinerariu de <i>photoshoot</i> din anii trecuți pentru a-ți face o idee despre stilul și <i>vibe-ul</i> pe care le căutăm!</p>
+                                <p>Aruncă o privire la aceste itinerarii de <i>photoshoot</i> din anii trecuți pentru a-ți face o idee despre stilul și <i>vibe-ul</i> pe care le căutăm!</p>
                                 
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/PEvPXBzNZv0" 
-                                    title="Halloween Gothic Photo Shoot- Zlog" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                <div class="container-iframe">
+                                    <div class="taburi-iframe">
+                                        <a href="https://www.youtube.com/embed/DYurnFQozdY" target="ifr-video">Photoshoot 2019</a>
+                                        <a href="https://www.youtube.com/embed/PEvPXBzNZv0" target="ifr-video">Photoshoot 2020</a><br/>
+                                    </div>
+                            
+                                    <iframe name="ifr-video" width="560" height="315" 
+                                            src="https://www.youtube.com/embed/DYurnFQozdY" 
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                                    </iframe>
+                                </div>
                                 
                             </details>
                         </section>
