@@ -31,7 +31,7 @@ main {
   padding-right:var(--spatiere-pagina);
   padding-bottom: var(--spatiere-pagina);  
 }
-
+/* 
 #grid-continut {
   display: grid;
   grid-template-areas:
@@ -41,7 +41,7 @@ main {
         "produse noutati noutati"
         "qa qa qa";
   gap: 20px;
-}
+} */
 
 #anunturi{
   grid-area: anunturi;
