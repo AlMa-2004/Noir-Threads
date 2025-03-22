@@ -115,6 +115,54 @@ footer{
   border-radius: 20px;
 }
 
+#link-top {
+  position: fixed;
+  bottom: 0.3em;
+  right: 0.3em;
+  width: 3rem;
+  height: 3rem;
+
+  box-sizing: border-box;
+  opacity: 0.5;
+
+  border: 3.5px solid;
+  border-right-color: var(--culoare-highlight);
+  border-left-color: var(--culoare-highlight);
+  border-top-color: var(--culoare-chenar);
+  border-bottom-color: var(--culoare-chenar);
+  border-radius: 50%;
+  background: var(--culoare-text);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: inset 0px 0px 10px var(--culoare-fundal);
+  text-decoration: none;
+  transition: 1s ease-in-out;
+}
+
+#link-top:hover {
+  opacity: 1;
+  transform: rotate(90deg);
+}
+
+#sageata {
+  display: block;
+  color: var(--culoare-fundal);
+  font-size: 2rem;
+  font-weight: bold;
+  filter: blur(3px);
+  transition: 1s ease-in-out;
+}
+
+#link-top:hover #sageata {
+  transform: rotate(-90deg);
+  transition: 1s ease-in-out;
+  filter: none;
+}
+
+
 .taburi-iframe > a{  
   background: var(--culoare-fundal);
   border-radius: 20px;
