@@ -73,7 +73,7 @@ table {
   text-align: center;
   color: var(--culoare-fundal);
   line-height: 3rem;
-
+  margin: auto;
 }
 
 thead, tfoot {
