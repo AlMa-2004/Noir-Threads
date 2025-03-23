@@ -17,6 +17,8 @@ html{
 
   font-size: 18px;
   font-family: 'Garamond', serif;
+
+  transition: font-size 0.3s ease-in-out;
 }
 
 body{
@@ -42,11 +44,10 @@ main {
        "qa qa qa qa"; */
   grid-template-areas: 
     "despre despre despre despre"
-    "orar orar noutati noutasti"
-    "orar orar anunturi anunturi"
+    "noutati noutati orar orar"
+    "noutati noutati anunturi anunturi"
     "trupe categorii-haine categorii-haine marci"
-    "qa qa qa qa"  
-  ;
+    "qa qa qa qa";
   gap: 30px;
 }
 
@@ -98,6 +99,13 @@ main {
   grid-area: qa; 
 }
 
+#slideshow-trupe{
+  display: block;
+}
+
+#slideshow-marci{
+  display: block;
+}
 
 h1{
   font-size: 5rem;
@@ -205,59 +213,63 @@ img, video {
   max-width: 100%;
   min-width: 200px; 
 }
-
-figcaption{
-  text-align:center;
+figcaption {
+  display: block;
+  text-align: center;
   margin: 1rem;
 }
 
 figure {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-content: center; 
+  justify-content: center; 
 }
-
-
   
 @media screen and (max-width:1200px){
 
   html{
-    font-size: 14px;
+    font-size: 16px;
   }
   body{
     --spatiere-pagina:50px;
   }   
-  /* #grid-continut {
+  #grid-continut {
     display: grid;
-    grid-template-areas: 
-          "anunturi anunturi"
-          "despre poza1"
-          "produse noutati"
-          "produse noutati"
-          "qa qa";
+    grid-template-areas:
+    "despre despre"
+    "noutati orar"
+    "noutati anunturi"
+    "categorii-haine marci"
+    "categorii-haine trupe"
+    "qa qa";
     gap: 20px;
-  } */
+  }
 
 }
 
 @media screen and (max-width:800px){
 
   html{
-    font-size: 10px;
+    font-size: 14px;
+    animation: none;
+    transition: none;
   }
   body{
     --spatiere-pagina:25px;
   }
-  /* #grid-continut{
+  #grid-continut{
     display: grid;
-    grid-template-areas: 
-          "anunturi"
-          "despre"
-          "poza1"
-          "noutati"
-          "produse"
-          "qa";
+    grid-template-areas:
+            "despre"
+            "orar"
+            "noutati"
+            "anunturi"
+            "trupe"
+            "categorii-haine"
+            "marci"
+            "qa";
     gap: 10px;
-  } */
+  }
 
 }
