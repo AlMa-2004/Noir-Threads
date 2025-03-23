@@ -7,12 +7,12 @@ html{
   --culoare-chenar: #1e1e1e; 
   --culoare-highlight: #8f43ee; */
 
-  --culoare-titlu: #e63946;
   --culoare-text: #d9c5b2; 
   --culoare-fundal:#14110f; 
   --culoare-chenar: #34312d; 
   --culoare-highlight: #e63946; 
   --culoare-umbra: #7E7F83;
+  --culoare-deschisa: #f3f3f4;
   --margine: 30px;
 
   font-size: 18px;
@@ -25,7 +25,8 @@ body{
   background-color: var(--culoare-fundal);
   color: var(--culoare-text);
   margin: var(--margine);
-  --spatiere-pagina: 100px;
+  --spatiere-pagina: 80px;
+  
 }
 
 main {
@@ -59,16 +60,50 @@ main {
   grid-area: anunturi;
 }
 
-#orar{
+#orar {
   grid-area: orar;
+  background-color: var(--culoare-chenar);
+  border-radius: 20px;
+  box-shadow: 5px 10px var(--culoare-umbra);
+  overflow-x: auto;
 }
 
-#poza1{
-  grid-area: poza1;
+table {
+  border-collapse: collapse;
+  text-align: center;
+  color: var(--culoare-fundal);
+  line-height: 3rem;
+
 }
 
-#poza2{
-  grid-area: poza2;
+thead, tfoot {
+  background-color: var(--culoare-fundal);
+  color: var(--culoare-text);
+  padding: 10px;
+}
+
+tbody td:nth-child(odd) {
+  background-color: var(--culoare-umbra);
+}
+
+tbody td:nth-child(even) {
+  background-color: var(--culoare-text);
+}
+
+tbody tr:hover td {
+  background-color: var(--culoare-deschisa);
+  transition: 0.5s;
+}
+
+tbody tr:hover td:hover {
+  background-color: var(--culoare-highlight);
+  transition: 0.3s;
+}
+
+caption {
+  caption-side: bottom;
+  font-style: italic;
+  color: var(--culoare-text);
 }
 
 #noutati { 
@@ -80,21 +115,15 @@ main {
 #categorii-haine { 
   grid-area: categorii-haine; 
 }
-#comenzi { 
-  grid-area: comenzi; 
-}
+
 #trupe { 
   grid-area: trupe; 
 }
 
-#produse {
-  grid-area: produse;
-}
 #marci { 
   grid-area: marci; 
 }
-#colaborare { grid-area: colaborare; 
-}
+
 #qa { 
   grid-area: qa; 
 }
@@ -109,14 +138,13 @@ main {
 
 h1{
   font-size: 5rem;
-
   font-family: "Nosifer", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
 h1, h2 {    
-  color: var(--culoare-titlu);
+  color: var(--culoare-highlight);
   align-items: center;
 }
 
@@ -183,7 +211,6 @@ footer{
   filter: none;
 }
 
-
 .taburi-iframe > a{  
   background: var(--culoare-fundal);
   border-radius: 20px;
@@ -206,13 +233,16 @@ nav {
 nav a:hover {
   color: var(--culoare-highlight);
 }
-  
+
 img, video {
-  align-content: center;
-  width: 50%;
-  max-width: 100%;
-  min-width: 200px; 
+  width: 100%;
+  max-width: 80vw;
+  min-width: 150px;
+  height: auto;
+  display: block;
 }
+
+
 figcaption {
   display: block;
   text-align: center;
@@ -233,7 +263,9 @@ figure {
   }
   body{
     --spatiere-pagina:50px;
+    --margine: 20px;
   }   
+
   #grid-continut {
     display: grid;
     grid-template-areas:
@@ -243,7 +275,11 @@ figure {
     "categorii-haine marci"
     "categorii-haine trupe"
     "qa qa";
-    gap: 20px;
+    gap: 15px;
+  }
+  img, video {
+    max-width: 90vw;
+    min-width: 120px;
   }
 
 }
@@ -258,6 +294,9 @@ figure {
   body{
     --spatiere-pagina:25px;
   }
+  #orar-div{
+    overflow-x: auto;
+  }
   #grid-continut{
     display: grid;
     grid-template-areas:
@@ -271,5 +310,8 @@ figure {
             "qa";
     gap: 10px;
   }
-
+  img, video {
+    max-width: 100%;
+    min-width: 100px;
+  }
 }
