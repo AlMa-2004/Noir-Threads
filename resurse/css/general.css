@@ -31,14 +31,14 @@ main {
   padding-right:var(--spatiere-pagina);
   padding-bottom: var(--spatiere-pagina);  
 }
-
-/* #grid-continut {
+/* 
+#grid-continut {
   display: grid;
   grid-template-areas:
         "anunturi anunturi anunturi"
-        "despre despre poza1"
-        "produse noutati noutati"
-        "produse noutati noutati"
+        "produse produse noutati"
+        "produse produse noutati"
+        "poza1 despre poza2"
         "qa qa qa";
   gap: 30px;
 } */
@@ -53,6 +53,10 @@ main {
 
 #poza1{
   grid-area: poza1;
+}
+
+#poza2{
+  grid-area: poza2;
 }
 
 #noutati { 
@@ -72,12 +76,7 @@ main {
 }
 
 #produse {
-  display: block;
-  grid-template-areas: 
-        "categorii-haine"
-        "trupe"
-        "marci";
-  gap: 10px;
+  grid-area: produse;
 }
 #marci { 
   grid-area: marci; 
@@ -89,9 +88,12 @@ main {
 }
 
 
-
 h1{
   font-size: 5rem;
+
+  font-family: "Nosifer", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 h1, h2 {    
@@ -207,7 +209,7 @@ figcaption{
   body{
     --spatiere-pagina:50px;
   }   
-  #grid-continut {
+  /* #grid-continut {
     display: grid;
     grid-template-areas: 
           "anunturi anunturi"
@@ -216,7 +218,7 @@ figcaption{
           "produse noutati"
           "qa qa";
     gap: 20px;
-  }
+  } */
 
 }
 
@@ -228,7 +230,7 @@ figcaption{
   body{
     --spatiere-pagina:25px;
   }
-  #grid-continut{
+  /* #grid-continut{
     display: grid;
     grid-template-areas: 
           "anunturi"
@@ -238,6 +240,6 @@ figcaption{
           "produse"
           "qa";
     gap: 10px;
-  }
+  } */
 
 }
