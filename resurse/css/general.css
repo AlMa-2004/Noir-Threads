@@ -31,17 +31,24 @@ main {
   padding-right:var(--spatiere-pagina);
   padding-bottom: var(--spatiere-pagina);  
 }
-/* 
+
 #grid-continut {
   display: grid;
-  grid-template-areas:
-        "anunturi anunturi anunturi"
-        "produse produse noutati"
-        "produse produse noutati"
-        "poza1 despre poza2"
-        "qa qa qa";
+  /* grid-template-areas:
+       "despre despre despre despre"
+       "categorii-haine categorii-haine trupe trupe"
+       "categorii-haine categorii-haine marci marci"
+       "orar noutati noutati anunturi "
+       "qa qa qa qa"; */
+  grid-template-areas: 
+    "despre despre despre despre"
+    "orar orar noutati noutasti"
+    "orar orar anunturi anunturi"
+    "trupe categorii-haine categorii-haine marci"
+    "qa qa qa qa"  
+  ;
   gap: 30px;
-} */
+}
 
 #grid-continut > figure{
   margin: 0;
@@ -49,6 +56,10 @@ main {
 
 #anunturi{
   grid-area: anunturi;
+}
+
+#orar{
+  grid-area: orar;
 }
 
 #poza1{
@@ -197,6 +208,13 @@ img, video {
 
 figcaption{
   text-align:center;
+  margin: 1rem;
+}
+
+figure {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
