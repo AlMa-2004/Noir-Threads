@@ -1,3 +1,5 @@
+/* ============================== */
+
 html{
 
   /* --culoare-titlu: #e63946; 
@@ -21,6 +23,8 @@ html{
   transition: font-size 0.3s ease-in-out;
 }
 
+/* ============================== */
+
 body{
   background-color: var(--culoare-fundal);
   color: var(--culoare-text);
@@ -34,6 +38,8 @@ main {
   padding-right:var(--spatiere-pagina);
   padding-bottom: var(--spatiere-pagina);  
 }
+
+/* ============================== */
 
 #grid-continut {
   display: grid;
@@ -56,24 +62,33 @@ main {
   margin: 0;
 }
 
-#anunturi{
-  grid-area: anunturi;
+#anunturi{ grid-area: anunturi; }
+#orar { grid-area: orar; overflow-x: auto; }
+#noutati { grid-area: noutati; }
+#despre { grid-area: despre; }
+#categorii-haine { grid-area: categorii-haine; }
+#trupe { grid-area: trupe; }
+#marci { grid-area: marci; }
+#qa { grid-area: qa; }
+#slideshow-trupe{ display: block; }
+#slideshow-marci{ display: block; }
+
+/* ============================== */
+
+.orar-div{
+  overflow: hidden;
+  border-radius: 20px;
+  border: 2px solid;
+  overflow-x: auto; 
 }
 
-#orar {
-  grid-area: orar;
-  background-color: var(--culoare-chenar);
-  border-radius: 20px;
-  box-shadow: 5px 10px var(--culoare-umbra);
-  overflow-x: auto;
-}
 
 table {
+  width: 100%;
   border-collapse: collapse;
   text-align: center;
   color: var(--culoare-fundal);
   line-height: 3rem;
-  margin: auto;
 }
 
 thead, tfoot {
@@ -106,35 +121,7 @@ caption {
   color: var(--culoare-text);
 }
 
-#noutati { 
-  grid-area: noutati; 
-}
-#despre { 
-  grid-area: despre; 
-}
-#categorii-haine { 
-  grid-area: categorii-haine; 
-}
-
-#trupe { 
-  grid-area: trupe; 
-}
-
-#marci { 
-  grid-area: marci; 
-}
-
-#qa { 
-  grid-area: qa; 
-}
-
-#slideshow-trupe{
-  display: block;
-}
-
-#slideshow-marci{
-  display: block;
-}
+/* ============================== */
 
 h1{
   font-size: 5rem;
@@ -147,6 +134,8 @@ h1, h2 {
   color: var(--culoare-highlight);
   align-items: center;
 }
+
+/* ============================== */
 
 section{
   background-color: var(--culoare-chenar);
@@ -163,6 +152,8 @@ footer{
   padding: 10px;
   border-radius: 20px;
 }
+
+/* ============================== */
 
 #link-top {
   position: fixed;
@@ -211,6 +202,10 @@ footer{
   filter: none;
 }
 
+/* ============================== */
+
+/* TO BE REMOVED */
+
 .taburi-iframe > a{  
   background: var(--culoare-fundal);
   border-radius: 20px;
@@ -218,6 +213,23 @@ footer{
 
 }
 
+/* ============================== */
+
+math {
+  font-family: serif;
+  font-size: 1.1em;
+}
+
+mi {
+  font-style: italic;
+  color: var(--culoare-highlight);
+}
+
+mo {
+  font-weight: bold;
+}
+
+/* ============================== */
 
 a {
   color: var(--culoare-text);
@@ -234,14 +246,14 @@ nav a:hover {
   color: var(--culoare-highlight);
 }
 
+/* ============================== */
+
 img, video {
   width: 100%;
-  max-width: 80vw;
-  min-width: 150px;
-  height: auto;
+  max-width: 600px;
+  min-width: 100px;
   display: block;
 }
-
 
 figcaption {
   display: block;
@@ -256,6 +268,8 @@ figure {
   justify-content: center; 
 }
   
+/* ============================== */
+
 @media screen and (max-width:1200px){
 
   html{
@@ -277,10 +291,6 @@ figure {
     "qa qa";
     gap: 15px;
   }
-  img, video {
-    max-width: 90vw;
-    min-width: 120px;
-  }
 
 }
 
@@ -294,9 +304,7 @@ figure {
   body{
     --spatiere-pagina:25px;
   }
-  #orar-div{
-    overflow-x: auto;
-  }
+
   #grid-continut{
     display: grid;
     grid-template-areas:
@@ -309,9 +317,5 @@ figure {
             "marci"
             "qa";
     gap: 10px;
-  }
-  img, video {
-    max-width: 100%;
-    min-width: 100px;
   }
 }
