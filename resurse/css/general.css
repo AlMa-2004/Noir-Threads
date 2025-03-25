@@ -30,7 +30,6 @@ body{
   color: var(--culoare-text);
   margin: var(--margine);
   --spatiere-pagina: 80px;
-  
 }
 
 main {
@@ -204,7 +203,7 @@ footer{
 
 /* ============================== */
 
-.taburi-iframe>a{
+.taburi-iframe > a{
   display: block;
   width: 100px;
   height: 50px;

@@ -1,0 +1,255 @@
+/* ============= RESET ================*/
+/* BASED ON http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+  text-decoration: none;
+  color: none;
+}
+
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/* =========== REDEFINE ============== */
+
+b {
+	font-weight: bold;
+}
+
+blockquote {
+	display: block;
+	margin: 1em 10px 1em 40px;
+}
+
+body {
+	display: block;
+	margin: 8px;
+    line-height: 1.5;
+}
+
+caption {
+	display: table-caption;
+	text-align: center;
+}
+
+div {
+	display: block;
+
+}
+
+dl {
+	display: block;
+	margin: 1em 0;
+}
+
+dt {
+	display: block;
+}
+
+em {
+	font-style: italic;
+}
+
+h1 {
+	display: block;
+	font-size: 2em;
+	font-weight: bold;
+	margin: 0.67em 0;
+}
+
+h2 {
+	display: block;
+	font-size: 1.5em;
+	font-weight: bold;
+	margin: 0.83em 0;
+}
+
+h3 {
+	display: block;
+	font-size: 1.17em;
+	font-weight: bold;
+	margin: 1em 0;
+}
+
+h4 {
+	display: block;
+	font-weight: bold;
+	margin: 1em 0;
+}
+
+h5 {
+	display: block;
+	font-size: 0.83em;
+	font-weight: bold;
+	margin: 1.67em 0;
+}
+
+h6 {
+	display: block;
+	font-size: 0.67em;
+	font-weight: bold;
+	margin: 2.33em 0;
+}
+
+head {
+	display: none;
+}
+
+
+hr {
+	border-style: inset;
+	border-width: 1px;
+	box-sizing: content-box;
+	display: block;
+	height: 0;
+	margin: 10px 0;
+	text-align: center;
+}
+
+html {
+	display: block;
+}
+
+i {
+	font-style: italic;
+}
+
+iframe {
+	border-style: inset;
+	border-width: 2px;
+}
+
+li {
+	display: list-item;
+}
+
+ol {
+    list-style-type: decimal;
+	padding: 0 40px 0 0;
+    margin-left: 2rem;
+}
+
+p {
+	display: block;
+	margin: 1em ;
+}
+
+q {
+	quotes: "\"" "\"" "'" "'";
+    margin: 1em 0;
+}
+
+section{
+  border: 3px;
+}
+
+strong {
+	font-weight: bold;
+}
+
+style {
+	display: none;
+}
+
+
+table {
+	border-spacing: 2px;
+	display: table;
+	text-indent: 0;
+}
+
+tbody {
+	display: table-row-group;
+	vertical-align: middle;
+}
+
+td {
+	display: table-cell;
+	padding: 1px;
+	vertical-align: inherit;
+}
+
+tfoot {
+	display: table-footer-group;
+	vertical-align: middle;
+}
+
+th {
+	display: table-cell;
+	font-weight: bold;
+	padding: 1px;
+	vertical-align: inherit;
+}
+
+thead {
+	display: table-header-group;
+	vertical-align: middle;
+}
+
+title {
+	display: none;
+}
+
+tr {
+	display: table-row;
+	vertical-align: inherit;
+}
+
+ul {
+	display: block;
+	list-style-position: outside;
+	list-style-type: disc;
+	margin: 0.5em;
+	padding: 0 0 0 40px;
+}
+
+var {
+	font-style: italic;
+}
+
+video {
+	display: inline;
+} 
