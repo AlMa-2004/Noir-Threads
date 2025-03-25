@@ -232,23 +232,21 @@ footer{
 }
 
 .taburi-iframe a::before {
+
   opacity: 0;
   position: absolute;
   transition: all 1s linear;
   content: " ";
   display: block;
-  width: 100%;
-  height: 100%;
 
-  top: 0;
-  left: 0;
+  inset: 0; /*width height 100%, top left right bot 0*/
+
   z-index: -1;
 
   background: var(--culoare-highlight);
 
   box-shadow: inset 0px 5px 10px var(--culoare-fundal);
-  border: 1px solid var(--culoare-fundal);
-  border-radius: 10px;
+  border-radius: 9px;
 
 }
 
