@@ -312,14 +312,8 @@ a {
  }
   
 nav {
-  background-color: var(--culoare-chenar);
-  padding: 10px;
   border-radius: 20px;
   margin-bottom: var(--margine);
-}
-  
-nav a:hover {
-  color: var(--culoare-highlight);
 }
 
 /* ============================== */

@@ -17,6 +17,7 @@
     
     <link rel="stylesheet" type="text/css" href="./resurse/css/reset.css"/>
     <link rel="stylesheet" type="text/css" href="./resurse/css/general.css"/>
+    <link rel="stylesheet" type="text/css" href="./resurse/css/nav.css"/>
 
     <!-- de inlocuit cu resurse locale-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,25 +31,52 @@
     <header>
         <h1>Noir Threads</h1>
         <nav>
-            <ul>
-                <li><a href="#anunturi">Anunțuri</a></li>
-                <li><a href="#noutati">Noutăți</a></li>
-                <li><a href="#categorii-haine">Produse</a>
-                    <ul>
-                        <li><a href="#categorii-haine">Cateogorii de haine</a></li>
-                        <li><a href="#trupe">Trupe</a></li>
-                        <li><a href="#marci">Mărci populare</a></li>
-                    </ul>
+            <ul class="meniu">            
+                <li>
+                    <div class="text-icon" id="acasa">
+                        <a href="#noutati">Acasă</a>
+                    </div>
+                    <div class="imag-icon" id="acasa-mediu" >
+                        <span class="fa-solid fa-house"></span>
+                    </div>
                 </li>
-                <li><a href="#orar">Program de lucru</a></li>
-                <li><a href="#qa">Q&A</a>
-                    <ul>
-                        <li><a href="#comenzi">Comenzi</a></li>
-                        <li><a href="#produse-qa">Produse</a></li>
-                        <li><a href="#colaborare">Colaborare</a></li>
-                    </ul>
+                <li>
+                    <div class="text-icon" id="produse">
+                        <a href="#categorii-haine">Produse</a> <!-- momentan duce la prima clasare din sectiune, dar va duce la alta pagina care are linkuri catre sectiuni-->
+                        <ul>
+                            <li><a href="#categorii-haine">Cateogorii de haine</a></li>
+                            <li><a href="#trupe">Trupe</a></li>
+                            <li><a href="#marci">Mărci populare</a></li>
+                        </ul>
+                    </div>
+                    <div class="imag-icon" id="produse-mediu" >
+                        <span class="fa-solid fa-shirt"></span>
+                    </div>
                 </li>
-                <li><a href="#despre">Despre noi</a></li>
+                <li>
+                    <div class="text-icon" id="qa">
+                        <a href="#qa">Q&A</a>
+                        <ul>
+                            <li><a href="/comenzi-qa.html">Comenzi</a></li>
+                            <li><a href="/produse-qa.html">Produse</a></li>
+                            <li><a href="/colaborare-qa.html">Colaborare</a></li>
+                            <!-- <li><a href="#comenzi">Comenzi</a></li>
+                            <li><a href="#produse-qa">Produse</a></li>
+                            <li><a href="#colaborare">Colaborare</a></li> -->
+                        </ul>
+                    </div>
+                    <div class="imag-icon" id="qa-mediu" >
+                        <span class="fa-solid fa-comment-dots"></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="text-icon" id="despre">
+                        <a href="#despre">Despre noi</a>
+                    </div>
+                    <div class="imag-icon" id="despre-mediu">
+                        <span class="fa-solid fa-clock-rotate-left"></span>
+                    </div>
+                </li> <!-- va duce catre alta pagina ulterior -->
             </ul>
         </nav>
     </header>
