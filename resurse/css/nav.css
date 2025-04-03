@@ -20,8 +20,10 @@ ul.meniu li div.imag-icon{
 ul.meniu ul {
     display: none;
     padding:0;
-    z-index: 2;
+    top: 0;
+    margin: 0;
 }
+
 ul.meniu{
     display: flex;
     list-style-type: none;
@@ -33,40 +35,54 @@ ul.meniu li {
     width:var(--latime-buton);
     height:var(--inaltime-meniu);
     border: 2px solid var(--culoare-chenar);
-    box-sizing: border-box;
+    left:-1px;
+    box-sizing: border-box; /*include in width si height SI latimea si inaltimea borderului*/
     text-align: center;
-    font-weight:bold;
+    font-weight: bold;
     line-height: var(--inaltime-meniu);
     transition: all 1s linear;
+
+    padding:0;
+    margin:0;
+
 }
 
 ul.meniu li:hover {
-    background-color: var(--c);
-    
+    background-color: purple;
+
 }
 
 ul.meniu li:hover ul{
-    display: block;
+    display: inline-block;
     background-color: green;
+    width: var(--latime-buton);
     position: relative;
     list-style-type: none;
     left:-1px;
+    transition: all 1s linear;
+    word-wrap: break-word;
 }
 
+/* Pentru section link-uri in pagina curenta -- vezi structura html intai ==> <ul> <div> <a> </a> </div> <ul>*/
+/* 
+ul.meniu li:hover> .text-icon a,ul.meniu li:hover>div{
+    color: blue;
+    text-shadow: 1px 1px 3px magenta;
+} */
 
-ul.meniu li:hover>a,ul.meniu li:hover>div{
-    color: var(--culoare-text);
-    text-shadow: 1px 1px 3px var(--culoare-deschisa);
+ul.meniu li:hover> a,ul.meniu li:hover>div{
+    color: blue;
+    text-shadow: 1px 1px 3px magenta;
 }
-
 
 ul.meniu a,ul.meniu div{
     color: var(--culoare-fundal);
     text-decoration: none;
     transition: all 1s linear;
-    text-shadow: 0 -15px rgba(0,0,0,0);
+    text-shadow: 0 -15px transparent;
     display: block;
     height:100%;
     cursor:pointer;
+   
 }
 
