@@ -1,5 +1,4 @@
 /* ============================== */
-
 html{
 
   /* --culoare-titlu: #e63946; 
@@ -310,11 +309,7 @@ mo {
 a {
   color: var(--culoare-text);
  }
-  
-nav {
-  border-radius: 20px;
-  margin-bottom: var(--margine);
-}
+ 
 
 /* ============================== */
 

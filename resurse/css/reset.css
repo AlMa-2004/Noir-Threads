@@ -64,11 +64,11 @@ blockquote {
 	margin: 1em 10px 1em 40px;
 }
 
-body {
+/* body {
 	display: block;
 	margin: 8px;
     line-height: 1.5;
-}
+} */
 
 caption {
 	display: table-caption;

@@ -6,11 +6,12 @@ nav{
     background-color: var(--culoare-highlight);
     --inaltime-meniu:30px;
     --latime-buton:150px;
-    height:var(--inaltime-meniu);
 
+    height:var(--inaltime-meniu);
     position: sticky;
+
     top: 0;
-    padding: 0;
+    z-index: 10000;
 }
 
 ul.meniu li div.imag-icon{
