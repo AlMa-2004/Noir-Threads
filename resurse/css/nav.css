@@ -11,18 +11,27 @@ nav{
     position: sticky;
 
     top: 0;
-    z-index: 10000;
+    z-index: 10;
+
+    margin-bottom: 10px;
+    border-radius: 20px;
+
 }
 
 ul.meniu li div.imag-icon{
     display: none;
 }
 
-ul.meniu ul {
-    display: none;
+ul.meniu ul { /*submeniu ascuns?*/
+    display: block;
+    opacity: 0;
+    transform: scaleY(0);
+    transition: 3s ease-in-out;
+    transform-origin: top;
     padding:0;
     top: 0;
     margin: 0;
+    list-style-type: none;
 }
 
 ul.meniu{
@@ -49,19 +58,21 @@ ul.meniu li {
 }
 
 ul.meniu li:hover {
-    background-color: purple;
+    background-color: var(--culoare-text);
 
 }
 
 ul.meniu li:hover ul{
     display: inline-block;
-    background-color: green;
+    background-color: var(--culoare-umbra);
     width: var(--latime-buton);
     position: relative;
-    list-style-type: none;
     left:-1px;
-    transition: all 1s linear;
+
     word-wrap: break-word;
+    transition: all 1s linear;
+    transform: scaleY(1);
+    opacity: 1;
 }
 
 /* Pentru section link-uri in pagina curenta -- vezi structura html intai ==> <ul> <div> <a> </a> </div> <ul>*/
@@ -70,10 +81,18 @@ ul.meniu li:hover> .text-icon a,ul.meniu li:hover>div{
     color: blue;
     text-shadow: 1px 1px 3px magenta;
 } */
+ul.meniu li> a{
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    transition: 1s ease-in-out;
+}
 
-ul.meniu li:hover> a,ul.meniu li:hover>div{
-    color: blue;
-    text-shadow: 1px 1px 3px magenta;
+ul.meniu li:hover> a{
+    
+    text-decoration-color: var(--culoare-fundal);
+}
+ul.meniu li:hover>div{
+    text-shadow: 1px 1px 3px var(--culoare-fundal);
 }
 
 ul.meniu a,ul.meniu div{
