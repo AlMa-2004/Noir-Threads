@@ -1,0 +1,100 @@
+@mixin zero{
+    margin:0;
+    padding:0;
+}
+
+#hamburger, #ch-menu {
+    display: none;
+}
+
+nav{
+    background-color: var(--culoare-highlight);
+    --inaltime-meniu:30px;
+    --latime-buton:150px;
+
+    height:var(--inaltime-meniu);
+    position: sticky;
+
+    top: 0;
+    z-index: 10;
+
+    margin-bottom: 10px;
+    border-radius: 20px;
+
+}
+
+ul.meniu{
+    display: flex;
+    list-style-type: none;
+    padding:0;
+    li {
+        width:var(--latime-buton);
+        height:var(--inaltime-meniu);
+        border: 2px solid var(--culoare-chenar);
+        left:-1px;
+        box-sizing: border-box;
+        text-align: center;
+        font-weight: bold;
+        line-height: var(--inaltime-meniu);
+        transition: all 1s linear;
+    
+        @include zero;
+
+        &#acasa-plus{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        &:hover {
+            background-color: var(--culoare-text);
+            ul{
+                display: inline-block;
+                background-color: var(--culoare-umbra);
+                width: var(--latime-buton);
+                position: relative;
+                left:-1px;
+            
+                word-wrap: break-word;
+                transition: all 1s linear;
+                transform: scaleY(1);
+                opacity: 1;
+            }
+            > a{
+    
+                text-decoration-color: var(--culoare-fundal);
+            }
+            >div{
+                text-shadow: 1px 1px 3px var(--culoare-fundal);
+            }
+        }
+        > a{
+            text-decoration: underline;
+            text-decoration-color: transparent;
+            transition: 1s ease-in-out;
+        }
+
+    }
+    ul {
+        opacity: 0;
+        transform: scaleY(0);
+        transition: 3s ease-in-out;
+        transform-origin: top;
+        top: 0;
+        list-style-type: none;
+        @include zero;
+    }
+
+    a, div{
+        color: var(--culoare-fundal);
+        text-decoration: none;
+        transition: all 1s linear;
+        text-shadow: 0 -15px transparent;
+        display: block;
+        height:100%;
+        cursor:pointer;
+       
+    }
+    
+}
+
+

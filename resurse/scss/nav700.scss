@@ -1,0 +1,113 @@
+#hamburger{
+    display: block;
+    padding: 5px;
+}
+
+#hamburger-container {
+    position: relative; 
+    width: 25px;         
+    height: 20px;        
+    cursor: pointer;     
+  }
+  
+  .linie {
+    position: absolute;  
+    width: 100%;          
+    height: 2px;         
+    background-color: var(--culoare-text);
+    border-radius: 2px;   
+}
+
+ul.meniu{
+    display: none;
+    margin: 0;
+    width: 100%;
+    background-color: var(--culoare-highlight);
+    ul{
+        display: none;
+        margin: 0;
+        width: 100%;
+        background-color: var(--culoare-highlight);
+    }
+    li{
+        display: block;
+        margin: 0;
+        width: 100%;
+        &:hover{
+            ul {
+                width: 100%;
+                box-sizing: border-box;
+                left: 0px;
+        }
+            >div{
+                text-shadow: none;
+            }
+        }
+    }
+    >li{
+        animation-name: animatie_optiuni;
+        animation-timing-function: linear;
+        animation-iteration-count: 1;
+        animation-duration: .1s;
+        animation-fill-mode: forwards;
+        transform-origin: 50% 0;
+    
+    } 
+    
+}
+
+#ch-menu:checked+ul.meniu
+{
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+main{
+    margin-top: 20px;
+}
+
+@keyframes animatie_optiuni{
+    0%{
+        letter-spacing: -5px;
+    }
+    100%{
+        letter-spacing: normal;
+    }
+}
+  
+@for $i from 1 through 3 {
+    .linie:nth-child(#{$i}) {
+      animation: animatie_hamburger 1s ease-in-out;
+      animation-delay: $i * 0.3s;
+      top: ($i - 1) * 8px;
+    }
+}
+
+@keyframes animatie_hamburger {
+    0% {
+        opacity: 0.5;
+        background-color: var(--culoare-text);
+        transform: rotate(36deg);
+    }
+    25% {
+        opacity: 0.5;
+        background-color: var(--culoare-background);
+        transform: rotate(72deg);
+    }
+    50% {
+        opacity: 0.75;
+        background-color:  var(--culoare-text);
+        transform: rotate(108deg);
+    }
+    75% {
+        opacity: 0.75;
+        background-color: var(--culoare-background);
+        transform: rotate(144deg);
+    }
+    100% { 
+        opacity: 1;
+        background-color: var(--culoare-text);
+        transform: rotate(180deg);
+    }
+}
