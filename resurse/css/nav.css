@@ -22,7 +22,7 @@ ul.meniu li div.imag-icon{
     display: none;
 }
 
-ul.meniu ul { /*submeniu ascuns?*/
+ul.meniu ul {
     display: block;
     opacity: 0;
     transform: scaleY(0);
@@ -81,6 +81,7 @@ ul.meniu li:hover> .text-icon a,ul.meniu li:hover>div{
     color: blue;
     text-shadow: 1px 1px 3px magenta;
 } */
+ 
 ul.meniu li> a{
     text-decoration: underline;
     text-decoration-color: transparent;
