@@ -384,3 +384,92 @@ figure {
     gap: 10px;
   }
 }
+
+#banner{
+  display: none;
+}
+
+@media print {
+  html{
+    --culoare-fundal:white;
+  }
+  
+  #banner {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    border: 2px dotted black; 
+    color:black;
+    text-align: center;
+  }
+  
+  img, video, iframe, figcaption, figure{
+    display: none;
+  }
+
+  #link-top, #sageata{
+    display: none;
+  }
+
+  #grid-continut {
+    display: block;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+
+    font-size: 2.5em; 
+    text-decoration: underline; 
+  }
+
+  h1::after {
+    content: "";
+    display: block;
+    page-break-before: always;
+  }
+
+  nav {
+    display: none;
+  }
+
+  footer::before {
+    content: "";
+    display: block;
+    page-break-before: always;
+  }
+
+  body::after {
+    content: "Marcu Alexandra-Elena";
+    position: fixed;
+    bottom: 0;
+    width: 100px;
+    height: 2cm;
+    border: 2px double black;
+    opacity: 0.65;
+    text-align: center;
+    line-height: 2cm;
+    color: black;
+    font-size: 10px;
+  }
+
+  @page:left{
+    margin-left: 2.5cm;
+    margin-right: 0.5cm;
+  }
+
+  @page:right {
+    margin-left: 0.5cm;
+    margin-right: 2.5cm; 
+  }
+
+}
