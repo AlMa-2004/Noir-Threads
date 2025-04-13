@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+        <title>Noir Threads - EROARE</title>
+    
+        <meta name="keywords" content=" haine, rochie, tricou, bocanci, platforme, negru, pantofi, magazin, rock, goth, alternativ, metal, nu metal, punk, emo, grunge, steampunk, merchandise, merch">
+        <meta name="description" content="Descoperă o gamă variată de haine și merchandise pliate pe stilul alternativ, metal și excentric. Participă la jocul zilnic și câștigă reduceri pentru comenzile tale. Alege din produsele noastre unice și beneficiază de livrare rapidă la domiciliu sau pick-up din magazin.">
+    
+        <link rel="stylesheet" type="text/css" href="/resurse/css/eroare.css"
+        <%- include("../fragmente/head.ejs");  %> 
+
+
+    </head>
+    <body>
+        
+    <%- include("../fragmente/header.ejs");  %> 
+
+    <main>
+        <div id="err-coloane">
+			<div id="err-imag">
+				<img src="<%- locals.imagine %>" />
+			</div>
+			<section>
+				<h2><%- locals.titlu %></h2>
+				<p><%- locals.text %></p>
+			</section>
+		</div>
+    </main>
+    
+    <%- include("../fragmente/footer.ejs");  %> 
+
+
+    </body>
+</html>
