@@ -24,7 +24,7 @@ cd [foldername]
 npm install
 
 # 4. Start the server
-npm start
+node index.js
 ```
 
 ## Project Status
