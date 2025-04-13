@@ -1,0 +1,40 @@
+{
+  "name": "noir-threads",
+  "version": "1.0.0",
+  "description": "Descoperă o gamă variată de haine și merchandise pliate pe stilul alternativ, metal și excentric. Participă la jocul zilnic și câștigă reduceri pentru comenzile tale. Alege din produsele noastre unice și beneficiază de livrare rapidă la domiciliu sau pick-up din magazin.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlMa-2004/Noir-Threads.git"
+  },
+  "keywords": [
+    "haine",
+    "rochie",
+    "tricou",
+    "bocanci",
+    "platforme",
+    "negru",
+    "pantofi",
+    "magazin",
+    "rock",
+    "goth",
+    "alternativ",
+    "metal",
+    "nu",
+    "punk",
+    "emo",
+    "grunge",
+    "steampunk",
+    "merchandise",
+    "merch"
+  ],
+  "author": "Marcu Alexandra-Elena",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlMa-2004/Noir-Threads/issues"
+  },
+  "homepage": "https://github.com/AlMa-2004/Noir-Threads#readme"
+}
