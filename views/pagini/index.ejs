@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang = "ro"> 
+<head>
+    <title>Noir Threads</title>
+    
+    <meta name="keywords" content=" haine, rochie, tricou, bocanci, platforme, negru, pantofi, magazin, rock, goth, alternativ, metal, nu metal, punk, emo, grunge, steampunk, merchandise, merch">
+    <meta name="description" content="Descoperă o gamă variată de haine și merchandise pliate pe stilul alternativ, metal și excentric. Participă la jocul zilnic și câștigă reduceri pentru comenzile tale. Alege din produsele noastre unice și beneficiază de livrare rapidă la domiciliu sau pick-up din magazin.">
+
+    <%- include("../fragmente/head.ejs") %>
+
+ </head>
+ <body>
+    <%- include("../fragmente/header.ejs") %>
+    <main>
+        <div id="grid-continut">
+            <section id="anunturi">
+                <h2>Anunțuri  <span class="fa-solid fa-exclamation fa-beat-fade"></span></h2>
+                <p>Magazinul fizic intră în <strong>renovare până în Mai</strong>. Toate comenzile cu ridicare în magazin vor primi livrare gratuită!</p>
+            </section>
+            <section id="noutati">
+                <h2>Noutăți  <span class="fa-solid fa-exclamation fa-beat-fade"></h2>
+                <p><i>Shop the look!</i></p>
+                <img src="/resurse/imagini/1.jpg" usemap="#image-map" alt="Produs nou adus in evidență">
+                
+                <map name="image-map">                        
+                    <area alt="Corset" title="Corset" href="/produs1.html" coords="243,247,378,431" shape="rect">
+                    <area alt="Rochie" title="Rochie" href="/produs2.html" coords="203,452,422,650" shape="rect">
+                    <area alt="Bocanci" title="Bocanci" href="/produs3.html" coords="200,394,700,900" shape="rect">
+                </map>
+            </section> 
+            <section id="categorii-haine">
+                <h2>Categorii de haine</h2>
+                <section id="tricouri">
+                    <figure>
+                        <picture>
+                            <source srcset="/resurse/imagini/3-mic.jpg" media="(max-width:800px)"/>
+                            <source srcset="/resurse/imagini/3-mediu.jpg" media="(max-width:1200px)"/>
+                            <source srcset="/resurse/imagini/3-mare.jpg" media="(max-width:4000px)"/>
+                            <img src="/resurse/imagini/3-mare.jpg" alt="tricouri"/>
+                       </picture>
+                        <figcaption>Descoperă <em>TRICOURI</em> cu design-uri unice, <i>merchandise</i> oficial al <b>trupelor</b> tale preferate, dar și modele cu influențe <b>punk, emo, grunge sau steampunk</b>. </figcaption>
+
+                    </figure>
+                </section>
+                <section id="rochii">
+                    <figure>
+                        <picture>
+                            <source srcset="/resurse/imagini/5-mic.jpg" media="(max-width:600px)"/>
+                            <source srcset="/resurse/imagini/5-mediu.jpg" media="(max-width:1024px)"/>
+                            <source srcset="/resurse/imagini/5-mare.jpg" media="(max-width:4000px)"/>
+                            <img src="/resurse/imagini/5-mare.jpg" alt="rochii"/>
+                        </picture>
+                        <figcaption>Descoperă colecția noastră de <em>ROCHII</em>, perfecte pentru cei care vor să îmbine eleganța cu atitudinea rebelă. De la <b>rochii negre</b> cu dantelă și corsete, fiecare piesă este concepută pentru a scoate în evidență personalitatea ta unică. </figcaption>        
+                    </figure>
+                </section>
+            </section>
+            <section id="trupe">
+                <h2>Trupe disponibile</h2>
+                <section id="slideshow-trupe">
+                    <figure>
+                        <picture>
+                            <source srcset="/resurse/imagini/5-mic.jpg" media="(max-width:600px)"/>
+                            <source srcset="/resurse/imagini/5-mediu.jpg" media="(max-width:1024px)"/>
+                            <source srcset="/resurse/imagini/5-mare.jpg" media="(max-width:4000px)"/>
+                            <img src="/resurse/imagini/5-mare.jpg" alt="rochii"/>
+                        </picture>     
+                    </figure>
+                    <figure>
+                        <picture>
+                            <source srcset="/resurse/imagini/5-mic.jpg" media="(max-width:600px)"/>
+                            <source srcset="/resurse/imagini/5-mediu.jpg" media="(max-width:1024px)"/>
+                            <source srcset="/resurse/imagini/5-mare.jpg" media="(max-width:4000px)"/>
+                            <img src="/resurse/imagini/5-mare.jpg" alt="rochii"/>
+                        </picture>    
+                    </figure>
+                </section>
+            </section>
+            <section id="marci">
+                <h2>Mărci populare</h2>
+                <section id="slideshow-marci">
+                    <figure>
+                        <picture>
+                            <source srcset="./resurse/imagini/5-mic.jpg" media="(max-width:600px)"/>
+                            <source srcset="./resurse/imagini/5-mediu.jpg" media="(max-width:1024px)"/>
+                            <source srcset="./resurse/imagini/5-mare.jpg" media="(max-width:4000px)"/>
+                            <img src="./resurse/imagini/5-mare.jpg" alt="rochii"/>
+                        </picture>    
+                    </figure>
+                    <figure>
+                        <picture>
+                            <source srcset="./resurse/imagini/5-mic.jpg" media="(max-width:600px)"/>
+                            <source srcset="./resurse/imagini/5-mediu.jpg" media="(max-width:1024px)"/>
+                            <source srcset="./resurse/imagini/5-mare.jpg" media="(max-width:4000px)"/>
+                            <img src="./resurse/imagini/5-mare.jpg" alt="rochii"/>
+                        </picture>    
+                    </figure>
+                </section>
+            </section>
+            <section id="orar">
+                <h2>Program de lucru</h2>
+                <div class="orar-div">
+                    <table>
+                        <caption>Programul de lucru al magazinului Noir Threads</caption>
+                        <thead>
+                            <tr>
+                                <th>Zi</th>
+                                <th>Deschidere</th>
+                                <th>Închidere</th>
+                                <th>Observații</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Luni - Vineri</td>
+                                <td>10:00</td>
+                                <td>20:00</td>
+                                <td rowspan="2">Program normal</td>
+                            </tr>
+                            <tr>
+                                <td>Sâmbătă</td>
+                                <td>12:00</td>
+                                <td>18:00</td>
+                            </tr>
+                            <tr>
+                                <td>Duminică</td>
+                                <td colspan="2">Închis</td>
+                                <td>Zi liberă</td>
+                            </tr>
+                            
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="4">* Program special în zilele de sărbătoare</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </section>
+            <section id="qa">
+                <h2>Q&A</h2>
+                <ul>
+                    <li>
+                        <section id="comenzi">
+                            <h3>Comenzi</h3>  
+                            <details>
+                                <summary>În cât timp ajunge comanda mea?</summary>
+                                <p>Timpul de livrare variază în funcție de locația ta și de metoda de expediere selectată. În general, livrarea durează între 2 și 5 zile lucrătoare. Vei primi un cod de tracking pentru a urmări comanda. După ce aceasta a fost predată firmei de curierat, poți accesa <a href="https://www.fancourier.ro/awb-tracking/" target="_blank">site-ul dedicat al acesteia</a> pentru mai multe detalii.</p>
+                            </details>
+                            <br>
+                            <details>
+                                <summary>Pot ridica personal comanda dintr-un magazin fizic?</summary>
+                                <p>Da, oferim și opțiunea de pick-up din magazinul nostru fizic. Vei fi notificat prin email când comanda ta este gata de ridicare.</p>
+                            </details> 
+                        </section>
+                    </li>
+                    <li>
+                        <section id="produse-qa">
+                            <h3>Produse</h3>
+                            <details>
+                                <summary>Cum aleg mărimea potrivită?</summary>
+                                <p>Fiecare produs are un ghid de mărimi disponibil pe pagina sa. Îți recomandăm să verifici tabelul și să măsori înainte de a plasa comanda.</p>
+                                <br>
+                                <p>Totuși, dacă vrei să îți calculezi mărimea singur, iți punem la dispoziție formula pentru mărimile din EU!</p>
+                                <br>
+                                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                                    <mrow>
+                                      <mi>Mărime</mi>
+                                      <mo>=</mo>
+                                      <mfrac>
+                                        <mrow>
+                                          <mi>Bust</mi>
+                                          <mo>+</mo>
+                                          <mi>Talie</mi>
+                                          <mo>+</mo>
+                                          <mi>Șolduri</mi>
+                                        </mrow>
+                                        <mn>3</mn>
+                                      </mfrac>
+                                      <mo>+</mo>
+                                      <mn>4</mn>
+                                    </mrow>
+                                  </math>
+                                  
+                            </details>
+                            <br>
+                            <details>
+                                <summary>Ce fac dacă produsul pe care îl vreau nu mai este în stoc?</summary>
+                                <p>Dacă un produs nu mai este disponibil, te poți abona la notificări, iar noi te vom anunța prin email când revine pe stoc.</p>
+                            </details>
+                        </section>
+                    </li>
+                    <li>
+                        <section id="colaborare">
+                            <h3>Colaborare</h3>
+                            <details>
+                                <summary>Vreau să mă alătur echipei! Cum fac asta?</summary>
+                                <p>În prezent, recrutăm doar <strong>modele</strong> pentru promovarea produselor noastre. Dacă ești pasionat(ă) de stilul <b>goth, rock, metal sau alternativ</b> și vrei să reprezinți brandul nostru, te invităm să aplici!</p>    
+                                
+                                <p>Cum aplici?</p>
+                                    <ol>
+                                        <li>Descarcă fișierul de aplicare de <a href="/resurse/documente/inscriere.pdf" download="inscriere.pdf">aici</a>.</li>
+                                        <li>Completează toate informațiile solicitate.</li>
+                                        <li>Trimite fișierul completat împreună cu <strong>câteva fotografii reprezentative</strong> la emailul nostru.</li>
+                                    </ol>
+                                <p>Îți punem la dispoziție și <strong>regulamentul/contractul</strong> pentru această colaborare!</p>
+                                    <embed src="/resurse/documente/regulament.pdf" type="application/pdf" width="600" height="400">
+                                <p>Dacă profilul tău se potrivește cu viziunea noastră, te vom contacta pentru a participa la un <i>photoshoot</i>!</p>
+                                    
+                                <p>Aruncă o privire la aceste itinerarii de <i>photoshoot</i> din anii trecuți pentru a-ți face o idee despre stilul și <i>vibe-ul</i> pe care le căutăm!</p>
+                                
+                                <div class="container-iframe">
+                                    <div class="taburi-iframe">
+                                        <a href="https://www.youtube.com/embed/DYurnFQozdY" target="ifr-video">Photoshoot 2019</a>
+                                        <a href="https://www.youtube.com/embed/PEvPXBzNZv0" target="ifr-video">Photoshoot 2020</a><br/>
+                                    </div>
+                            
+                                    <iframe name="ifr-video" width="800" height="400" 
+                                            src="https://www.youtube.com/embed/DYurnFQozdY" 
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                                    </iframe>
+                                </div>
+                                
+                            </details>
+                        </section>
+                    </li>
+                </ul>
+                
+            </section>
+            <section id="despre">
+                <h2>Despre noi</h2>
+                <p>
+                    <b>Moda alternativă</b> nu înseamnă doar haine. Este o declarație, o atitudine, un stil de viață.  
+                    De aceea, am creat acest magazin pentru toți cei care trăiesc prin <b>muzică, artă</b> și <b>expresie liberă</b>.
+                </p>
+                <p>
+                    Dacă iubești <b>rock</b>, <b>goth</b>, <b>metal</b> sau influențe <b>punk</b>, <b>emo</b>, <b>grunge</b> și <b>steampunk</b>,  
+                    aici nu vei găsi doar haine - vei găsi o <em>comunitate</em>.
+                </p>
+                <h3>De unde a început totul?</h3>
+                <p>
+                    Totul a pornit din pasiunea noastră pentru <b>muzică</b> și cultura <b>alternativă</b>.  
+                    Am vrut să oferim un loc unde fiecare să găsească:  
+                </p>
+                <ul>
+                    <li><b>Tricoul perfect</b> cu trupa preferată  <span class="fa-solid fa-guitar"></span> </li>
+                    <li>O <b>rochie gotică</b> care atrage privirile  <span class="fa-solid fa-heart"></span></li>
+                    <li>O pereche de <b>bocanci</b> care îți dau încredere <span class="fa-solid fa-shoe-prints"></span></li>
+                </ul>
+                <p>
+                    De-a lungul timpului, am adus cele mai bune <i>merchandise-uri</i> oficiale și branduri care definesc acest stil.
+                </p>
+                <blockquote>
+                    <q>Rock and roll is about attitude, belief in yourself, and a desire to express who you are.</q>  
+                    <br>- Ozzy Osbourne
+                </blockquote>
+                <p><b>Bine ai venit în lumea noastră. Bine ai venit ACASĂ! <span class="fa-solid fa-hand-peace"></span></b></p>
+            </section>
+            
+        </div>
+    </main>
+    <%- include("../fragmente/footer.ejs") %>
+ </body>
+</html> 

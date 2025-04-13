@@ -6,10 +6,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AlMa-2004/Noir-Threads.git"
-  },
   "keywords": [
     "haine",
     "rochie",
@@ -23,7 +19,7 @@
     "goth",
     "alternativ",
     "metal",
-    "nu",
+    "nu metal",
     "punk",
     "emo",
     "grunge",
@@ -33,8 +29,8 @@
   ],
   "author": "Marcu Alexandra-Elena",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/AlMa-2004/Noir-Threads/issues"
-  },
-  "homepage": "https://github.com/AlMa-2004/Noir-Threads#readme"
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0"
+  }
 }
