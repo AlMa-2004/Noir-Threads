@@ -11,6 +11,10 @@ console.log("Calea folderului curent de lucru: ",process.cwd());
 
 app.set("view engine", "ejs")
 
+// app.get("/*", function(req,res){
+//     res.send("MERGEEE!");
+// })
+
 obGlobal={
     obErori:null
 }
@@ -82,41 +86,41 @@ app.get("/despre",function(req,res){
     res.render("pagini/despre");
 })
 
-app.get(/^.*\.ejs$/, function(req, res, next){
-    afisareEroare(res,400)
-})
+// app.get(/^.*\.ejs$/, function(req, res, next){
+//     afisareEroare(res,400)
+// })
 
-app.get(/^\/resurse\/[a-zA-Z0-9_\/]*$/, function(req, res, next){
-    afisareEroare(res,403)
-})
+// app.get(/^\/resurse\/[a-zA-Z0-9_\/]*$/, function(req, res, next){
+//     afisareEroare(res,403)
+// })
 
-app.get(/^\/(.*)$/, function(req, res, next){
-    try{
-    res.render("pagini" + req.url, function(err, rezultatRandare){
-        if(err){
-            console.log(err);
-            if(err.message.startsWith("Failed to lookup view")){
-                afisareEroare(res, 404);
-            }
-            else{
-                afisareEroare(res);
-            }
-        }
-        else{
-            console.log(rezultatRandare);
-            res.send(rezultatRandare);
-        }
-        })
-    }
-    catch (errRandare){
-        if(errRandare.message.startsWith("Cannot find module ")){
-            afisareEroare(res, 404);
-        }
-        else{
-            afisareEroare(res);
-        }
-    }
-})
+// app.get(/^\/(.*)$/, function(req, res, next){
+//     try{
+//     res.render("pagini" + req.url, function(err, rezultatRandare){
+//         if(err){
+//             console.log(err);
+//             if(err.message.startsWith("Failed to lookup view")){
+//                 afisareEroare(res, 404);
+//             }
+//             else{
+//                 afisareEroare(res);
+//             }
+//         }
+//         else{
+//             console.log(rezultatRandare);
+//             res.send(rezultatRandare);
+//         }
+//         })
+//     }
+//     catch (errRandare){
+//         if(errRandare.message.startsWith("Cannot find module ")){
+//             afisareEroare(res, 404);
+//         }
+//         else{
+//             afisareEroare(res);
+//         }
+//     }
+// })
 
 app.listen(8080);
 console.log("Serverul a pornit")
