@@ -1,61 +1,71 @@
 WEBVTT
 
-00:00:01.280 --> 00:00:03.920
+STYLE
+::cue {
+  background-color: white;
+  color: #34312d;
+  text-align: center;
+}
+
+00:00:01.280 --> 00:00:03.920 line:0
 Gótico es muchas cosas. Es una tribu germánica,
 
-00:00:03.920 --> 00:00:06.800
+00:00:03.920 --> 00:00:06.800 line:0
 un estilo de arquitectura, un tipo de
 
-00:00:06.800 --> 00:00:09.480
+00:00:06.800 --> 00:00:09.480 line:0
 literatura, de cine. Es un movimiento
 
-00:00:09.520 --> 00:00:12.360
+00:00:09.520 --> 00:00:12.360 line:0
 juvenil. Lo que une a la mayoría de
 
-00:00:15.840 --> 00:00:17.360
+00:00:12.360 --> 00:00:15.280 line:0
+es un sentimiento de <i>romanticismo oscuro</i>.
+
+00:00:15.840 --> 00:00:17.360 line:0
 Pero a pesar de que Marilyn Manson y My
 
-00:00:17.360 --> 00:00:19.320
+00:00:17.360 --> 00:00:19.320 line:0
 Chemical Romance son infames por su
 
-00:00:19.320 --> 00:00:21.840
+00:00:19.320 --> 00:00:21.840 line:0
 adopción de la moda gótica, su música
 
-00:00:21.840 --> 00:00:23.760
+00:00:21.840 --> 00:00:23.760 line:0
 no es lo que tradicionalmente se
 
-00:00:23.760 --> 00:00:26.720
+00:00:23.760 --> 00:00:26.720 line:0
 clasificaría como goth. Citando a Sasha Geffen
 
-00:00:26.720 --> 00:00:29.200
+00:00:26.720 --> 00:00:29.200 line:0
 de Pitchfork, las canciones góticas se caracterizaban por
 
-00:00:29.200 --> 00:00:31.920
+00:00:29.200 --> 00:00:31.920 line:0
 ecos, distorsión, líneas de guitarra mínimas
 
-00:00:31.920 --> 00:00:34.280
+00:00:31.920 --> 00:00:34.280 line:0
 y un gusto elevado por lo
 
-00:00:34.280 --> 00:00:37.040
+00:00:34.280 --> 00:00:37.040 line:0
 macabro. Su cabello electrizado,
 
-00:00:37.040 --> 00:00:39.680
+00:00:37.040 --> 00:00:39.680 line:0
 manchas de delineador negro y ropa oscura
 
-00:00:39.680 --> 00:00:42.680
+00:00:39.680 --> 00:00:42.680 line:0
 solo reforzaban esa vibra. Así que,
 
-00:00:42.680 --> 00:00:44.400
+00:00:42.680 --> 00:00:44.400 line:0
 aunque cualquier joven vestido de negro con una
 
-00:00:44.400 --> 00:00:46.680
+00:00:44.400 --> 00:00:46.680 line:0
 afición por el maquillaje llamativo puede ser llamado
 
-00:00:46.880 --> 00:00:49.320
+00:00:46.880 --> 00:00:49.320 line:0
 gótico, eso no significa que escuche
 
-00:00:49.320 --> 00:00:52.160
+00:00:49.320 --> 00:00:52.160 line:0
 música gótica. Eso es algo
 
-00:00:52.160 --> 00:00:54.240
+00:00:52.160 --> 00:00:54.240 line:0
 separado, con su propio modelo.
