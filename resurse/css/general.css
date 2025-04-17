@@ -306,11 +306,36 @@ mo {
 
 /* ============================== */
 
-a {
+ a{
   color: var(--culoare-text);
+  background: radial-gradient(var(--culoare-fundal) 0%, var(--culoare-fundal) 40%, transparent 80%, transparent 100%);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 0;
  }
  
+ a[href^="http"]:visited{
+  color: var(--culoare-highlight);
+}
 
+a[href^="http"]:before{
+  content: "⮳";
+  font-size: 150%;
+}
+
+a[href^="http"]:hover::before{
+  color: var(--culoare-umbra);
+  transition: 1s ease;
+}
+
+a[href^="http"]:hover{ /*?????*/
+  background-size: 100%;
+  transition: 1s ease-in-out;
+}
+
+a[href^="http"]:active{
+  border: 1px solid var(--culoare-fundal);
+}
 /* ============================== */
 
 img, video {
