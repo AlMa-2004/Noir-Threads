@@ -29,7 +29,6 @@ for (let folder of vect_foldere){
     }
 }
 
-
 function compileazaScss(caleScss, caleCss){
     console.log("Cale:",caleCss);
     if(!caleCss){

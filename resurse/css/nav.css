@@ -38,8 +38,6 @@ ul.meniu ul {
 ul.meniu{
     display: flex;
     list-style-type: none;
-    padding:0;
-
 }
 
 ul.meniu li {

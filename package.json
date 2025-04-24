@@ -30,6 +30,7 @@
   "author": "Marcu Alexandra-Elena",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "^5.3.5",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
     "sass": "^1.87.0",

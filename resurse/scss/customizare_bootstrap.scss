@@ -1,0 +1,54 @@
+@use '../../node_modules/bootstrap/scss/bootstrap' with (
+
+  // Culori background
+  $primary: #e63946,
+  $secondary: #34312d,
+  $info: #7E7F83,
+  $light: #d9c5b2,
+  $dark: #14110f,
+
+  // Culori font
+  $body-color: #d9c5b2,
+  $body-bg: #14110f,
+
+  // Dimensiune ecrane
+  $grid-breakpoints: (
+    sm: 500px,
+    md: 700px,  
+    lg: 1000px,
+    xl: 2500px,
+    xxl: 4000px
+  ),
+  
+  // Dimensiune raze border
+  $border-radius: 1rem,
+  $border-radius-lg: 1.5rem,
+  $border-radius-sm: 0.5rem,
+
+  // Dimensiune headings
+  $h1-font-size: 2rem,
+  $h2-font-size: 1.5rem,
+  $h3-font-size: 1.25rem,
+  $h4-font-size: 1rem,
+  $h5-font-size: 0.75rem,
+  $h6-font-size: 0.5rem,
+  
+  // Familie font implicita
+  $font-family-base: 'Garamond' serif,
+
+  // Extra
+
+  // Spacing
+  $container-padding-x: 2rem,
+  $spacer: 1rem,
+  $grid-gutter-width: 2rem,
+
+  // Link-uri
+  $link-color: #d9c5b2,
+  $link-hover-color: #e63946,
+  $link-decoration: none,
+
+  // Buton
+  $btn-border-radius: 5rem
+);
+

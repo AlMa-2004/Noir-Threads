@@ -164,6 +164,7 @@ caption {
   caption-side: bottom;
   font-style: italic;
   color: var(--culoare-text);
+  text-align: center;
 }
 
 /* ============================== */
@@ -184,7 +185,7 @@ h1, h2 {
 
 section{
   background-color: var(--culoare-chenar);
-  padding: 10px;
+  padding: 20px;
   border-radius: 20px;
   border-style: groove;
   border-color: var(--culoare-fundal);
