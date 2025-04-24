@@ -1,0 +1,65 @@
+<div id="grid-galerie">
+    <%
+    const d = new Date();
+    const vect_zile = ["duminica", "luni", "marti", "miercuri", "joi", "vineri", "sambata"];
+    const zi_curenta = vect_zile[d.getDay()];
+    const index_zi_curenta = vect_zile.indexOf(zi_curenta);
+
+    let counter_afisate = 0;
+    let total_valid = 0;
+
+    for (let imag of imagini) {
+        if (imag.intervale_zile) {
+            for (let interval of imag.intervale_zile) {
+                if (
+                    vect_zile.indexOf(interval[0]) <= index_zi_curenta &&
+                    index_zi_curenta <= vect_zile.indexOf(interval[1])
+                ) {
+                    total_valid++;
+                    break;
+                }
+            }
+        }
+    }
+    %>
+
+<%
+    let counter = 0;
+    for (let imag of imagini) {
+        if (imag.intervale_zile) {
+
+            let afiseaza = false;
+
+            for (let interval of imag.intervale_zile) {
+                if (vect_zile.indexOf(interval[0]) <= index_zi_curenta && index_zi_curenta <= vect_zile.indexOf(interval[1])) {
+                    afiseaza = true;
+                    break;
+                }
+            }
+
+            if (afiseaza) {
+                counter++;
+                if (total_valid % 2 !== 0 && counter === total_valid) {
+                    afiseaza = false;
+                }
+            }
+
+            if (afiseaza) {%>
+                <div class="celula-galerie">
+                    <figure>
+                        <picture>
+                            <source srcset="<%- imag.fisier_imagine_mic %>" media="(max-width:800px)">
+                            <source srcset="<%- imag.fisier_imagine_mediu %>" media="(max-width:1200px)" />
+                            <source srcset="<%- imag.fisier_imagine %>" media="(max-width:4000px)" />
+
+                            <img src="<%- imag.fisier_imagine %>" alt="<%- imag.continut_alternativ %>" title="<%- imag.nume_poza %>">
+                        </picture>
+                    </figure>
+                    <figcaption><%- imag.descriere_poza%></figcaption>
+                </div>
+            <%}
+        }
+    }
+%>
+
+</div>

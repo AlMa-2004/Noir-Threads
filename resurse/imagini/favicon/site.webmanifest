@@ -1,6 +1,6 @@
 {
   "name": "Noir Threads",
-  "short_name": "Noir Threads",
+  "short_name": "MySite",
   "icons": [
     {
       "src": "/resurse/imagini/favicon/web-app-manifest-192x192.png",
@@ -15,7 +15,7 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#f8f8f8",
+  "theme_color": "#14110f",
+  "background_color": "#14110f",
   "display": "standalone"
 }

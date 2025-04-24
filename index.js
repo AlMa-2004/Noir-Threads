@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
+const sharp = require("sharp");
 
 app = express();
 
@@ -12,7 +13,8 @@ console.log("Calea folderului curent de lucru: ",process.cwd());
 app.set("view engine", "ejs")
 
 obGlobal={
-    obErori:null
+    obErori: null,
+    obImagini: null
 }
 
 vect_foldere=["temp", "backup","temp1"]
@@ -35,8 +37,43 @@ function initErori(){
     //console.log(obGlobal.obErori)
 
 }
-
 initErori()
+
+function initImagini(){
+    var continut= fs.readFileSync(path.join(__dirname,"resurse/json/galerie.json")).toString("utf-8");
+
+    obGlobal.obImagini=JSON.parse(continut);
+    let vImagini=obGlobal.obImagini.imagini;
+
+    let caleAbs=path.join(__dirname,obGlobal.obImagini.cale_galerie);
+    let caleAbsMediu=path.join(__dirname,obGlobal.obImagini.cale_galerie, "mediu");
+    let caleAbsMic=path.join(__dirname,obGlobal.obImagini.cale_galerie, "mic");
+
+    if (!fs.existsSync(caleAbsMediu))
+        fs.mkdirSync(caleAbsMediu);
+
+    if (!fs.existsSync(caleAbsMic))
+        fs.mkdirSync(caleAbsMic);
+
+    for (let imag of vImagini){
+        [numeFis, ext]=imag.fisier_imagine.split(".");
+        let caleFisAbs=path.join(caleAbs,imag.fisier_imagine);
+
+        let caleFisMediuAbs=path.join(caleAbsMediu, numeFis+".webp");
+        let caleFisMicAbs=path.join(caleAbsMic, numeFis + ".webp");
+        
+        sharp(caleFisAbs).resize(300).toFile(caleFisMediuAbs);
+        sharp(caleFisAbs).resize(100).toFile(caleFisMicAbs);
+        
+        imagfisier_imagine_mediu=path.join("/", obGlobal.obImagini.cale_galerie, "mediu",numeFis+".webp" )
+        imagfisier_imagine_mic=path.join("/", obGlobal.obImagini.cale_galerie, "mic",numeFis+".webp" )
+        imag.fisier_imagine=path.join("/", obGlobal.obImagini.cale_galerie, imag.fisier_imagine )
+        
+    }
+    console.log(obGlobal.obImagini)
+}
+initImagini(); 
+
 
 function afisareEroare(res, identificator, titlu, text, imagine){
     let eroare= obGlobal.obErori.info_erori.find(function(elem){ 
@@ -74,12 +111,16 @@ app.get("/favicon.ico", function(req, res, next) {
     res.sendFile(path.join(__dirname, "resurse/imagini/favicon/favicon.ico"));
 });
 
-app.get(["/","/index","/home"],function(req,res){
-    res.render("pagini/index", {ip: req.ip});
-})
+app.get(["/", "/home", "/index"],function(req,res){
+    res.render("pagini/index", {ip: req.ip, imagini: obGlobal.obImagini.imagini});
+}) 
 
 app.get("/despre",function(req,res){
     res.render("pagini/despre");
+})
+
+app.get("/galerie",function(req,res){
+    res.render("pagini/galerie-pagina", {ip: req.ip, imagini: obGlobal.obImagini.imagini});
 })
 
 app.get(/^\/resurse\/[a-zA-Z0-9_\/]*$/, function(req, res, next){

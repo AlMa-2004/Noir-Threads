@@ -56,44 +56,14 @@
             </section>
             <section id="trupe">
                 <h2>Trupe disponibile</h2>
-                <section id="slideshow-trupe">
-                    <figure>
-                        <picture>
-                            <source srcset="/resurse/imagini/5-mic.jpg" media="(max-width:600px)"/>
-                            <source srcset="/resurse/imagini/5-mediu.jpg" media="(max-width:1024px)"/>
-                            <source srcset="/resurse/imagini/5-mare.jpg" media="(max-width:4000px)"/>
-                            <img src="/resurse/imagini/5-mare.jpg" alt="rochii"/>
-                        </picture>     
-                    </figure>
-                    <figure>
-                        <picture>
-                            <source srcset="/resurse/imagini/5-mic.jpg" media="(max-width:600px)"/>
-                            <source srcset="/resurse/imagini/5-mediu.jpg" media="(max-width:1024px)"/>
-                            <source srcset="/resurse/imagini/5-mare.jpg" media="(max-width:4000px)"/>
-                            <img src="/resurse/imagini/5-mare.jpg" alt="rochii"/>
-                        </picture>    
-                    </figure>
+                <section id="slideshow-trupe">         
+                   <!-- WIP GALERIE DINAMICA-->
                 </section>
             </section>
             <section id="marci">
                 <h2>Mărci populare</h2>
                 <section id="slideshow-marci">
-                    <figure>
-                        <picture>
-                            <source srcset="./resurse/imagini/5-mic.jpg" media="(max-width:600px)"/>
-                            <source srcset="./resurse/imagini/5-mediu.jpg" media="(max-width:1024px)"/>
-                            <source srcset="./resurse/imagini/5-mare.jpg" media="(max-width:4000px)"/>
-                            <img src="./resurse/imagini/5-mare.jpg" alt="rochii"/>
-                        </picture>    
-                    </figure>
-                    <figure>
-                        <picture>
-                            <source srcset="./resurse/imagini/5-mic.jpg" media="(max-width:600px)"/>
-                            <source srcset="./resurse/imagini/5-mediu.jpg" media="(max-width:1024px)"/>
-                            <source srcset="./resurse/imagini/5-mare.jpg" media="(max-width:4000px)"/>
-                            <img src="./resurse/imagini/5-mare.jpg" alt="rochii"/>
-                        </picture>    
-                    </figure>
+                    <!-- WIP GALERIE DINAMICA -->
                 </section>
             </section>
             <section id="orar">
@@ -137,7 +107,8 @@
                     </table>
                 </div>
             </section>
-            <section id="qa">
+            <!-- URMEAZA SA FIE MUTATA-->
+            <!-- <section id="qa">
                 <h2>Q&A</h2>
                 <ul>
                     <li>
@@ -227,10 +198,13 @@
                     </li>
                 </ul>
                 
-            </section>
+            </section> -->
             <section id="despre">
                 <h2>Date utilizator</h2>
                 <p><b>IP-ul tău: <%- locals.ip %></b></p>
+            </section>
+            <section id="galerie-statica">
+                <%- include("../fragmente/galerie.ejs") %>
             </section>
             
         </div>

@@ -48,11 +48,11 @@ main {
        "orar noutati noutati anunturi "
        "qa qa qa qa"; */
   grid-template-areas: 
-    "despre despre despre despre"
+    "anunturi anunturi anunturi anunturi"
     "noutati noutati orar orar"
-    "noutati noutati anunturi anunturi"
+    "noutati noutati despre despre"
     "trupe categorii-haine categorii-haine marci"
-    "qa qa qa qa";
+    "galerie-statica galerie-statica galerie-statica galerie-statica";
   gap: 30px;
 }
 
@@ -67,9 +67,44 @@ main {
 #categorii-haine { grid-area: categorii-haine; }
 #trupe { grid-area: trupe; }
 #marci { grid-area: marci; }
-#qa { grid-area: qa; }
 #slideshow-trupe{ display: block; }
 #slideshow-marci{ display: block; }
+#galerie-statica{ grid-area: galerie-statica; }
+
+#grid-galerie{
+  counter-reset: fig; 
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+#grid-galerie figure{
+  counter-increment: fig;
+}
+
+#grid-galerie figcaption::before{
+  content: counter(fig, lower-roman)". ";
+}
+
+.grid-galerie{
+  aspect-ratio: 1 / 1;
+}
+
+.celula-galerie:nth-child(10n + 1) { grid-column: 1; }
+.celula-galerie:nth-child(10n + 2) { grid-column: 2; }
+
+.celula-galerie:nth-child(10n + 3) { grid-column: 1; }
+.celula-galerie:nth-child(10n + 4) { grid-column: 3; }
+
+.celula-galerie:nth-child(10n + 5) { grid-column: 2; }
+.celula-galerie:nth-child(10n + 6) { grid-column: 3; }
+
+.celula-galerie:nth-child(10n + 7) { grid-column: 1; }
+.celula-galerie:nth-child(10n + 8) { grid-column: 3; }
+
+.celula-galerie:nth-child(10n + 9) { grid-column: 1; }
+.celula-galerie:nth-child(10n + 10) { grid-column: 2; }
 
 /* ============================== */
 
@@ -377,8 +412,7 @@ figure {
     "noutati orar"
     "noutati anunturi"
     "categorii-haine marci"
-    "categorii-haine trupe"
-    "qa qa";
+    "categorii-haine trupe";
     gap: 15px;
   }
 
@@ -404,8 +438,7 @@ figure {
             "anunturi"
             "trupe"
             "categorii-haine"
-            "marci"
-            "qa";
+            "marci";
     gap: 10px;
   }
 }

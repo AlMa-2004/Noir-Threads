@@ -1,0 +1,154 @@
+ {
+	"cale_galerie":"resurse/imagini/galerie",
+	"imagini":[
+		{
+			"fisier_imagine": "1.png",
+			"nume_poza": "1",
+			"continut_alternativ": "Femeie cu machiaj întunecat și păr brunet, stând într-o pădure cu lumină difuză",
+			"descriere_poza": "Rochia lungă de catifea și pălăria vintage completează perfect un look misterios - ambele disponibile în colecția noastră gotică clasică.",
+			"intervale_zile": [["luni", "miercuri"], ["joi","vineri"], ["duminica","duminica"]]
+		  },
+		  {
+			"fisier_imagine": "2.png",
+			"nume_poza": "2",
+			"continut_alternativ": "Tânără cu păr negru și jachetă din piele, stil gotic urban.",
+			"descriere_poza": "Jacheta din piele și choker-ul metalic de pe site-ul nostru accentuează un stil gotic modern și rebel!",
+			"intervale_zile": [["luni", "joi"]]
+		  },
+		  {
+			"fisier_imagine": "3.png",
+			"nume_poza": "3",
+			"continut_alternativ": "Femeie pe scenă în corset și fustă satinată.",
+			"descriere_poza": "Corsetul negru și fusta gotică în straturi sunt piese statement pentru evenimente și festivaluri alt.",
+			"intervale_zile": [["luni", "luni"], ["sambata", "duminica"]]
+		  },
+		  {
+			"fisier_imagine": "4.png",
+			"nume_poza": "4",
+			"continut_alternativ": "Femeie în cămașă albă cu volane și sacou gotic slim.",
+			"descriere_poza": "Îmbină eleganța victoriană cu stilul gotic actual - cămașa cu volane și sacoul slim sunt disponibile în colecția Academic Goth.",
+			"intervale_zile": [["marti", "miercuri"],["vineri", "vineri"]]
+		  },
+		  {
+			"fisier_imagine": "5ccby.png",
+			"nume_poza": "5",
+			"continut_alternativ": "Cuplu în vestimentație gotică elaborată, cu accesorii de extravagante.",
+			"descriere_poza": "Coronița gotică și vesta cu detalii dantelate definesc perfect un look gotic regal pentru cupluri pasionați de estetică dark.",
+			"intervale_zile": [["miercuri", "vineri"]],
+			"creator": "Bryan Ledgard",
+			"sursa": "https://flickr.com/photos/97355030@N00/2443701564",
+			"licenta": "CC BY 2.0",
+			"licenta_url": "https://creativecommons.org/licenses/by/2.0/"
+		  },
+		  {
+			"fisier_imagine": "6.png",
+			"nume_poza": "6",
+			"continut_alternativ": "Femeie cu rochie lungă și coroană gotică în stil regal.",
+			"descriere_poza": "Rochia cu mâneci bufante și coroana gotică oferă un aer de regină întunecată! Piese emblematice din colecția noastră gotică regală.",
+			"intervale_zile": [["joi", "vineri"]]
+		  },
+		  {
+			"fisier_imagine": "7ccby.png",
+			"nume_poza": "7",
+			"continut_alternativ": "Femeie cyber-goth cu dreaduri roz și corset negru.",
+			"descriere_poza": "Creează un look neon și industrial cu extensiile dread și corsetul cyber, care perfecte pentru petreceri rave goth.",
+			"intervale_zile": [["vineri", "duminica"], ["miercuri", "joi"]],
+			"creator": "Bryan Ledgard",
+  			"sursa": "https://flickr.com/photos/97355030@N00/63615647",
+  			"licenta": "CC BY 2.0",
+  			"licenta_url": "https://creativecommons.org/licenses/by/2.0/"
+		  },
+		  {
+			"fisier_imagine": "8.png",
+			"nume_poza": "8",
+			"continut_alternativ": "Femeie în corset roșu-negru și fustă sirenă din satin.",
+			"descriere_poza": "Corsetul gotic roșu cu dantelă și fusta satinată creează o siluetă senzuală și rafinată, ideale pentru ocazii speciale.",
+			"intervale_zile": [["sambata", "duminica"]]
+		  },
+		  {
+			"fisier_imagine": "9.png",
+			"nume_poza": "9",
+			"continut_alternativ": "Tânără în rochie gotică din dantelă într-un fundal roșiatic de toamnă târzie.",
+			"descriere_poza": " Rochia din dantelă și bolero-ul scurt creează o imagine romantică și dramatică – inspirată de stilul Romantic Goth.",
+			"intervale_zile": [["luni", "miercuri"]]
+		  },
+		  {
+			"fisier_imagine": "10.png",
+			"nume_poza": "10",
+			"continut_alternativ": "Femeie în top cu plasă și pantaloni scurți punk cu lanțuri.",
+			"descriere_poza": "Topul transparent și pantalonii cu lanțuri sunt piesele ideale pentru un look punk-goth de stradă.",
+			"intervale_zile": [["marti", "miercuri"], ["vineri","vineri"], ["duminica", "duminica"]]
+		  },
+		  {
+			"fisier_imagine": "11.png",
+			"nume_poza": "11",
+			"continut_alternativ": "Bărbat gotic cu pălărie înaltă și vestă aristocratică.",
+			"descriere_poza": "Pălăria cu pene și vesta brodată evocă stilul aristocrat gotic! Disponibile acum în colecția Dark Nobility.",
+			"intervale_zile": [["miercuri", "vineri"]]
+		  },
+		  {
+			"fisier_imagine": "12.png",
+			"nume_poza": "12",
+			"continut_alternativ": "Femeie întinsă pe iarbă purtând rochie lejeră gotică.",
+			"descriere_poza": "Rochia vaporoasă de vară și chokerul simplu sunt esențiale pentru un look gotic natural și boem.",
+			"intervale_zile": [["luni","marti"],["joi", "sambata"]]
+		  },
+		  {
+			"fisier_imagine": "13.png",
+			"nume_poza": "13",
+			"continut_alternativ": "Femeie steampunk cu pălărie decorată și jachetă în dungi.",
+			"descriere_poza": "Pălăria cu ochelari și jacheta cu dungi definesc un stil steampunk gotic unic, gata de purtat în oraș sau la întruniri.",
+			"intervale_zile": [["luni", "marti"]]
+		  },
+		  {
+			"fisier_imagine": "14.png",
+			"nume_poza": "14",
+			"continut_alternativ": "Persoană aruncându-și mantia de catifea pe spate, sprijinită de o stâncă.",
+			"descriere_poza": "Piese inspirate din epoca medievală. Mantina aduce farmec gotic istoric ținutelor tale.",
+			"intervale_zile": [["miercuri", "vineri"]]
+		  },
+		  {
+			"fisier_imagine": "15.png",
+			"nume_poza": "15",
+			"continut_alternativ": "Femeie pe șine de tren în rochie gotică și cizme negre.",
+			"descriere_poza": "Rochia scurtă gotică și cizmele cu platformă creează un look urban întunecat, ideal pentru ținute dramatice.",
+			"intervale_zile": [["joi", "duminica"]]
+		  },
+		  {
+			"fisier_imagine": "16.png",
+			"nume_poza": "16",
+			"continut_alternativ": "Femeie într-o rochie lungă neagră, elegantă.",
+			"descriere_poza": "Eleganță pură cu rochia mulată neagră!",
+			"intervale_zile": [["sambata", "duminica"]]
+		  },
+		  {
+			"fisier_imagine": "17.png",
+			"nume_poza": "17",
+			"continut_alternativ": "Bărbat în coroană gotică și choker cu penaj",
+			"descriere_poza": "Coroana creează un look gotic imperial, ideal pentru cosplay, artă sau apariții scenice.",
+			"intervale_zile": [["luni", "miercuri"]]
+		  },
+		  {
+			"fisier_imagine": "18.png",
+			"nume_poza": "18",
+			"continut_alternativ": "Femeie cu ochelari rotunzi și bustieră tie-dye, stil gotic modern.",
+			"descriere_poza": "Combinație fresh de bustieră colorată și pălărie rotundă - stil gotic alternativ cu un strop de culoare.",
+			"intervale_zile": [["marti", "joi"]]
+		  },
+		  {
+			"fisier_imagine": "19.png",
+			"nume_poza": "19",
+			"continut_alternativ": "Două persoane pe motocicletă în geacă de piele și ochelari retro.",
+			"descriere_poza": "Geaca biker și ochelarii retro sunt definiția goticului pe două roți! Robustețe și stil într-un singur outfit.",
+			"intervale_zile": [["miercuri", "vineri"]]
+		  },
+		  {
+			"fisier_imagine": "20.png",
+			"nume_poza": "20",
+			"continut_alternativ": "Muzicieni pe scenă în haine gotice de concert.",
+			"descriere_poza": "Tricourile cu imprimeuri ale trupelor bine-cunoscute și pantalonii cu fermoare metalice aduc vibe-ul perfect pentru scena rock.",
+			"intervale_zile": [["vineri", "duminica"]]
+		  }
+
+	]
+}
