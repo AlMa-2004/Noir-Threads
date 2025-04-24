@@ -87,10 +87,6 @@ main {
   content: counter(fig, lower-roman)". ";
 }
 
-.grid-galerie{
-  aspect-ratio: 1 / 1;
-}
-
 .celula-galerie:nth-child(10n + 1) { grid-column: 1; }
 .celula-galerie:nth-child(10n + 2) { grid-column: 2; }
 
@@ -412,10 +408,18 @@ figure {
     "noutati orar"
     "noutati anunturi"
     "categorii-haine marci"
-    "categorii-haine trupe";
+    "categorii-haine trupe"
+    "galerie-statica galerie-statica";
     gap: 15px;
   }
 
+  #grid-galerie{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .celula-galerie {
+    grid-column: auto !important;
+  }
 }
 
 @media screen and (max-width:700px){
@@ -438,8 +442,17 @@ figure {
             "anunturi"
             "trupe"
             "categorii-haine"
-            "marci";
+            "marci"
+            "galerie-statica";
     gap: 10px;
+  }
+  #grid-galerie {
+    grid-template-columns: 1fr;
+  }
+
+  .celula-galerie {
+    grid-column: auto !important;
+   
   }
 }
 
