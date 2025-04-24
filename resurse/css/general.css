@@ -420,9 +420,9 @@ figure {
   #grid-continut {
     display: grid;
     grid-template-areas:
-    "despre despre"
+    "anunturi anunturi"
     "noutati orar"
-    "noutati anunturi"
+    "noutati despre"
     "categorii-haine marci"
     "categorii-haine trupe"
     "galerie-statica galerie-statica";
@@ -452,10 +452,10 @@ figure {
   #grid-continut{
     display: grid;
     grid-template-areas:
-            "despre"
+            "anunturi"
             "orar"
             "noutati"
-            "anunturi"
+            "despre"
             "trupe"
             "categorii-haine"
             "marci"

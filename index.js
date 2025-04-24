@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const fs = require("fs");
 const sharp = require("sharp");
+const sass = require("sass");
 
 app = express();
 
@@ -14,7 +15,10 @@ app.set("view engine", "ejs")
 
 obGlobal={
     obErori: null,
-    obImagini: null
+    obImagini: null,
+    folderScss: path.join(__dirname, "resurse/scss"),
+    folderCss: path.join(__dirname, "resurse/css"),
+    folderBackup: path.join(__dirname, "backup")
 }
 
 vect_foldere=["temp", "backup","temp1"]
@@ -24,6 +28,53 @@ for (let folder of vect_foldere){
         fs.mkdirSync(caleFolder);
     }
 }
+
+
+function compileazaScss(caleScss, caleCss){
+    console.log("Cale:",caleCss);
+    if(!caleCss){
+
+        let numeFisExt=path.basename(caleScss);
+        let numeFis=numeFisExt.split(".")[0]
+        caleCss=numeFis+".css";
+    }
+    
+    if (!path.isAbsolute(caleScss))
+        caleScss=path.join(obGlobal.folderScss,caleScss )
+    if (!path.isAbsolute(caleCss))
+        caleCss=path.join(obGlobal.folderCss,caleCss )
+    
+
+    let caleBackup=path.join(obGlobal.folderBackup, "resurse/css");
+    if (!fs.existsSync(caleBackup)) {
+        fs.mkdirSync(caleBackup,{recursive:true})
+    }
+
+    let numeFisCss= path.basename(caleScss).split(".")[0] + "_" + (new Date()).getTime() + ".css";
+    if (fs.existsSync(caleCss)){
+        fs.copyFileSync(caleCss, path.join(obGlobal.folderBackup, "resurse/css", numeFisCss))
+    }
+    rez=sass.compile(caleScss, {"sourceMap":true});
+    fs.writeFileSync(caleCss,rez.css)
+
+}
+
+vFisiere=fs.readdirSync(obGlobal.folderScss);
+for( let numeFis of vFisiere ){
+    if (path.extname(numeFis)==".scss"){
+        compileazaScss(numeFis);
+    }
+}
+
+fs.watch(obGlobal.folderScss, function(eveniment, numeFis){
+    console.log(eveniment, numeFis);
+    if (eveniment=="change" || eveniment=="rename"){
+        let caleCompleta=path.join(obGlobal.folderScss, numeFis);
+        if (fs.existsSync(caleCompleta)){
+            compileazaScss(caleCompleta);
+        }
+    }
+})
 
 function initErori(){
     let continut = fs.readFileSync(path.join(__dirname,"resurse/json/erori.json")).toString("utf-8");
@@ -70,10 +121,9 @@ function initImagini(){
         imag.fisier_imagine=path.join("/", obGlobal.obImagini.cale_galerie, imag.fisier_imagine )
         
     }
-    console.log(obGlobal.obImagini)
+    //console.log(obGlobal.obImagini)
 }
 initImagini(); 
-
 
 function afisareEroare(res, identificator, titlu, text, imagine){
     let eroare= obGlobal.obErori.info_erori.find(function(elem){ 
