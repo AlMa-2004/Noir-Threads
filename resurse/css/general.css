@@ -218,6 +218,17 @@ h1, h2 {
   color: var(--culoare-highlight);
 }
 
+ hr{
+  height: 10px;
+  background-image:
+    repeating-linear-gradient(45deg, var(--culoare-highlight) 0 5px, transparent 5px 10px),
+    repeating-linear-gradient(135deg, var(--culoare-highlight) 0 5px, transparent 5px 10px);
+  background-position: 5px -5px, 5px 5px;
+  background-repeat: repeat-x;
+  border: none;
+} 
+
+
 /* ============================== */
 
 section{
