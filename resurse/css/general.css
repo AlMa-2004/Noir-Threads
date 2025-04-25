@@ -191,7 +191,7 @@ h1, h2 {
   height: 150px;
 }
 
-#text {	
+#text{	
   transform: rotate(-30deg) skew(-45deg);
 }
 
@@ -206,6 +206,16 @@ h1, h2 {
 
 #container-reflexie:hover h2 { 
   color: var(--culoare-text);
+}
+
+#text-coloane{
+  column-count: 3;
+  column-rule: 4px double var(--culoare-text);
+}
+
+*::selection{
+  background-color: var(--culoare-fundal);
+  color: var(--culoare-highlight);
 }
 
 /* ============================== */
@@ -441,7 +451,8 @@ figure {
 	height: 400px;
 	filter: grayscale(0) ;
 	transition: all 2s linear;
-  transform: translateX(50%);
+  
+  margin: auto;
 }
 
 #imagine:after, #imagine:before{
@@ -500,6 +511,15 @@ figure {
   .celula-galerie {
     grid-column: auto !important;
   }
+
+  #imagine{
+    width:300px;
+    height: 200px;
+  }
+
+  #text-coloane{
+    column-count: 1;
+  }
 }
 
 @media screen and (max-width:700px){
@@ -533,6 +553,10 @@ figure {
   .celula-galerie {
     grid-column: auto !important;
    
+  }
+
+  #text-coloane{
+    column-count: 1;
   }
 }
 
