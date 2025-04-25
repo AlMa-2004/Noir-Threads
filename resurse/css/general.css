@@ -181,6 +181,33 @@ h1, h2 {
   align-items: center;
 }
 
+#container-reflexie {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row; 
+
+  width: 100%;
+  height: 150px;
+}
+
+#text {	
+  transform: rotate(-30deg) skew(-45deg);
+}
+
+#text-reflectat {
+  transform: rotate(30deg) skew(45deg) scaleX(-1);
+}
+
+#container-reflexie h2 {   
+  font-weight: bold;
+  transition: 800ms ease-in-out;
+}
+
+#container-reflexie:hover h2 { 
+  color: var(--culoare-text);
+}
+
 /* ============================== */
 
 section{
@@ -406,6 +433,42 @@ figure {
   justify-content: center; 
 }
   
+#imagine{
+	position:relative;
+	background-image:url(/resurse/imagini/team.jpg);
+	background-size:cover;
+	width: 600px; 
+	height: 400px;
+	filter: grayscale(0) ;
+	transition: all 2s linear;
+  transform: translateX(50%);
+}
+
+#imagine:after, #imagine:before{
+	content:" ";
+	position:absolute;
+	height:100%;
+	width:100%;
+	top:0;
+	left:0;
+	
+	transition:all 2s linear;
+}
+
+#imagine:after{
+	background-color:rgb(22, 22, 34);
+	mix-blend-mode:lighten;
+}
+
+#imagine:before{
+	background-color:rgb(230, 57, 70);
+	mix-blend-mode:darken;
+}
+
+#imagine:hover{
+  filter: grayscale(100%) brightness(120%);
+}
+
 /* ============================== */
 
 @media screen and (max-width:1000px){
