@@ -23,6 +23,7 @@ ul.meniu{
     margin: 0;
     width: 100%;
     background-color: var(--culoare-highlight);
+    padding: 0;
 }
 
 

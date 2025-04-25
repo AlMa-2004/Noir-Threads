@@ -49,7 +49,8 @@ function compileazaScss(caleScss, caleCss){
         fs.mkdirSync(caleBackup,{recursive:true})
     }
 
-    let numeFisCss= path.basename(caleScss).split(".")[0] + "_" + (new Date()).getTime() + ".css";
+    let numeFisCss=path.basename(caleScss).split(".")[0] + ".css";
+    //let numeFisCss= path.basename(caleScss).split(".")[0] + "_" + (new Date()).getTime() + ".css"; //momentan inactiva pentru a nu aglomera folderul de backup
     if (fs.existsSync(caleCss)){
         fs.copyFileSync(caleCss, path.join(obGlobal.folderBackup, "resurse/css", numeFisCss))
     }
