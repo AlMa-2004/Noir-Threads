@@ -1,0 +1,97 @@
+#slideshow-container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  overflow: hidden;
+  border: 10px solid;
+  border-image: url("/resurse/imagini/8.png");
+  background-image: url("/resurse/imagini/galerie/2.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#slideshow-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  opacity: 1;
+}
+#slideshow-container img:nth-child(1) {
+  animation: animatie 4s linear 1 forwards;
+  animation-delay: 0s;
+  z-index: 99;
+}
+#slideshow-container img:nth-child(2) {
+  animation: animatie 4s linear 1 forwards;
+  animation-delay: 4s;
+  z-index: 98;
+}
+#slideshow-container img:nth-child(3) {
+  animation: animatie 4s linear 1 forwards;
+  animation-delay: 8s;
+  z-index: 97;
+}
+#slideshow-container img:nth-child(4) {
+  animation: animatie 4s linear 1 forwards;
+  animation-delay: 12s;
+  z-index: 96;
+}
+#slideshow-container img:nth-child(5) {
+  animation: animatie 4s linear 1 forwards;
+  animation-delay: 16s;
+  z-index: 95;
+}
+#slideshow-container img:nth-child(6) {
+  animation: animatie 4s linear 1 forwards;
+  animation-delay: 20s;
+  z-index: 94;
+}
+#slideshow-container img:nth-child(7) {
+  animation: animatie 4s linear 1 forwards;
+  animation-delay: 24s;
+  z-index: 93;
+}
+#slideshow-container img:nth-child(8) {
+  animation: animatie 4s linear 1 forwards;
+  animation-delay: 28s;
+  z-index: 92;
+}
+#slideshow-container img:nth-child(9) {
+  animation: animatie 4s linear 1 forwards;
+  animation-delay: 32s;
+  z-index: 91;
+}
+#slideshow-container img:nth-child(10) {
+  animation: animatie 4s linear 1 forwards;
+  animation-delay: 36s;
+  z-index: 90;
+}
+#slideshow-container:hover img {
+  animation-play-state: paused !important;
+}
+
+@keyframes animatie {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 1;
+  }
+  40% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 1;
+  }
+  50% {
+    clip-path: polygon(0% 30%, 100% 10%, 100% 20%, 0% 40%);
+    opacity: 1;
+  }
+  70% {
+    clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+    opacity: 0;
+  }
+  100% {
+    clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+    opacity: 0;
+  }
+}

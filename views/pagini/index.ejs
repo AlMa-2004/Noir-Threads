@@ -59,13 +59,47 @@
             <section id="trupe">
                 <h2>Trupe disponibile</h2>
                 <section id="slideshow-trupe">         
-                   <!-- WIP GALERIE DINAMICA-->
+                    <% 
+                    let imagini_bune = [];
+
+                    for (let i = 1; i < nr_random_poze * 2 && i < imagini.length; i += 2) {
+                        imagini_bune.push(imagini[i]);
+                    }
+                    %>
+
+                    <div id="slideshow-container">
+                        <% for(let j = 0; j < imagini_bune.length; j++) { %>
+                            <img class="slideshow-image" src="<%- imagini_bune[j].fisier_imagine %>" alt="<%- imagini_bune[j].continut_alternativ %>">
+                        <% } %>
+                    </div>
+
+                    <script>
+                        const durataTotala = "<%- durata_totala %>"; //pentru a nu da eroare in vsc
+                      
+                        function restartSlideshow() {
+                          const images = document.querySelectorAll("#slideshow-container img");
+                          images.forEach(img => {
+                            img.style.animation = "none";
+                          });
+                      
+                          void document.getElementById("slideshow-container").offsetWidth;
+                      
+                          images.forEach((img, index) => {
+                            img.style.animation = `animatie 4s linear 1 forwards`;
+                            img.style.animationDelay = `${index * 4}s`;
+                            img.style.animationPlayState = "running"; //! bug hover dupa resetare
+                          });
+                        }
+                      
+                        setInterval(restartSlideshow, durataTotala * 1000);
+                      </script>
+                      
+                      
                 </section>
             </section>
             <section id="marci">
                 <h2>Mărci populare</h2>
                 <section id="slideshow-marci">
-                    <!-- WIP GALERIE DINAMICA -->
                 </section>
             </section>
             <section id="orar">
@@ -209,7 +243,6 @@
             <section id="galerie-statica">
                 <%- include("../fragmente/galerie.ejs") %>
             </section>
-            
         </div>
     </main>
     <%- include("../fragmente/footer.ejs") %>

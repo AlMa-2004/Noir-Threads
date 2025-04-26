@@ -434,7 +434,7 @@ a[href^="http"]:active{
 }
 /* ============================== */
 
-img, video {
+img, video:not(#bgvid) {
   width: 100%;
   max-width: 600px;
   min-width: 100px;
@@ -489,6 +489,17 @@ figure {
 
 #imagine:hover{
   filter: grayscale(100%) brightness(120%);
+}
+
+#bgvid {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  z-index: -1;
 }
 
 /* ============================== */

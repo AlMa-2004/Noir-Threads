@@ -1,8 +1,8 @@
 <div id="grid-galerie">
     <%
     const d = new Date();
-    const vect_zile = ["duminica", "luni", "marti", "miercuri", "joi", "vineri", "sambata"];
-    const zi_curenta = vect_zile[d.getDay()];
+    const vect_zile = ["luni", "marti", "miercuri", "joi", "vineri", "sambata", "duminica"];
+    const zi_curenta = vect_zile[(d.getDay()+6) % 7]; //!!!
     const index_zi_curenta = vect_zile.indexOf(zi_curenta);
 
     let counter_afisate = 0;

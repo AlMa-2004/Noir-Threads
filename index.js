@@ -162,7 +162,26 @@ app.get("/favicon.ico", function(req, res, next) {
 });
 
 app.get(["/", "/home", "/index"],function(req,res){
-    res.render("pagini/index", {ip: req.ip, imagini: obGlobal.obImagini.imagini});
+    let nr_random_poze = Math.floor(Math.random() * 5 + 3) * 2;
+    let durata_totala = nr_random_poze * 4;
+    console.log(nr_random_poze);
+
+    const scssContent = `$nr_poze: ${nr_random_poze};`
+    const scssPath = path.join(__dirname, 'resurse', 'scss', 'galerie_animata.scss');
+    
+    let scssFileContent = fs.readFileSync(scssPath, 'utf8');
+
+    const variableRegex = /\$nr_poze:\s*\d+;/;
+
+    if (variableRegex.test(scssFileContent)) {
+        scssFileContent = scssFileContent.replace(variableRegex, scssContent);
+        console.log("Update $nr_poze");
+    }
+
+    fs.writeFileSync(scssPath, scssFileContent);
+    compileazaScss(scssPath);
+
+    res.render("pagini/index", {ip: req.ip, imagini: obGlobal.obImagini.imagini, nr_random_poze: nr_random_poze, durata_totala: durata_totala});
 }) 
 
 app.get("/despre",function(req,res){
