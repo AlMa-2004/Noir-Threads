@@ -163,10 +163,11 @@ app.get("/favicon.ico", function(req, res, next) {
 
 app.get(["/", "/home", "/index"],function(req,res){
     let nr_random_poze = Math.floor(Math.random() * 5 + 3) * 2;
-    let durata_totala = nr_random_poze * 4;
+    let nr_total_poze = nr_random_poze + 1;
+    let durata_totala = nr_total_poze * 4;
     console.log(nr_random_poze);
 
-    const scssContent = `$nr_poze: ${nr_random_poze};`
+    const scssContent = `$nr_poze: ${nr_total_poze};`
     const scssPath = path.join(__dirname, 'resurse', 'scss', 'galerie_animata.scss');
     
     let scssFileContent = fs.readFileSync(scssPath, 'utf8');
