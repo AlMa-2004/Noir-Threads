@@ -5,7 +5,7 @@
   overflow: hidden;
   border: 10px solid;
   border-image: url("/resurse/imagini/8.jpg") 30;
-  background-image: url("/resurse/imagini/galerie/2.png");
+  background-image: url("/resurse/imagini/galerie/1.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -74,26 +74,6 @@
   animation: animatie 4s linear 1 forwards;
   animation-delay: 40s;
   z-index: 11;
-}
-#slideshow-container img:nth-child(12) {
-  animation: animatie 4s linear 1 forwards;
-  animation-delay: 44s;
-  z-index: 12;
-}
-#slideshow-container img:nth-child(13) {
-  animation: animatie 4s linear 1 forwards;
-  animation-delay: 48s;
-  z-index: 13;
-}
-#slideshow-container img:nth-child(14) {
-  animation: animatie 4s linear 1 forwards;
-  animation-delay: 52s;
-  z-index: 14;
-}
-#slideshow-container img:nth-child(15) {
-  animation: animatie 4s linear 1 forwards;
-  animation-delay: 56s;
-  z-index: 15;
 }
 #slideshow-container:hover img {
   animation-play-state: paused !important;
