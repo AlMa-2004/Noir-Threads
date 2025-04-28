@@ -1,0 +1,102 @@
+table#tabelescu, table#tabelescu td, table#tabelescu th {
+    border: 1px solid var(--culoare-fundal);
+    padding: 1em;
+    padding-top: 1rem;
+}
+
+table#tabelescu {
+    border-spacing: 0;
+    border-collapse: separate;
+    box-sizing: border-box;
+}
+
+table#tabelescu > tbody tr {
+    counter-increment: nra;
+}
+
+@media screen and (max-width: 650px) {
+    table#tabelescu,
+    table#tabelescu tr {
+        border: none;
+        padding: 0;
+        margin: 0;
+        display: block;
+    }
+
+    table#tabelescu td {
+        display: block;
+        padding: 0.2em;
+        box-sizing: border-box;
+    }
+
+    table#tabelescu thead {
+        display: none;
+    }
+
+    table#tabelescu tbody td:nth-child(1)::before {
+        content: "Nume: ";
+    }
+    table#tabelescu tbody td:nth-child(2)::before {
+        content: "Rol: ";
+    }
+    table#tabelescu tbody td:nth-child(3)::before {
+        content: "Specializare: ";
+    }
+    table#tabelescu tbody td:nth-child(4)::before {
+        content: "Contact: ";
+    }
+
+    table#tabelescu td {
+        border-bottom: none;
+        border-top: none;
+        float: left;
+        width: 80%;
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+
+    table#tabelescu td::before {
+        float: left;
+        width: 35%;
+        background: var(--culoare-fundal);
+        color: var(--culoare-text);
+        font-weight: bold;
+        margin-right: 0.5em;
+        padding: 0.1em;
+        line-height: 100%;
+    }
+
+    table#tabelescu td:last-child {
+        border-bottom: 1px dashed var(--culoare-text);
+    }
+
+    table#tabelescu tr:first-child td:first-child {
+        border-top: 1px solid  var(--culoare-fundal);
+    }
+
+    table#tabelescu tr:last-child td:last-child {
+        border-bottom: 1px solid  var(--culoare-fundal);
+    }
+}
+
+/* ==================================================== */
+
+@media screen and (min-width: 1000px) {
+    #transpus thead, #transpus tbody, #transpus tr {
+        display: block;
+        float: left;
+    }
+
+    #transpus th, #transpus td {
+        display: block;
+        border: 1px solid var(--culoare-umbra);
+    }
+
+    #transpus td + td, #transpus th + th {
+        border-top: none;
+    }
+
+    #transpus {
+        width: auto;
+    }
+}

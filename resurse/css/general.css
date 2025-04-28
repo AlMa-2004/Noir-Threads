@@ -34,7 +34,28 @@ body{
 main {
   padding-left:var(--spatiere-pagina);
   padding-right:var(--spatiere-pagina);
-  padding-bottom: var(--spatiere-pagina);  
+  padding-bottom: var(--spatiere-pagina); 
+}
+
+#home {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-image: url('/resurse/imagini/8.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  animation: schimbare-fundal 50s infinite;
+
+}
+
+@keyframes schimbare-fundal {
+  50% {
+    background-image:  url('/resurse/imagini/4.jpg');
+  }
+  100% {
+    background-image:  url('/resurse/imagini/8.jpg');
+  }
 }
 
 /* ============================== */
@@ -228,6 +249,22 @@ h1, h2 {
   border: none;
 } 
 
+#text-animat{
+  display: inline-block;
+  animation: ping-pong 2s ease-in-out infinite;
+}
+
+@keyframes ping-pong {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(50px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
 
 /* ============================== */
 
