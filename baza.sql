@@ -1,0 +1,50 @@
+CREATE TYPE categorie_enum AS ENUM ('TRICOURI','ROCHII','FUSTE','PANTALONI','INCALTAMINTE');
+
+CREATE TYPE trupa_enum AS ENUM('KORN','LIMP BIZKIT','LINKIN PARK','SLIPKNOT','DEFTONES','PAPA ROACH','SYSTEM OF A DOWN',
+'METALLICA','RADIOHEAD','RED HOT CHILI PEPPERS','FOO FIGHTERS','GREEN DAY','THE DOORS','PEARL JAM','THE BEATLES',
+'THE SISTERS OF MERCY','BAUHAUS','SIOUXSIE AND THE BANSHEES','FIELDS OF THE NEPHILIM','TYPE O NEGATIVE');
+
+CREATE TYPE firma_enum AS ENUM('ASHWRAITH','NEON BURIAL','SHATTERFRAME','VELVET STIGMA','CRYPTFLOWER','OBSIDIAN HUSH','WIDOWSPEAKER',
+'FERAL HYMN','VIOLET HEMLOCK','SCARSTATIC','DEAD SKY ECHO','RUSTLORD','BLACK MORROW','NOIR ASSEMBLY','ECHOES OF FLESH',
+'THE BLEEDING VELVET','GRAVE TIDE','LUX CANCER','GLOOMHAVEN','NAILMAZE');
+
+CREATE TYPE culoare_enum AS ENUM ('NEGRU','ROSU','MOV','ALB','GRI');
+
+CREATE TABLE produse(
+    id                  SERIAL PRIMARY KEY,
+    nume                VARCHAR(50) NOT NULL,
+    descriere           VARCHAR(200),
+    cale_imagine        VARCHAR(50),
+    categorie           categorie_enum NOT NULL,
+    trupa               trupa_enum,
+    firma               firma_enum NOT NULL,
+    pret                NUMERIC(10, 2) NOT NULL,
+    dimensiune          NUMERIC(10, 2),
+    data_intrare        DATE NOT NULL,
+    culoare             culoare_enum NOT NULL,
+    materiale           VARCHAR(50),
+    include_voucher     BOOLEAN DEFAULT FALSE
+);
+
+
+INSERT INTO produse (id, nume, descriere, cale_imagine, categorie, trupa, firma, pret, dimensiune, data_intrare, culoare, materiale, include_voucher) VALUES
+(1, 'Tricou Urban Oversize', 'Perfect pentru stilul casual de zi cu zi.', 'img1.jpg', 'PANTALONI', 'THE DOORS', 'SHATTERFRAME', 72.94, 42.0, '2022-09-09', 'ROSU', 'elastan, matase, poliester', TRUE),
+(2, 'Hanorac Midnight Pulse', 'Conceput pentru activități urbane.', 'img2.jpg', 'INCALTAMINTE', 'TYPE O NEGATIVE', 'SHATTERFRAME', 187.95, 36.41, '2025-05-09', 'GRI', 'matase', FALSE),
+(3, 'Rochie Vaporoasă Eclipse', 'Inspirat din stilul ocazii elegante.', 'img3.jpg', 'ROCHII', 'KORN', 'LUX CANCER', 162.24, 42.7, '2023-09-16', 'GRI', 'poliester, bumbac', TRUE),
+(4, 'Fustă Asimetrică Velvet', 'Inspirat din stilul ieșiri de seară.', 'img4.jpg', 'FUSTE', NULL, 'THE BLEEDING VELVET', 60.46, 41.59, '2023-06-23', 'GRI', 'poliester', TRUE),
+(5, 'Pantaloni Slim Noir', 'Articol vestimentar perfect pentru festivaluri de muzică.', 'img5.jpg', 'INCALTAMINTE', 'KORN', 'VELVET STIGMA', 434.48, 38.08, '2024-08-27', 'NEGRU', 'matase', TRUE),
+(6, 'Tricou Neon Distorsion', 'Perfect pentru ieșiri de seară.', 'img6.jpg', 'TRICOURI', 'LIMP BIZKIT', 'BLACK MORROW', 320.51, 39.06, '2023-04-18', 'NEGRU', 'piele, in, poliester, bumbac', TRUE),
+(7, 'Ghete Rebel Edge', 'Conceput pentru ocazii elegante.', 'img7.jpg', 'PANTALONI', 'PAPA ROACH', 'NEON BURIAL', 307.76, 41.84, '2024-04-06', 'MOV', 'in, matase', TRUE),
+(8, 'Jachetă Shadowline', 'Articol vestimentar perfect pentru festivaluri de muzică.', 'img8.jpg', 'TRICOURI', 'SLIPKNOT', 'ECHOES OF FLESH', 364.63, 42.17, '2024-05-15', 'NEGRU', 'poliester, matase, bumbac', TRUE),
+(9, 'Camasa Minimal Steel', 'Inspirat din stilul zilele călduroase.', 'img9.jpg', 'TRICOURI', NULL, 'GRAVE TIDE', 273.67, 40.77, '2023-01-02', 'GRI', 'poliester, elastan, matase', FALSE),
+(10, 'Rochie Layered Flow', 'Conceput pentru ieșiri de seară.', 'img10.jpg', 'ROCHII', 'RADIOHEAD', 'VIOLET HEMLOCK', 252.46, 37.46, '2023-07-08', 'NEGRU', 'elastan', TRUE),
+(11, 'Tricou Statement Core', 'Inspirat din stilul zilele călduroase.', 'img11.jpg', 'TRICOURI', 'GREEN DAY', 'SCARSTATIC', 391.54, 44.68, '2023-09-03', 'GRI', 'bumbac, piele, matase, in', TRUE),
+(12, 'Fustă Plisată Moonlight', 'Inspirat din stilul ieșiri de seară.', 'img12.jpg', 'ROCHII', NULL, 'FERAL HYMN', 155.37, 36.93, '2023-02-16', 'ALB', 'nylon, in', TRUE),
+(13, 'Pantaloni Cargo Nightshade', 'Ideal pentru ocazii elegante.', 'img13.jpg', 'ROCHII', 'BAUHAUS', 'THE BLEEDING VELVET', 279.05, 45.37, '2024-10-17', 'MOV', 'in, nylon, bumbac', FALSE),
+(14, 'Hanorac Graphic Chaos', 'Articol vestimentar perfect pentru ieșiri de seară.', 'img14.jpg', 'FUSTE', 'KORN', 'BLACK MORROW', 459.27, 45.6, '2024-03-08', 'MOV', 'piele', FALSE),
+(15, 'Tricou Mesh Industrial', 'Articol vestimentar perfect pentru ieșiri de seară.', 'img15.jpg', 'PANTALONI', NULL, 'FERAL HYMN', 119.33, 44.53, '2023-12-12', 'MOV', 'poliester, bumbac, nylon', FALSE),
+(16, 'Jachetă Gotică Raven', 'Perfect pentru ocazii elegante.', 'img16.jpg', 'PANTALONI', 'SIOUXSIE AND THE BANSHEES', 'WIDOWSPEAKER', 123.82, 40.52, '2025-03-12', 'NEGRU', 'elastan, nylon, piele', TRUE),
+(17, 'Rochie Street Muse', 'Inspirat din stilul festivaluri de muzică.', 'img17.jpg', 'INCALTAMINTE', NULL, 'RUSTLORD', 130.85, 40.29, '2024-05-15', 'ROSU', 'nylon', TRUE),
+(18, 'Pantaloni Wide Cut Stone', 'Ideal pentru ocazii elegante.', 'img18.jpg', 'TRICOURI', 'FIELDS OF THE NEPHILIM', 'SCARSTATIC', 151.66, 45.02, '2025-04-13', 'ALB', 'poliester, matase, nylon, bumbac', TRUE),
+(19, 'Tricou Vibe Spectrum', 'Articol vestimentar perfect pentru festivaluri de muzică.', 'img19.jpg', 'FUSTE', NULL, 'SHATTERFRAME', 267.14, 41.34, '2024-10-20', 'ROSU', 'poliester, bumbac', TRUE),
+(20, 'Fustă Denim Reborn', 'Articol vestimentar perfect pentru ocazii elegante.', 'img20.jpg', 'PANTALONI', NULL, 'VIOLET HEMLOCK', 157.74, 42.64, '2023-08-18', 'GRI', 'in, nylon', TRUE);
