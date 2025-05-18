@@ -247,6 +247,23 @@ app.get("/produse", function(req, res){
     });
 })
 
+app.get("/produs/:id", function(req, res){
+    console.log(req.params)
+    client.query(`select * from produse where id=${req.params.id}`, function(err, rez){
+        if (err){
+            console.log(err);
+            afisareEroare(res, 2);
+        }
+        else{
+            if (rez.rowCount==0){
+                afisareEroare(res, 404);
+            }
+            else{
+                res.render("pagini/produs", {prod: rez.rows[0]})
+            }
+        }
+    })
+})
 
 app.get(/^\/resurse\/[a-zA-Z0-9_\/]*$/, function(req, res, next){
     afisareEroare(res,403)

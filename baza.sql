@@ -30,7 +30,7 @@ CREATE TABLE produse(
     data_intrare        TIMESTAMP DEFAULT current_timestamp,
     culoare             culoare_enum NOT NULL,
     materiale           VARCHAR(50),
-    pentru_membrii     BOOLEAN DEFAULT FALSE
+    pentru_membri     BOOLEAN DEFAULT FALSE
 );
 
 

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+       <title>Noir Threads</title>
+
+        <meta name="keywords" content="produs, caracteristici, tricouri, rochii, fuste, pantaloni, încălțăminte bumbac, poliester, elastan, in, piele, nylon, mătase, ">
+        <meta name="description" content="Descoperă o gamă variată de haine și merchandise pliate pe stilul alternativ, metal și excentric. Participă la jocul zilnic și câștigă reduceri pentru comenzile tale. Alege din produsele noastre unice și beneficiază de livrare rapidă la domiciliu sau pick-up din magazin.">
+
+        <%- include("../fragmente/head") %>     
+        <link href="/resurse/css/produs.css" type="text/css" rel="stylesheet" />
+    </head>
+    <body>
+    <%- include("../fragmente/header") %>
+    <main>
+        <section>
+    <h2>Pagină produs</h2>
+        <article id="art<%- prod.id %>" class="<%- prod.categorie.replace(/\s+/g, '') %>">
+            <div style="display: flex; align-items: flex-start;">
+                <figure class="imag-produs">
+                    <img src="/resurse/imagini/produse/<%- prod.cale_imagine %>" alt="imagine <%- prod.nume %>" />
+                </figure>
+                
+                <div style="flex: 1;">
+                    <section style="margin-bottom: 10px;">
+                        <h3><span class="nume"><%- prod.nume %></span></h3>
+                        <p class="detalii">Categorie: </p> <p><span><%- prod.categorie %></span></p>
+                        <p class="detalii">Descriere: </p> <p><span><%- prod.descriere %></span></p>
+                    </section>
+
+                    <table border="1" class="tabel-caracteristici" style="border-collapse: collapse;">
+                        <tr>
+                            <td>Preț</td>
+                            <td><%- prod.pret %> lei</td>
+                        </tr>
+                        <tr>
+                            <td>Firma</td>
+                            <td><%- prod.firma %></td>
+                        </tr>
+                        <tr>
+                            <td>Materiale</td>
+                            <td><%- prod.materiale %></td>
+                        </tr>
+                        <tr>
+                            <td>Data intrare</td>
+                            <td>
+                                <% 
+                                const luni = ['Ianuarie', 'Februarie', 'Martie', 'Aprilie', 'Mai', 'Iunie', 
+                                            'Iulie', 'August', 'Septembrie', 'Octombrie', 'Noiembrie', 'Decembrie'];
+                                const zile = ['Duminică', 'Luni', 'Marți', 'Miercuri', 'Joi', 'Vineri', 'Sâmbăta'];
+
+                                const data = new Date(prod.data_intrare);
+                                const zi = data.getDate().toString().padStart(2, '0');
+                                const luna = luni[data.getMonth()];
+                                const an = data.getFullYear();
+                                const ziSaptamana = zile[data.getDay()];
+                                %>
+                                <time datetime="<%= data.toISOString() %>">
+                                    <%= `${zi}/${luna}/${an} (${ziSaptamana})` %>
+                                </time>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Pentru membri</td>
+                            <td><%- prod.pentru_membri ? "Da" : "Nu" %></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    </main>
+
+    <%- include("../fragmente/footer") %>
+    </body>
+</html>
