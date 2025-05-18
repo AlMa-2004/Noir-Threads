@@ -18,6 +18,17 @@
     <body>
     <%- include("../fragmente/header") %>
     <main>
+
+    <!-- 
+    text	nume	x
+    range (x2)	pret	x x
+    datalist	categorie	x x
+    radio group	pentru_membri x	
+    checkbox group	culoare	xx
+    textarea	descriere x
+    select simplu	trupa x
+    select multiplu	materiale xx
+    -->
         <label> Nume: <input type="text" id="inp-nume"></label>
         
         <div> Program de fidelitate:<!-- trebuie sa aiba acelasi name ca sa formeze un grup -->
@@ -32,15 +43,52 @@
             </label>
         </div>
 
+        <div> Culoare:
+            <% for (let i = 0; i < culori.length; i++) { 
+                let c = culori[i].unnest;
+            %>
+                <p>
+                    <label>
+                        <%= c.charAt(0) + c.slice(1).toLowerCase() %>
+                        <input type="checkbox" name="culoare" value="<%= c %>" id="chk-culoare-<%= i %>">
+                    </label>
+                </p>
+            <% } %>
+        </div>
 
-        <label> Pret minim: <input type="range" id="inp-pret" value="0" min="0"  max="70"> <span id="infoRange">(0)</span></label>
+        <label for="inp-descriere">Descriere:<br/>
+            <textarea id="inp-descriere" name="descriere" rows="3" cols="40" placeholder="Ex: de seară,..."></textarea>
+        </label>
+        
+
+
+        <label> Pret minim: <input type="range" id="inp-pret-min" value="0" min="0"  max="70"> <span id="infoRange">(0)</span></label>
+        <label> Pret maxim: <input type="range" id="inp-pret-max" value="0" min="0"  max="70"> <span id="infoRange">(0)</span></label>
+
         <label>Select simplu:
-            <select id="inp-categorie">
+            <select id="inp-trupa">
                 <option id="sel-toate" selected value="toate">Toate</option>
-                <% for (let opt of locals.optiuni) { %>
+                <% for (let opt of locals.trupe) { %>
                     <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
                 <% } %>
             </select>
+        </label>
+
+        <label>Select multiplu:
+            <select id="inp-materiale" multiple size="3">
+                <% for (let mat of materiale) { %>
+                    <option value="<%= mat %>"><%= mat.charAt(0).toUpperCase() + mat.slice(1).toLowerCase() %></option>
+                <% } %>
+            </select>
+        </label>
+
+        <label for="inp-categorie">Categorie:
+            <input type="text" id="inp-categorie" name="categorie" list="lista-categorii" placeholder="Alege o categorie">
+            <datalist id="lista-categorii">
+            <% for (let cat of categorii) { %>
+                <option value="<%= cat.unnest %>">
+            <% } %>
+            </datalist>
         </label>
 
         <p>

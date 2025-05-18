@@ -221,31 +221,93 @@ app.get("/galerie",function(req,res){
     res.render("pagini/galerie-pagina", {ip: req.ip, imagini: obGlobal.obImagini.imagini});
 })
 
-app.get("/produse", function(req, res){
-    console.log(req.query)
-    var conditieQuery =""; //initializare
-    if (req.query.categorie){
-        conditieQuery=` where categorie='${req.query.categorie.toUpperCase()}'`
+// app.get("/produse", function(req, res){
+//     console.log(req.query)
+//     var conditieQuery =""; //initializare
+//     if (req.query.categorie){
+//         conditieQuery=` where categorie='${req.query.categorie}'`
 
+//     }
+
+//     //queryOptiuni="select * from unnest(enum_range(null::categorie_enum))"
+
+//     queryOptiuni="select * from unnest(enum_range(null::trupa_enum))"
+
+//     client.query(queryOptiuni, function(err, rezOptiuni){
+//         console.log(rezOptiuni)
+
+
+//         queryProduse="select * from produse" +conditieQuery
+//         client.query(queryProduse, function(err, rez){ //client query imbricate pentru a ne asigura ca avem ambele valori in momentul randarii paginii
+//             if (err){
+//                 console.log(err);
+//                 afisareEroare(res, 2);
+//             }
+//             else{
+//                 res.render("pagini/produse", {produse: rez.rows, optiuni:rezOptiuni.rows})
+//             }
+//         })
+//     });
+// })
+
+app.get("/produse", function (req, res) {
+    let conditieQuery = "";
+    if (req.query.categorie) {
+        conditieQuery = ` WHERE categorie='${req.query.categorie}'`;
     }
 
-    queryOptiuni="select * from unnest(enum_range(null::categorie_enum))"
-    client.query(queryOptiuni, function(err, rezOptiuni){
-        console.log(rezOptiuni)
+    //trupa_enum
+    client.query("SELECT * FROM unnest(enum_range(NULL::trupa_enum))", function (errTrupe, rezTrupe) {
+        if (errTrupe) {
+            console.log(errTrupe);
+            afisareEroare(res, 2);
+            return;
+        }
 
-
-        queryProduse="select * from produse" +conditieQuery
-        client.query(queryProduse, function(err, rez){
-            if (err){
-                console.log(err);
+        //categorie_enum
+        client.query("SELECT * FROM unnest(enum_range(NULL::categorie_enum))", function (errCat, rezCat) {
+            if (errCat) {
+                console.log(errCat);
                 afisareEroare(res, 2);
+                return;
             }
-            else{
-                res.render("pagini/produse", {produse: rez.rows, optiuni:rezOptiuni.rows})
-            }
-        })
+
+            //culoare_enum
+            client.query("SELECT * FROM unnest(enum_range(NULL::culoare_enum))", function (errCulori, rezCulori) {
+                if (errCulori) {
+                    console.log(errCulori);
+                    afisareEroare(res, 2);
+                    return;
+                }
+
+                //produse
+                client.query("SELECT * FROM produse" + conditieQuery, function (errProd, rezProd) {
+                    if (errProd) {
+                        console.log(errProd);
+                        afisareEroare(res, 2);
+                        return;
+                    }
+                    const materialeSet = new Set();
+                    for (let prod of rezProd.rows) {
+                        if (prod.materiale) {
+                            prod.materiale.split(",").map(m => m.trim()).forEach(m => materialeSet.add(m));
+                        }
+                    }
+                    const materiale = Array.from(materialeSet).sort();
+
+                    res.render("pagini/produse", {
+                        produse: rezProd.rows,
+                        categorii: rezCat.rows,
+                        culori: rezCulori.rows,
+                        trupe: rezTrupe.rows,
+                        materiale: materiale
+                    });
+                });
+            });
+        });
     });
-})
+});
+
 
 app.get("/produs/:id", function(req, res){
     console.log(req.params)
