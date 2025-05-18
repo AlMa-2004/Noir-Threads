@@ -19,6 +19,7 @@
                 </a>
             </div>
             <div class="text-icon" id="acasa"><a href="/home">Acasă</a></div>
+
         </li>
         <li>
             <div class="text-icon" id="produse">Produse</div> 
@@ -26,10 +27,16 @@
                 <span class="fa-solid fa-shirt"></span>
             </div> -->
                 <ul>
-                    <li><a href="/categorii-haine">Categorii de haine</a></li>
-                    <li><a href="/trupe">Trupe</a></li>
-                    <li><a href="/marci">Mărci populare</a></li>
+                    <li><a href="/produse">Toate</a></li>
+                    <% for (let opt of locals.optiuniMeniu) { %>
+                        <li>
+                        <a href="/produse?categorie=<%= opt.unnest %>">
+                            <%= opt.unnest.charAt(0).toUpperCase() + opt.unnest.slice(1).toLowerCase() %> <!-- sentence case-->
+                        </a>
+                        </li>
+                    <% } %>
                 </ul>
+
         </li>
         <li>
             <div class="text-icon" id="qa">Q&A</div><!-- va duce la alta pagina care are linkuri catre sectiuni-->

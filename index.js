@@ -3,6 +3,28 @@ const path = require("path");
 const fs = require("fs");
 const sharp = require("sharp");
 const sass = require("sass");
+const pg = require("pg");
+
+const Client=pg.Client;
+
+client=new Client({
+    database:"noirthreads",
+    user:"utiln",
+    password:"parola123",
+    host:"localhost",
+    port:5432
+})
+
+client.connect()
+client.query("select * from produse", function(err, rezultat ){
+   console.log(err)    
+   console.log(rezultat)
+})
+client.query("select * from unnest(enum_range(null::categorie_enum))", function(err, rezultat ){
+   console.log(err)    
+   console.log(rezultat)
+   obGlobal.optiuniMeniu=rezultat.rows
+})
 
 app = express();
 
@@ -18,7 +40,8 @@ obGlobal={
     obImagini: null,
     folderScss: path.join(__dirname, "resurse/scss"),
     folderCss: path.join(__dirname, "resurse/css"),
-    folderBackup: path.join(__dirname, "backup")
+    folderBackup: path.join(__dirname, "backup"),
+    optiuniMeniu:null
 }
 
 vect_foldere=["temp", "backup","temp1"]
@@ -153,6 +176,11 @@ function afisareEroare(res, identificator, titlu, text, imagine){
 })
 
 }
+//daca nu este specificat path-ul, va fi luat oricare
+app.use(function(req, res, next) {
+    res.locals.optiuniMeniu = obGlobal.optiuniMeniu;
+    next();
+});
 
 app.use("/resurse", express.static(path.join(__dirname,"resurse")))
 app.use("/node_modules", express.static(path.join(__dirname, "node_modules")))
@@ -192,6 +220,33 @@ app.get("/despre",function(req,res){
 app.get("/galerie",function(req,res){
     res.render("pagini/galerie-pagina", {ip: req.ip, imagini: obGlobal.obImagini.imagini});
 })
+
+app.get("/produse", function(req, res){
+    console.log(req.query)
+    var conditieQuery =""; //initializare
+    if (req.query.categorie){
+        conditieQuery=` where categorie='${req.query.categorie.toUpperCase()}'`
+
+    }
+
+    queryOptiuni="select * from unnest(enum_range(null::categorie_enum))"
+    client.query(queryOptiuni, function(err, rezOptiuni){
+        console.log(rezOptiuni)
+
+
+        queryProduse="select * from produse" +conditieQuery
+        client.query(queryProduse, function(err, rez){
+            if (err){
+                console.log(err);
+                afisareEroare(res, 2);
+            }
+            else{
+                res.render("pagini/produse", {produse: rez.rows, optiuni:rezOptiuni.rows})
+            }
+        })
+    });
+})
+
 
 app.get(/^\/resurse\/[a-zA-Z0-9_\/]*$/, function(req, res, next){
     afisareEroare(res,403)

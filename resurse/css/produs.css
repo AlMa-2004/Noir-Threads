@@ -1,0 +1,87 @@
+#art-produs {
+  margin: 0 auto;
+  width: 70%;
+  max-width: 700px;
+
+  background-color: var(--culoare-chenar);
+  box-shadow: 0px 0px 10px 5px var(--culoare-umbra);
+  padding: 0.4rem;
+  border-radius: 15px;
+  border: 2px solid var(--culoare-fundal);
+}
+
+#art-produs p {
+  margin: 0;
+  padding: 0.4rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  background-color: var(--culoare-deschisa);
+  color: var(--culoare-fundal);
+  border-bottom: 1px solid var(--culoare-umbra);
+}
+
+#art-produs p span {
+  font-weight: normal;
+}
+
+#art-produs p:nth-of-type(even) {
+  background-color: var(--culoare-highlight);
+  color: var(--culoare-deschisa);
+}
+
+#art-produs p:nth-of-type(odd) {
+  background-color: var(--culoare-umbra);
+  color: var(--culoare-fundal);
+}
+
+.imag-produs {
+  text-align: center;
+}
+
+.imag-produs img {
+  width: 150px;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid var(--culoare-fundal);
+  box-shadow: 2px 2px 10px var(--culoare-umbra);
+}
+
+/* Stil pentru tabelul de caracteristici */
+.tabel-caracteristici {
+  border-collapse: collapse;
+  width: 100%;
+  margin-left: 1rem;
+}
+
+.tabel-caracteristici td {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--culoare-fundal);
+  font-size: 1rem;
+  color: var(--culoare-fundal);
+  background-color: var(--culoare-deschisa);
+}
+
+.tabel-caracteristici tr:nth-child(even) td {
+  background-color: var(--culoare-umbra);
+}
+
+.tabel-caracteristici tr:hover td {
+  background-color: var(--culoare-highlight);
+  color: var(--culoare-deschisa);
+  transition: 0.3s ease-in-out;
+}
+
+/* Responsive */
+@media screen and (max-width: 700px) {
+  #art-produs {
+    width: 95%;
+  }
+
+  .imag-produs img {
+    width: 100px;
+  }
+
+  .tabel-caracteristici {
+    font-size: 0.9rem;
+  }
+}
