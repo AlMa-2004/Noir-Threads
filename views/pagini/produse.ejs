@@ -23,45 +23,40 @@
     text	nume	x
     range (x2)	pret	x x
     datalist	categorie	x x
-    radio group	pentru_membri x	
-    checkbox group	culoare	xx
+    radio group	culoare 
+    checkbox(x1)	pentru membri	xx
     textarea	descriere x
     select simplu	trupa x
     select multiplu	materiale xx
     -->
         <label> Nume: <input type="text" id="inp-nume"></label>
         
-        <div> Program de fidelitate:<!-- trebuie sa aiba acelasi name ca sa formeze un grup -->
-            <p><label>Doar pentru membrii
-                <input id="i_rad2"  name="gr_rad" value="true" type="radio"/>
-            </label>
-            <p><label>Exclus produse pentru membrii
-                <input id="i_rad3" name="gr_rad" value="false" type="radio"/>
-            </label>
-            <p><label>Toate
-                <input id="i_rad4" checked name="gr_rad" value="oricare" type="radio"/>
-            </label>
-        </div>
-
         <div> Culoare:
+            <p>Orice culoare<label>
+                <input type="radio" name="rad-culoare" value="toate" checked>
+            </label></p>
             <% for (let i = 0; i < culori.length; i++) { 
                 let c = culori[i].unnest;
             %>
                 <p>
                     <label>
                         <%= c.charAt(0) + c.slice(1).toLowerCase() %>
-                        <input type="checkbox" name="culoare" value="<%= c %>" id="chk-culoare-<%= i %>">
+                        <input type="radio" name="rad-culoare" value="<%= c.toLowerCase() %>" id="rad-culoare-<%= i %>">
                     </label>
                 </p>
             <% } %>
+        </div>
+
+        <div> Doar produse pentru membri:
+            <label>
+                <input type="checkbox" id="chk-membru" />
+            </label>
         </div>
 
         <label for="inp-descriere">Descriere:<br/>
             <textarea id="inp-descriere" name="descriere" rows="3" cols="40" placeholder="Ex: de seară,..."></textarea>
         </label>
         
-
-
         <label> Pret minim: <input type="range" id="inp-pret-min" value="0" min="0"  max="70"> <span id="infoRange">(0)</span></label>
         <label> Pret maxim: <input type="range" id="inp-pret-max" value="0" min="0"  max="70"> <span id="infoRange">(0)</span></label>
 
@@ -111,7 +106,11 @@
                         <h3 class="nume">Nume: <a href="/produs/<%-prod.id %>" ><span class="val-nume"><%- prod.nume%></span></a></h3>
                         <div class="info-prod">
                             <p class="pret">Pret: <span class="val-pret"><%- prod.pret%> RON</span></p>
-                        <!-- urmeaza sa pun restul detaliilor relavante/pentru filtrare --> 
+                            <p class="culoare">Culoare: <span class="val-culoare"><%- prod.culoare %></span></p>
+                            <p class="trupa">Trupa: <span class="val-trupa"><%- prod.trupa %></span></p>
+                            <p class="descriere">Descriere: <span class="val-descriere"><%- prod.descriere %></span></p>
+                            <p class="membru">Program de fidelitate: <span class="val-membru"> <%= prod.pentru_membri ? "da" : "nu" %></span></p>
+
                         </div>
                         <p class="categorie">Categorie: <span class="val-categorie"><%- prod.categorie%></span></p>
                         <figure>

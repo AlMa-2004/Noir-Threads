@@ -27,8 +27,8 @@ CREATE TABLE produse(
     firma               firma_enum NOT NULL, --categ secundara
     pret                NUMERIC(10, 2) NOT NULL CHECK (pret > 0),
     an_lansare          INT CHECK (an_lansare >= 1900 AND an_lansare <= EXTRACT(YEAR FROM current_date)),
-    data_intrare        DATE DEFAULT CURRENT_DATE,
-    culoare             culoare_enum NOT NULL,
+    data_intrare        DATE DEFAULT CURRENT_DATE, 
+    culoare             culoare_enum NOT NULL, -- poate lua o sg val (in plus)
     materiale           VARCHAR(50), -- poate lua mai multe val
     pentru_membri     BOOLEAN DEFAULT FALSE
 );
