@@ -250,7 +250,7 @@ app.get("/galerie",function(req,res){
 //     });
 // })
 
-app.get("/produse", function (req, res) {
+app.get("/produse", function (req, res) { //am nevoie de toate enumurile/valorile pentru a incarca pagina de produse (pentru partile de filtrare)
     let conditieQuery = "";
     if (req.query.categorie) {
         conditieQuery = ` WHERE categorie='${req.query.categorie}'`;

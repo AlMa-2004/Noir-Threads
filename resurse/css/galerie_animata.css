@@ -55,46 +55,6 @@
   animation-delay: 24s;
   z-index: 7;
 }
-#slideshow-container img:nth-child(8) {
-  animation: animatie 4s linear 1 forwards;
-  animation-delay: 28s;
-  z-index: 8;
-}
-#slideshow-container img:nth-child(9) {
-  animation: animatie 4s linear 1 forwards;
-  animation-delay: 32s;
-  z-index: 9;
-}
-#slideshow-container img:nth-child(10) {
-  animation: animatie 4s linear 1 forwards;
-  animation-delay: 36s;
-  z-index: 10;
-}
-#slideshow-container img:nth-child(11) {
-  animation: animatie 4s linear 1 forwards;
-  animation-delay: 40s;
-  z-index: 11;
-}
-#slideshow-container img:nth-child(12) {
-  animation: animatie 4s linear 1 forwards;
-  animation-delay: 44s;
-  z-index: 12;
-}
-#slideshow-container img:nth-child(13) {
-  animation: animatie 4s linear 1 forwards;
-  animation-delay: 48s;
-  z-index: 13;
-}
-#slideshow-container img:nth-child(14) {
-  animation: animatie 4s linear 1 forwards;
-  animation-delay: 52s;
-  z-index: 14;
-}
-#slideshow-container img:nth-child(15) {
-  animation: animatie 4s linear 1 forwards;
-  animation-delay: 56s;
-  z-index: 15;
-}
 #slideshow-container:hover img {
   animation-play-state: paused !important;
 }

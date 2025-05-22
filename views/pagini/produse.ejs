@@ -80,9 +80,11 @@
         <label for="inp-categorie">Categorie:
             <input type="text" id="inp-categorie" name="categorie" list="lista-categorii" placeholder="Alege o categorie">
             <datalist id="lista-categorii">
-            <% for (let cat of categorii) { %>
-                <option value="<%= cat.unnest %>">
-            <% } %>
+            <%  
+                for (let cat of categorii) { %>
+                    <option value="<%= cat.unnest %>">
+            <%      
+                } %>
             </datalist>
         </label>
 
@@ -90,8 +92,8 @@
         <button id="filtrare">Filtreaza</button> 
 
         <button id="resetare">Reseteaza</button><br/>
-        <button id="sortCrescNume">Sorteaza crescator dupa pret si nume</button>
-        <button id="sortDescrescNume">Sorteaza descrescator dupa pret si nume</button>
+        <button id="sortCrescNume">Sorteaza crescator dupa pret si lungimea descrierii</button>
+        <button id="sortDescrescNume">Sorteaza descrescator dupa pret si lungimea descrierii</button>
         
         </p>
       
@@ -102,7 +104,7 @@
             <h2>Produse</h2>
             <div class="grid-produse">
                 <% for( let prod of locals.produse) { %>
-                    <article class="produs" >
+                    <article class="produs" id="art<%= prod.id %>">
                         <h3 class="nume">Nume: <a href="/produs/<%-prod.id %>" ><span class="val-nume"><%- prod.nume%></span></a></h3>
                         <div class="info-prod">
                             <p class="pret">Pret: <span class="val-pret"><%- prod.pret%> RON</span></p>
