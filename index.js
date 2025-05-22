@@ -265,7 +265,7 @@ app.get("/produse", function (req, res) { //am nevoie de toate enumurile/valoril
         }
 
         //categorie_enum
-        client.query("SELECT * FROM unnest(enum_range(NULL::categorie_enum))", function (errCat, rezCat) {
+        client.query("SELECT * FROM unnest(enum_range(NULL::firma_enum))", function (errCat, rezFirme) {
             if (errCat) {
                 console.log(errCat);
                 afisareEroare(res, 2);
@@ -297,7 +297,7 @@ app.get("/produse", function (req, res) { //am nevoie de toate enumurile/valoril
 
                     res.render("pagini/produse", {
                         produse: rezProd.rows,
-                        categorii: rezCat.rows,
+                        firme: rezFirme.rows,
                         culori: rezCulori.rows,
                         trupe: rezTrupe.rows,
                         materiale: materiale

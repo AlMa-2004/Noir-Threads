@@ -22,7 +22,7 @@
     <!-- 
     text	nume	x
     range (x2)	pret	x x
-    datalist	categorie	x x
+    datalist	firma	x x
     radio group	culoare 
     checkbox(x1)	pentru membri	xx
     textarea	descriere x
@@ -60,16 +60,16 @@
         <label> Pret minim: <input type="range" id="inp-pret-min" value="0" min="0"  max="70"> <span id="infoRange">(0)</span></label>
         <label> Pret maxim: <input type="range" id="inp-pret-max" value="0" min="0"  max="70"> <span id="infoRange">(0)</span></label>
 
-        <label>Select simplu:
+        <label>Select simplu (Trupe):
             <select id="inp-trupa">
-                <option id="sel-toate" selected value="toate">Toate</option>
+                <option id="sel-toate" selected value="toate">TOATE</option>
                 <% for (let opt of locals.trupe) { %>
-                    <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
+                    <option value="<%- opt.unnest %>"><%- opt.unnest %></option>
                 <% } %>
             </select>
         </label>
 
-        <label>Select multiplu:
+        <label>Select multiplu (Materiale):
             <select id="inp-materiale" multiple size="3">
                 <% for (let mat of materiale) { %>
                     <option value="<%= mat %>"><%= mat.charAt(0).toUpperCase() + mat.slice(1).toLowerCase() %></option>
@@ -77,12 +77,13 @@
             </select>
         </label>
 
-        <label for="inp-categorie">Categorie:
-            <input type="text" id="inp-categorie" name="categorie" list="lista-categorii" placeholder="Alege o categorie">
-            <datalist id="lista-categorii">
+        <label for="inp-firma">Firma:
+            <input type="text" id="inp-firma" name="firma" list="lista-firme" placeholder="Alege o firma">
+            <datalist id="lista-firme">
+                <option value="toate"></option>
             <%  
-                for (let cat of categorii) { %>
-                    <option value="<%= cat.unnest %>">
+                for (let fir of firme) { %>
+                    <option value="<%= fir.unnest %>">
             <%      
                 } %>
             </datalist>
@@ -107,14 +108,14 @@
                     <article class="produs" id="art<%= prod.id %>">
                         <h3 class="nume">Nume: <a href="/produs/<%-prod.id %>" ><span class="val-nume"><%- prod.nume%></span></a></h3>
                         <div class="info-prod">
-                            <p class="pret">Pret: <span class="val-pret"><%- prod.pret%> RON</span></p>
+                            <p class="pret">Pret: <span class="val-pret"><%- prod.pret%></span></p>
                             <p class="culoare">Culoare: <span class="val-culoare"><%- prod.culoare %></span></p>
                             <p class="trupa">Trupa: <span class="val-trupa"><%- prod.trupa %></span></p>
                             <p class="descriere">Descriere: <span class="val-descriere"><%- prod.descriere %></span></p>
                             <p class="membru">Program de fidelitate: <span class="val-membru"> <%= prod.pentru_membri ? "da" : "nu" %></span></p>
-
+                            <p class="firma">Firma: <span class="val-firma"><%- prod.firma%></span></p>
+                            <p class="materiale">Materiale: <span class="val-materiale"><%- prod.materiale%></span></p>
                         </div>
-                        <p class="categorie">Categorie: <span class="val-categorie"><%- prod.categorie%></span></p>
                         <figure>
                             <a href="/produs/<%-prod.id %>" ><img src="/resurse/imagini/produse/<%- prod.cale_imagine %>" style="width:50%;height:auto;" alt="[imagine <%- prod.nume %>]" /></a>
                         </figure>
