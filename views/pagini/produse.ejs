@@ -54,11 +54,20 @@
         </div>
 
         <label for="inp-descriere">Descriere:<br/>
-            <textarea id="inp-descriere" name="descriere" rows="3" cols="40" placeholder="Ex: de seară,..."></textarea>
+            <textarea id="inp-descriere" name="descriere" rows="2" cols="20" placeholder="Ex: elegant, ..."></textarea>
         </label>
         
-        <label> Pret minim: <input type="range" id="inp-pret-min" value="0" min="0"  max="70"> <span id="infoRange">(0)</span></label>
-        <label> Pret maxim: <input type="range" id="inp-pret-max" value="0" min="0"  max="70"> <span id="infoRange">(0)</span></label>
+        <label>Pret minim:
+            <span id="val-pret-min">0</span>
+            <input type="range" id="inp-pret-min" value="0" min="0" max="460">
+            <span id="info-pret-min">(0)</span>
+        </label>
+
+        <label>Pret maxim:
+            <span id="val-pret-max">460</span>
+            <input type="range" id="inp-pret-max" value="460" min="0" max="460">
+            <span id="info-pret-max">(460)</span>
+        </label>
 
         <label>Select simplu (Trupe):
             <select id="inp-trupa">

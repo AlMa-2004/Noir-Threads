@@ -1,10 +1,19 @@
 window.onload = function () {
     btn = document.getElementById("filtrare");
+
+    document.getElementById("inp-pret-min").onchange = function () {
+            document.getElementById("info-pret-min").innerHTML = `(${this.value})`;
+    }
+
+    document.getElementById("inp-pret-max").onchange = function () {
+        document.getElementById("info-pret-max").innerHTML = `(${this.value})`;
+    }
+    
     btn.onclick = function () {
         let inpNume = document.getElementById("inp-nume").value.trim().toLowerCase();
 
         //validare input nume
-        let potriviri = inpNume.match(/[^a-zA-Z\s]/g);
+        let potriviri = inpNume.match(/[^a-zA-Z\s\*]/g);
         if (potriviri) {
             alert("Numele produsului conține caractere interzise: " + potriviri.join(" "));
             document.getElementById("resetare").click(); 
@@ -47,16 +56,31 @@ window.onload = function () {
         }
 
         let inpTrupa = document.getElementById("inp-trupa").value.trim().toLowerCase();
+        
         let materialeSelectate = Array.from(document.getElementById("inp-materiale").selectedOptions).map(opt => opt.value.trim().toLowerCase());
+
+        let inpDescriere = document.getElementById("inp-descriere").value.trim().toLowerCase();
+
+        let inpMin = document.getElementById("inp-pret-min");
+        let inpMax = document.getElementById("inp-pret-max");
 
         let produse = document.getElementsByClassName("produs");
 
         for (let prod of produse) {
             prod.style.display = "none";
 
+            
             let nume = prod.getElementsByClassName("val-nume")[0].innerHTML.trim().toLowerCase();
+            let cond1 = nume.includes(inpNume)
 
-            let cond1 = nume.includes(inpNume);
+            if (inpNume.includes("*")) {
+                let [inceput, final] = inpNume.split("*");
+                //console.log(inceput, final);
+                let regex2 = new RegExp(`\\b${inceput}.*${final}\\b`, "i");
+
+                cond1 = regex2.test(nume);
+            }
+            //console.log(cond1)
 
             let membri = prod.getElementsByClassName("val-membru")[0].innerHTML.trim().toLowerCase();
             let cond2 = (!doarMembri || membri === "da");
@@ -73,7 +97,22 @@ window.onload = function () {
             let materialeProdus = prod.querySelector(".val-materiale").innerText.split(",").map(m => m.trim().toLowerCase());
             let cond6 = materialeSelectate.length === 0 || materialeSelectate.every(mat => materialeProdus.includes(mat));
 
-            if (cond1 && cond2 && cond3 && cond4 && cond5 && cond6) {
+            let descriere = prod.getElementsByClassName("val-descriere")[0].innerHTML.trim().toLowerCase();
+            let cond7 = inpDescriere === "" || inpDescriere.split(/\s+/).every(cuv => descriere.includes(cuv));
+
+            let pretMin = parseFloat(inpMin.value);
+            let pretMax = parseFloat(inpMax.value);
+
+            if (pretMin > pretMax) {
+                alert("Prețul minim nu poate fi mai mare decât prețul maxim!");
+                document.getElementById("resetare").click();
+                return;
+            }
+
+            let pret = parseFloat(prod.getElementsByClassName("val-pret")[0].innerHTML.trim());
+            let cond8 = pret >= pretMin && pret <= pretMax;
+
+            if (cond1 && cond2 && cond3 && cond4 && cond5 && cond6 && cond7 && cond8) {
                 prod.style.display = "block";
             }
         }
@@ -101,6 +140,15 @@ window.onload = function () {
         for (let opt of matSelect.options) {
             opt.selected = false;
         }
+
+        document.getElementById("inp-descriere").value = "";
+
+        document.getElementById("inp-pret-min").value = 0;
+        document.getElementById("info-pret-min").innerHTML = "(0)";
+
+        document.getElementById("inp-pret-max").value = 460;
+        document.getElementById("info-pret-max").innerHTML = "(460)";
+
 
         let produse = document.getElementsByClassName("produs");
         for (let prod of produse) {

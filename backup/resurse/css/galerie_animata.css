@@ -85,16 +85,6 @@
   animation-delay: 48s;
   z-index: 13;
 }
-#slideshow-container img:nth-child(14) {
-  animation: animatie 4s linear 1 forwards;
-  animation-delay: 52s;
-  z-index: 14;
-}
-#slideshow-container img:nth-child(15) {
-  animation: animatie 4s linear 1 forwards;
-  animation-delay: 56s;
-  z-index: 15;
-}
 #slideshow-container:hover img {
   animation-play-state: paused !important;
 }
