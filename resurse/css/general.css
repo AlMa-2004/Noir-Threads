@@ -31,6 +31,15 @@ body{
   --spatiere-pagina: 80px;
 }
 
+body.light{
+  --culoare-text: #14110f;
+  --culoare-umbra: #34312d;
+  background-color: #d9c5b2;
+  --culoare-fundal: #d9c5b2;
+  --culoare-chenar: #afa193;
+  --culoare-deschisa: #ffffff; 
+}
+
 main {
   padding-left:var(--spatiere-pagina);
   padding-right:var(--spatiere-pagina);
