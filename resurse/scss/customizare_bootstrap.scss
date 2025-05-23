@@ -1,3 +1,13 @@
+$primary: #e63946;
+$secondary: #34312d;
+$light: #d9c5b2;
+$dark: #14110f;
+
+$form-range-thumb-bg: $primary;
+$form-range-track-bg: lighten($primary, 20%);
+$form-range-thumb-width: 1.5rem;
+$form-range-thumb-height: 1.5rem;
+
 @use '../../node_modules/bootstrap/scss/bootstrap' with (
 
   // Culori background
@@ -44,6 +54,14 @@
   $link-decoration: none,
 
   // Buton
-  $btn-border-radius: 5rem
+  $btn-border-radius: 5rem,
+
+  // Variabile pentru slider
+  // $form-range-thumb-width: 1.5rem,
+  // $form-range-thumb-bg: bs.$primary,
+  // $form-range-track-bg: lighten($primary, 20%),
+  // $form-range-thumb-height: 1.5rem,
+  // $form-range-track-height: 0.5rem
+
 );
 
