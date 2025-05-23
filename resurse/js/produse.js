@@ -9,6 +9,12 @@ window.onload = function () {
         document.getElementById("info-pret-max").innerHTML = `(${this.value})`;
     }
     
+    document.getElementById("inp-descriere").oninput = function () { // se corecteaza live eroarea
+        if (this.value.trim().length >= 3 || this.value.trim().length === 0) {
+            this.classList.remove("is-invalid");
+        }
+    }
+    
     btn.onclick = function () {
         let inpNume = document.getElementById("inp-nume").value.trim().toLowerCase();
 
@@ -60,6 +66,11 @@ window.onload = function () {
         let materialeSelectate = Array.from(document.getElementById("inp-materiale").selectedOptions).map(opt => opt.value.trim().toLowerCase());
 
         let inpDescriere = document.getElementById("inp-descriere").value.trim().toLowerCase();
+        let textarea = document.getElementById("inp-descriere");
+        if (inpDescriere.length > 0 && inpDescriere.length < 3) {
+            textarea.classList.add("is-invalid");
+            return;
+        }
 
         let inpMin = document.getElementById("inp-pret-min");
         let inpMax = document.getElementById("inp-pret-max");

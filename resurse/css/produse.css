@@ -127,3 +127,9 @@ main {
   background-color: var(--culoare-highlight);
   color: var(--culoare-fundal);
 }
+
+@media (max-width: 700px) {
+  .btn-text {
+    display: none !important;
+  }
+}

@@ -8,6 +8,15 @@ $form-range-track-bg: lighten($primary, 20%);
 $form-range-thumb-width: 1.5rem;
 $form-range-thumb-height: 1.5rem;
 
+$utilities: (
+  "display": (
+    property: display,
+    class: d,
+    responsive: true,
+    values: inline inline-block block none flex inline-flex grid
+  )
+);
+
 @use '../../node_modules/bootstrap/scss/bootstrap' with (
 
   // Culori background
@@ -64,4 +73,3 @@ $form-range-thumb-height: 1.5rem;
   // $form-range-track-height: 0.5rem
 
 );
-

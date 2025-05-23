@@ -85,6 +85,7 @@
                 <div class="form-floating">
                     <textarea class="form-control" id="inp-descriere" name="descriere" placeholder="Ex: elegant, ..." style="height: 100px"></textarea>
                     <label for="inp-descriere">Descriere</label> <!-- vreau sa fie pe toata lungimea-->
+                    <div class="invalid-feedback">Descrierea trebuie să aibă cel puțin 3 caractere.</div>
                 </div>
             </div>
 
@@ -116,30 +117,29 @@
             <div class="col-12">
                 <div class="d-flex flex-wrap gap-2">
                     <button class="btn btn-primary" id="filtrare">
-                    <i class="bi bi-funnel-fill me-2 d-none d-sm-inline"></i>
-                    <span class="d-none d-sm-inline">Filtrează</span>
-                    <i class="bi bi-funnel-fill d-inline d-sm-none"></i>
+                    <i class="bi bi-funnel-fill me-2"></i>
+                    <span class="btn-text">Filtrează</span> <!-- nu functionza bootstrap cu "d-none d-md-inline"-->
                     </button>
                     <button class="btn btn-secondary" id="resetare">
-                    <i class="bi bi-arrow-clockwise me-2 d-none d-sm-inline"></i>
-                    <span class="d-none d-sm-inline">Resetează</span>
-                    <i class="bi bi-arrow-clockwise d-inline d-sm-none"></i>
+                    <i class="bi bi-arrow-clockwise me-2"></i>
+                    <span class="btn-text">Resetează</span>
                     </button>
                     <button class="btn btn-primary" id="sortCrescNume">
-                    <i class="bi bi-sort-alpha-down me-2 d-none d-sm-inline"></i>
-                    <span class="d-none d-sm-inline">Sortare ascendentă</span>
-                    <i class="bi bi-sort-alpha-down d-inline d-sm-none"></i>
+                    <i class="bi bi-sort-alpha-down me-2"></i>
+                    <span class="btn-text">Sortare ascendentă</span>
                     </button>
                     <button class="btn btn-primary" id="sortDescrescNume">
-                    <i class="bi bi-sort-alpha-up me-2 d-none d-sm-inline"></i>
-                    <span class="d-none d-sm-inline">Sortare descendentă</span>
-                    <i class="bi bi-sort-alpha-up d-inline d-sm-none"></i>
+                    <i class="bi bi-sort-alpha-up me-2"></i>
+                    <span class="btn-text">Sortare descendentă</span>
                     </button>
                 </div>
             </div>
+
             
         </div>
     </div>
+        <span class="btn-text">Text test</span>
+
         <p id="p-suma">Apăsați Alt+"c" pentru suma preturilor produselor afișate. </p>
   
         <section id="produse">
