@@ -287,20 +287,34 @@ app.get("/produse", function (req, res) { //am nevoie de toate enumurile/valoril
                         afisareEroare(res, 2);
                         return;
                     }
+                   
                     const materialeSet = new Set();
+                    let pret_min = 1000000000000000;
+                    let pret_max = -1000000000000000;
                     for (let prod of rezProd.rows) {
                         if (prod.materiale) {
                             prod.materiale.split(",").map(m => m.trim()).forEach(m => materialeSet.add(m));
                         }
+                        if(parseFloat(prod.pret)>pret_max) pret_max=prod.pret;
+                        if(parseFloat(prod.pret)<pret_min) pret_min=prod.pret;
+
                     }
                     const materiale = Array.from(materialeSet).sort();
+
+                    const coloane = rezProd.fields.map(field => {
+                        let nume = field.name;
+                        return nume.charAt(0).toUpperCase() + nume.slice(1).toLowerCase();
+                    }); // echivalent cu unnest
 
                     res.render("pagini/produse", {
                         produse: rezProd.rows,
                         firme: rezFirme.rows,
                         culori: rezCulori.rows,
                         trupe: rezTrupe.rows,
-                        materiale: materiale
+                        materiale: materiale,
+                        pretMax: pret_max,
+                        pretMin: pret_min,
+                        coloane: coloane// numele fiecarui atribut din tabela produse
                     });
                 });
             });

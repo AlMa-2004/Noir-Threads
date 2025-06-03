@@ -154,12 +154,11 @@ window.onload = function () {
 
         document.getElementById("inp-descriere").value = "";
 
-        document.getElementById("inp-pret-min").value = 0;
-        document.getElementById("info-pret-min").innerHTML = "(0)";
+        document.getElementById("inp-pret-min").value = document.getElementById("inp-pret-min").min;
+        document.getElementById("info-pret-min").innerHTML = `(${document.getElementById("inp-pret-min").min})`;
 
-        document.getElementById("inp-pret-max").value = 460;
-        document.getElementById("info-pret-max").innerHTML = "(460)";
-
+        document.getElementById("inp-pret-max").value = document.getElementById("inp-pret-max").max;
+        document.getElementById("info-pret-max").innerHTML = `(${document.getElementById("inp-pret-max").max})`;
 
         let produse = document.getElementsByClassName("produs");
         for (let prod of produse) {

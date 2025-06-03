@@ -1,6 +1,4 @@
-if (localStorage.getItem("tema")){
-    document.body.classList.add("light")
-}
-else{
-    document.body.classList.remove("light")
+const temaSalvata = localStorage.getItem("tema");
+if (temaSalvata) {
+  document.body.classList.add(temaSalvata);
 }

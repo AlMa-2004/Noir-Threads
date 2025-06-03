@@ -1,13 +1,25 @@
 <header>
     <h1>Noir Threads</h1>
     <script src="/resurse/js/tema.js"></script>
-    <div style="display: flex; flex-direction: row; align-items: center; gap: 0.5rem;">
-        <i class="fa-solid fa-moon">  </i>
-        <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" role="switch" id="schimba_tema">
-        </div>
-        <i class="fa-solid fa-sun"></i>
-   </div>
+    <div class="btn-group" role="group">
+        <input type="radio" class="btn-check" name="tema" id="tema-dark" value="dark" autocomplete="off" checked>
+        <label class="btn btn-outline-primary d-flex align-items-center gap-1" for="tema-dark">
+            <i class="fa-solid fa-moon"></i>
+        </label>
+
+        <input type="radio" class="btn-check" name="tema" id="tema-light" value="light" autocomplete="off">
+        <label class="btn btn-outline-primary d-flex align-items-center gap-1" for="tema-light">
+            <i class="fa-solid fa-sun"></i>
+        </label>
+
+        <input type="radio" class="btn-check" name="tema" id="tema-alt" value="alt" autocomplete="off">
+        <label class="btn btn-outline-primary d-flex align-items-center gap-1" for="tema-alt">
+            <i class="fa-solid fa-heart"></i>
+        </label>
+    </div>
+
+
+
 </header>
 <nav>
         

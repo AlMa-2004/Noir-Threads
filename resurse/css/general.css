@@ -40,6 +40,77 @@ body.light{
   --culoare-deschisa: #ffffff; 
 }
 
+body.alt{
+  --culoare-text: #37094b;
+  --culoare-umbra: #34312d;
+  background-color: #d8b2d9;
+  --culoare-fundal: #d9c5b2;
+  --culoare-chenar: #ffffff;
+  --culoare-deschisa: #ffffff; 
+  --culoare-highlight:  #8221ac;
+}
+
+/* ============Suprascriere culori bootstrap================== */
+
+.alt .btn-primary{
+  background-color: #8221ac;
+  border-color: #34312d;
+}
+
+.alt .btn-check:checked + .btn {
+  background-color: #8221ac;
+  color: #fff;
+  border-color: #34312d;
+}
+
+body.alt .btn-outline-primary {
+  color: #8221ac;
+  border-color: #14110f;
+}
+
+body.alt input:not([type="range"]),
+body.alt select {
+  color: #14110f;
+  background-color: #fff;
+}
+
+body.alt .btn-outline-primary:hover {
+  background-color: #8221ac;
+  color: #fff;
+  border-color: #14110f;
+}
+
+body.alt input[type="range"]::-webkit-slider-thumb {
+  background: #8221ac;         
+  border: 1px solid #34312d; 
+  
+}
+
+body.alt input[type="range"]::-moz-range-thumb {
+  background: #8221ac;
+  border: 1px solid #34312d;
+  background: transparent;
+  border: none;
+}
+
+body.alt input[type="range"]::-ms-thumb {
+  background: #8221ac;
+  border: 1px solid #34312d;
+}
+
+/*------------*/
+
+body.alt .form-floating > textarea,
+body.alt .form-floating > .form-control {
+  background-color: #fff !important;
+}
+
+body.alt .form-floating > textarea:focus,
+body.alt .form-floating > .form-control:focus {
+  background-color: #fff !important;
+}
+/* ============================== */
+
 main {
   padding-left:var(--spatiere-pagina);
   padding-right:var(--spatiere-pagina);
@@ -529,7 +600,7 @@ figure {
 }
 
 #imagine:before{
-	background-color:rgb(230, 57, 70);
+	background-color:var(--culoare-highlight);
 	mix-blend-mode:darken;
 }
 

@@ -33,12 +33,12 @@
     <div class="container mt-4">
         <div class="row gy-4 gx-3">
             <div class="col-md-6 col-lg-4">
-                <label for="inp-nume" class="form-label">Nume</label>
+                <label for="inp-nume" class="form-label"><%= locals.coloane[1] %></label>
                 <input type="text" class="form-control" id="inp-nume">
             </div>
 
             <div class="col-md-6 col-lg-4">
-                <label for="inp-firma" class="form-label">Firmă</label>
+                <label for="inp-firma" class="form-label"><%= locals.coloane[6] %></label>
                 <input type="text" class="form-control" id="inp-firma" list="lista-firme" placeholder="Alege o firmă">
                 <datalist id="lista-firme">
                     <% for (let fir of firme) { %>
@@ -50,7 +50,7 @@
 
 
             <div class="col-md-6 col-lg-4">
-                <label for="inp-trupa" class="form-label">Trupă</label>
+                <label for="inp-trupa" class="form-label"><%= locals.coloane[5] %></label>
                 <select class="form-select" id="inp-trupa">
                     <option value="toate">Toate</option>
                     <% for (let t of trupe) { %>
@@ -60,7 +60,7 @@
             </div>
 
             <div class="col-12">
-                <label class="form-label d-block">Culoare</label>
+                <label class="form-label d-block"><%= locals.coloane[10] %></label>
                 <div class="btn-group flex-wrap" role="group">
                     <input type="radio" class="btn-check" name="rad-culoare" id="culoare-toate" value="toate" checked>
                     <label class="btn btn-outline-primary" for="culoare-toate">Toate</label>
@@ -74,7 +74,7 @@
             </div>
 
             <div class="col-md-6 col-lg-4">
-                <label class="form-label d-block">Doar pentru membri</label>
+                <label class="form-label d-block">Doar <%= locals.coloane[12] %></label>
                 <div class="btn-group" role="group">
                     <input type="checkbox" class="btn-check" id="chk-membru">
                     <label class="btn btn-outline-secondary" for="chk-membru">Da</label>
@@ -84,27 +84,25 @@
             <div class="col-12">
                 <div class="form-floating">
                     <textarea class="form-control" id="inp-descriere" name="descriere" placeholder="Ex: elegant, ..." style="height: 100px"></textarea>
-                    <label for="inp-descriere">Descriere</label> <!-- vreau sa fie pe toata lungimea-->
+                    <label for="inp-descriere"><%= locals.coloane[2] %></label> <!-- vreau sa fie pe toata lungimea-->
                     <div class="invalid-feedback">Descrierea trebuie să aibă cel puțin 3 caractere.</div>
                 </div>
             </div>
 
             <div class="col-md-6 col-lg-4">
                 <label for="inp-pret-min" class="form-label">Preț minim</label>
-                <input type="range" class="form-range" id="inp-pret-min" min="0" max="460" value="0">
-                <span id="info-pret-min">(0)</span>
+                <input type="range" class="form-range" id="inp-pret-min" min="<%= locals.pretMin %>" max="<%= locals.pretMax %>" value="<%= locals.pretMin %>" step="0.01">
+                <span id="info-pret-min">(<%= locals.pretMin %>)</span>
             </div>
-
             
             <div class="col-md-6 col-lg-4">
                 <label for="inp-pret-max" class="form-label">Preț maxim</label>
-                <input type="range" class="form-range" id="inp-pret-max" min="0" max="460" value="460">
-                <span id="info-pret-max">(460)</span>
+                <input type="range" class="form-range" id="inp-pret-max" min="<%= locals.pretMin %>" max="<%= locals.pretMax %>" value="<%= locals.pretMax %>" step="0.01">
+                <span id="info-pret-max">(<%= locals.pretMax %>)</span>
             </div>
-
            
             <div class="col-md-6 col-lg-4">
-                <label for="inp-materiale" class="form-label">Materiale</label>
+                <label for="inp-materiale" class="form-label"><%= locals.coloane[11] %></label>
                 <select id="inp-materiale" class="form-select" multiple size="3">
                     <% for (let mat of materiale) 
                     { %>
