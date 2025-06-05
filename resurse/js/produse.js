@@ -1,21 +1,6 @@
 window.onload = function () {
-    btn = document.getElementById("filtrare");
-
-    document.getElementById("inp-pret-min").onchange = function () {
-            document.getElementById("info-pret-min").innerHTML = `(${this.value})`;
-    }
-
-    document.getElementById("inp-pret-max").onchange = function () {
-        document.getElementById("info-pret-max").innerHTML = `(${this.value})`;
-    }
     
-    document.getElementById("inp-descriere").oninput = function () { // se corecteaza live eroarea
-        if (this.value.trim().length >= 3 || this.value.trim().length === 0) {
-            this.classList.remove("is-invalid");
-        }
-    }
-    
-    btn.onclick = function () {
+    function filtrare() {
         let inpNume = document.getElementById("inp-nume").value.trim().toLowerCase();
 
         //validare input nume
@@ -77,10 +62,11 @@ window.onload = function () {
 
         let produse = document.getElementsByClassName("produs");
 
+        let existaProduse = false;
+
         for (let prod of produse) {
             prod.style.display = "none";
 
-            
             let nume = prod.getElementsByClassName("val-nume")[0].innerHTML.trim().toLowerCase();
             let cond1 = nume.includes(inpNume)
 
@@ -125,14 +111,62 @@ window.onload = function () {
 
             if (cond1 && cond2 && cond3 && cond4 && cond5 && cond6 && cond7 && cond8) {
                 prod.style.display = "block";
+                existaProduse = true;
             }
         }
+
+        if (existaProduse) {
+            document.getElementById("nuexista").style.display = "none";
+        } 
+        else {
+            document.getElementById("nuexista").style.display = "block";
+        }
     };
+
+    document.getElementById("inp-nume").oninput = filtrare;
+    document.getElementById("inp-firma").onchange = filtrare;
+    document.getElementById("inp-trupa").onchange = filtrare;
+    document.getElementById("chk-membru").onchange = filtrare;
+    document.getElementById("inp-materiale").onchange = filtrare;
+    document.getElementById("inp-pret-min").onchange = filtrare;
+    document.getElementById("inp-pret-max").onchange = filtrare;
+
+    let radioCulori = document.getElementsByName("rad-culoare");
+    for (let rad of radioCulori) {
+        rad.onchange = filtrare;
+    }
+
+    // mai aveam deja un check on input deci este necesar sa reunesc cele 2 functii (cautarea cu descriere era invalid la <3 chars)
+
+    document.getElementById("inp-descriere").oninput = function () {
+    let val = this.value.trim();
+        if (val.length >= 3 || val.length === 0) {
+            this.classList.remove("is-invalid");
+        } else {
+            this.classList.add("is-invalid");
+        }
+
+        filtrare();
+    };
+
+    // analog pentru slidere
+    document.getElementById("inp-pret-min").oninput = function () {
+        document.getElementById("info-pret-min").innerHTML = `(${document.getElementById("inp-pret-min").value})`;
+       filtrare();
+    };
+
+    document.getElementById("inp-pret-max").oninput = function () {
+        document.getElementById("info-pret-max").innerHTML = `(${document.getElementById("inp-pret-max").value})`;
+        filtrare();
+    };
+
 
     document.getElementById("resetare").onclick = function () {
         if (!confirm("Doresti sa resetezi toate filtrele?")) {
         return;
     }
+        document.getElementById("nuexista").style.display = "none"; 
+
         document.getElementById("inp-nume").value = "";
         document.getElementById("chk-membru").checked = false;
 

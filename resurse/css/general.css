@@ -103,6 +103,7 @@ body.alt input[type="range"]::-ms-thumb {
 body.alt .form-floating > textarea,
 body.alt .form-floating > .form-control {
   background-color: #fff !important;
+  color: black;
 }
 
 body.alt .form-floating > textarea:focus,

@@ -114,10 +114,10 @@
 
             <div class="col-12">
                 <div class="d-flex flex-wrap gap-2">
-                    <button class="btn btn-primary" id="filtrare">
+                    <!-- <button class="btn btn-primary" id="filtrare">
                     <i class="bi bi-funnel-fill me-2"></i>
-                    <span class="btn-text">Filtrează</span> <!-- nu functionza bootstrap cu "d-none d-md-inline"-->
-                    </button>
+                    <span class="btn-text">Filtrează</span>
+                    </button> -->
                     <button class="btn btn-secondary" id="resetare">
                     <i class="bi bi-arrow-clockwise me-2"></i>
                     <span class="btn-text">Resetează</span>
@@ -142,6 +142,7 @@
 
             <h2>Produse</h2>
             <div class="grid-produse">
+                <p id="nuexista" style="display: none"> Nu există produse conform filtrelor curente!</p>
                 <% for( let prod of locals.produse) { %>
                     <article class="produs" id="art<%= prod.id %>">
                         <h3 class="nume">Nume: <a href="/produs/<%-prod.id %>" ><span class="val-nume"><%- prod.nume%></span></a></h3>
