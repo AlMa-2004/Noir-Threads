@@ -1,10 +1,10 @@
 window.onload = function () {
     
     function filtrare() {
-        let inpNume = document.getElementById("inp-nume").value.trim().toLowerCase();
+        let inpNume = document.getElementById("inp-nume").value.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
         //validare input nume
-        let potriviri = inpNume.match(/[^a-zA-Z\s\*]/g);
+        let potriviri = inpNume.match(/[^a-zA-ZăâîșțĂÂÎȘȚ\s\*]/g);
         if (potriviri) {
             alert("Numele produsului conține caractere interzise: " + potriviri.join(" "));
             document.getElementById("resetare").click(); 
@@ -13,12 +13,12 @@ window.onload = function () {
 
          //user-ul nu se foloseste de autocomplete si: 
         // (2 cazuri marginale) scrie ceva care s-ar putea potrivi cu una din firme, sau ce a scris nu exista deloc => warning date invalide
-        let inpFirma = document.getElementById("inp-firma").value.trim().toLowerCase(); 
+        let inpFirma = document.getElementById("inp-firma").value.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); 
         if (inpFirma === "") inpFirma = "toate";
 
         //validare input datalist
         if (inpFirma !== "toate") {
-            let potriviri = inpFirma.match(/[^a-zA-Z\s]/g); 
+            let potriviri = inpFirma.match(/[^a-zA-ZăâîșțĂÂÎȘȚ\s\*]/g); 
             if (potriviri) {
                 alert("Numele firmei conține caractere interzise: " + potriviri.join(" "));
                 document.getElementById("resetare").click(); 
@@ -50,7 +50,7 @@ window.onload = function () {
         
         let materialeSelectate = Array.from(document.getElementById("inp-materiale").selectedOptions).map(opt => opt.value.trim().toLowerCase());
 
-        let inpDescriere = document.getElementById("inp-descriere").value.trim().toLowerCase();
+        let inpDescriere = document.getElementById("inp-descriere").value.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
         let textarea = document.getElementById("inp-descriere");
         if (inpDescriere.length > 0 && inpDescriere.length < 3) {
             textarea.classList.add("is-invalid");
@@ -121,6 +121,10 @@ window.onload = function () {
         else {
             document.getElementById("nuexista").style.display = "block";
         }
+
+        // filtreaza toate elementele .produs si le lasa doar pe cele care sunt afisate
+        let produseVizibile = Array.from(document.getElementsByClassName("produs")).filter(p => p.style.display == "block");
+        document.getElementById("numar-produse").textContent = produseVizibile.length;
     };
 
     document.getElementById("inp-nume").oninput = filtrare;

@@ -299,6 +299,28 @@ app.get("/produse", function (req, res) { //am nevoie de toate enumurile/valoril
                         if(parseFloat(prod.pret)<pret_min) pret_min=prod.pret;
 
                     }
+
+                    // cel mai ieftin produs din fiecare categorie => practic, iterez prin produse si adaug un flag la fiecare
+
+                    const produsePeCategorie = {};
+                    for (let prod of rezProd.rows) {
+                        if (!produsePeCategorie[prod.categorie]) {
+                            produsePeCategorie[prod.categorie] = [];
+                        }
+                        produsePeCategorie[prod.categorie].push(prod);
+                    }
+
+                    for (let categorie in produsePeCategorie) {
+                        let produse = produsePeCategorie[categorie];
+                        let ieftin = produse[0];
+                        for (let p of produse) {
+                            if (parseFloat(p.pret) < parseFloat(ieftin.pret)) {
+                                ieftin = p;
+                            }
+                        }
+                        ieftin.celMaiIeftin = true;
+                    }
+
                     const materiale = Array.from(materialeSet).sort();
 
                     const coloane = rezProd.fields.map(field => {
@@ -322,24 +344,43 @@ app.get("/produse", function (req, res) { //am nevoie de toate enumurile/valoril
     });
 });
 
+app.get("/produs/:id", function(req, res) {
+    console.log(req.params);
+    let idProdus = req.params.id;
 
-app.get("/produs/:id", function(req, res){
-    console.log(req.params)
-    client.query(`select * from produse where id=${req.params.id}`, function(err, rez){
-        if (err){
+    client.query("SELECT * FROM produse WHERE id=$1", [idProdus], function(err, rez) {
+        if (err) {
             console.log(err);
             afisareEroare(res, 2);
+            return;
         }
-        else{
-            if (rez.rowCount==0){
-                afisareEroare(res, 404);
-            }
-            else{
-                res.render("pagini/produs", {prod: rez.rows[0]})
-            }
+
+        if (rez.rowCount == 0) {
+            afisareEroare(res, 404);
+            return;
         }
-    })
-})
+
+        let produs = rez.rows[0];
+
+        client.query(
+            "SELECT id, nume, cale_imagine, pret, firma FROM produse WHERE categorie=$1 AND id<>$2 LIMIT 4",
+            [produs.categorie, idProdus],
+            function(errSimilare, rezSimilare) {
+                if (errSimilare) {
+                    console.log(errSimilare);
+                    afisareEroare(res, 2);
+                    return;
+                }
+
+                res.render("pagini/produs", {
+                    prod: produs,
+                    produseSimilare: rezSimilare.rows
+                });
+            }
+        );
+    });
+});
+
 
 app.get(/^\/resurse\/[a-zA-Z0-9_\/]*$/, function(req, res, next){
     afisareEroare(res,403)

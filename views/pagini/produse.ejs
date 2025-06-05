@@ -137,10 +137,9 @@
         </div>
     </div>
         <p id="p-suma">Apăsați Alt+"c" pentru suma preturilor produselor afișate. </p>
-  
         <section id="produse">
 
-            <h2>Produse</h2>
+            <h2>Produse (<span id="numar-produse"><%= produse.length %></span>)</h2>
             <div class="grid-produse">
                 <p id="nuexista" style="display: none"> Nu există produse conform filtrelor curente!</p>
                 <% for( let prod of locals.produse) { %>
@@ -153,11 +152,20 @@
                             <p class="membru">Program de fidelitate: <span class="val-membru"> <%= prod.pentru_membri ? "da" : "nu" %></span></p>
                             <p class="firma">Firma: <span class="val-firma"><%- prod.firma%></span></p>
                             <p class="materiale" style = "display: none;">Materiale: <span class="val-materiale"><%- prod.materiale%></span></p>
+                            </div>
+                        <div id="container-pret">
+                            <p class="pret">Pret: 
+                                <span class="val-pret"><%- prod.pret%>
+                                </span></p>
+                             <% if (prod.celMaiIeftin) { %>
+                                <div class="badge-container">
+                                <span class="badge">Cel mai ieftin din categoria sa!</span>
+                                </div>
+                            <% } %>          
                         </div>
-                        <div id="container-pret"><p class="pret" >Pret: <span class="val-pret"><%- prod.pret%></span></p></div>
                         <div class="container-poza">
                             <figure>
-                                <a href="/produs/<%-prod.id %>" ><img src="/resurse/imagini/produse/<%- prod.cale_imagine %>" alt="[imagine <%- prod.nume %>]" /></a>
+                                <a href="/produs/<%-prod.id %>" ><img src="/resurse/imagini/produse/<%- prod.cale_imagine %>/1.jpg" alt="[imagine <%- prod.nume %>]" /></a>
                             </figure>
                         </div>
                         <label class="selecteaza-cos">

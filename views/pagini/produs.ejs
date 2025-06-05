@@ -12,73 +12,94 @@
     <body>
     <%- include("../fragmente/header") %>
     <main>
-        <section>
-    <h2>Pagină produs</h2>
+    <section style="display: flex; justify-content: center; align-items: center;">
+
         <article id="art<%- prod.id %>" class="<%- prod.categorie.replace(/\s+/g, '') %>">
-            <div style="display: flex; align-items: flex-start;">
-                <figure class="imag-produs">
-                    <img src="/resurse/imagini/produse/<%- prod.cale_imagine %>" alt="imagine <%- prod.nume %>" />
-                </figure>
-                
-                <div style="flex: 1;">
-                    <section style="margin-bottom: 10px;">
-                        <h3><span class="nume"><%- prod.nume %></span></h3>
-                        <p class="detalii">Categorie: </p> <p><span><%- prod.categorie %></span></p>
-                        <p class="detalii">Descriere: </p> <p><span><%- prod.descriere %></span></p>
-                    </section>
-
-                    <table border="1" class="tabel-caracteristici" style="border-collapse: collapse;">
-                        <tr>
-                            <td>Preț</td>
-                            <td><%- prod.pret %> lei</td>
-                        </tr>
-                        <tr>
-                            <td>Firma</td>
-                            <td><%- prod.firma %></td>
-                        </tr>
-                        <tr>
-                            <td>Trupă</td>
-                            <td><%- prod.trupa %></td>
-                        </tr>
-                        <tr>
-                            <td>Culoare</td>
-                            <td><%- prod.culoare %></td>
-                        </tr>
-                        <tr>
-                            <td>Materiale</td>
-                            <td><%- prod.materiale %></td>
-                        </tr>
-                        <tr>
-                            <td>Data intrare</td>
-                            <td>
-                                <% 
-                                const luni = ['Ianuarie', 'Februarie', 'Martie', 'Aprilie', 'Mai', 'Iunie', 
-                                            'Iulie', 'August', 'Septembrie', 'Octombrie', 'Noiembrie', 'Decembrie'];
-                                const zile = ['Duminică', 'Luni', 'Marți', 'Miercuri', 'Joi', 'Vineri', 'Sâmbăta'];
-
-                                const data = new Date(prod.data_intrare);
-                                const zi = data.getDate().toString().padStart(2, '0');
-                                const luna = luni[data.getMonth()];
-                                const an = data.getFullYear();
-                                const ziSaptamana = zile[data.getDay()];
-                                %>
-                                <time datetime="<%= data.toISOString() %>">
-                                    <%= `${zi}/${luna}/${an} (${ziSaptamana})` %>
-                                </time>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Pentru membri</td>
-                            <td><%- prod.pentru_membri ? "Da" : "Nu" %></td>
-                        </tr>
-                    </table>
+        <div style="display: flex; align-items: center; gap: 2rem;">    
+            <div id="carousel<%- prod.id %>" class="carousel slide" data-bs-ride="carousel"
+                style="flex: 0 0 auto; width: 400px; overflow: hidden; border: 3px solid var(--culoare-chenar); border-radius: 10px;">
+            <h2 style="margin-bottom: 0.5rem; justify-content: auto;"><span class="nume"><%- prod.nume %></span></h2>
+            <div class="carousel-inner">
+                <% for (let i = 1; i <= 3; i++) { %>
+                <div class="carousel-item <%= i === 1 ? 'active' : '' %>">
+                <img src="/resurse/imagini/produse/<%- prod.cale_imagine %>/<%- i %>.jpg"
+                    class="d-block w-100"
+                    style="width: 100%; height: 600px; object-fit: cover;">
                 </div>
+                <% } %>
             </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel<%- prod.id %>" data-bs-slide="prev" style="filter: invert(100%);">
+                <span class="carousel-control-prev-icon"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel<%- prod.id %>" data-bs-slide="next" style="filter: invert(100%);">
+                <span class="carousel-control-next-icon"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+            </div>
+
+            <section style="display: flex; flex-direction: column; gap: 1rem; align-items: center;">
+                <div>
+                    <p class="detalii" style="margin: auto; align-items: center;">Categorie:</p>
+                    <p><span><%- prod.categorie %></span></p>
+                    <p class="detalii" style="margin: auto;">Descriere:</p>
+                    <p ><span><%- prod.descriere %></span></p>
+                </div>
+
+                <div style="align-self: center;">
+                    <table border="1" class="tabel-caracteristici" style="border-collapse: collapse;">
+                    <tr><td>Preț</td><td><%- prod.pret %> lei</td></tr>
+                    <tr><td>Firma</td><td><%- prod.firma %></td></tr>
+                    <tr><td>Trupă</td><td><%- prod.trupa %></td></tr>
+                    <tr><td>Culoare</td><td><%- prod.culoare %></td></tr>
+                    <tr><td>Materiale</td><td><%- prod.materiale %></td></tr>
+                    <tr>
+                        <td>Data intrare</td>
+                        <td>
+                        <% 
+                        const luni = ['Ianuarie', 'Februarie', 'Martie', 'Aprilie', 'Mai', 'Iunie', 
+                                        'Iulie', 'August', 'Septembrie', 'Octombrie', 'Noiembrie', 'Decembrie'];
+                        const zile = ['Duminică', 'Luni', 'Marți', 'Miercuri', 'Joi', 'Vineri', 'Sâmbăta'];
+                        const data = new Date(prod.data_intrare);
+                        const zi = data.getDate().toString().padStart(2, '0');
+                        const luna = luni[data.getMonth()];
+                        const an = data.getFullYear();
+                        const ziSaptamana = zile[data.getDay()];
+                        %>
+                        <time datetime="<%= data.toISOString() %>"><%= `${zi}/${luna}/${an} (${ziSaptamana})` %></time>
+                        </td>
+                    </tr>
+                    <tr><td>Pentru membri</td><td><%- prod.pentru_membri ? "Da" : "Nu" %></td></tr>
+                </table>
+            </section>
+        </div>
         </article>
+    </section>
+    <section id="produse-similare" style="margin-top: 3rem;">
+        <h3>Produse similare</h3>
+        <% if (produseSimilare.length > 0) { %>
+            <div class="grid-produse">
+            <% for (let ps of produseSimilare) { %>
+                <article class="produs-similar" style="text-align: center;">
+                <h4>
+                    <a href="/produs/<%= ps.id %>"><%= ps.nume %></a>
+                </h4>
+                <div class="container-poza">
+                    <a href="/produs/<%= ps.id %>">
+                    <img src="/resurse/imagini/produse/<%= ps.cale_imagine %>/1.jpg" alt="Imagine <%= ps.nume %>" style="width: 150px; height: 150px; object-fit: cover;">
+                    </a>
+                </div>
+                <p>Preț: <%= ps.pret %> lei</p>
+                <p>Firma: <%= ps.firma %></p>
+                </article>
+            <% } %>
+            </div>
+        <% } else { %>
+            <p>Nu există produse similare disponibile.</p>
+        <% } %>
     </section>
 
     </main>
-
     <%- include("../fragmente/footer") %>
     </body>
 </html>
