@@ -1,6 +1,8 @@
 window.onload = function () {
     
     function filtrare() {
+        // NFD = normalization from decomposition => toate caracterele cu diacritice sunt descompuse in alfabetul englezesc si simbolul sau distinct separat (ș => s,)
+        // range-ul este fix pentru aceste semne diacritice, pe care le scoate din interpretarea numelui introdus cu regexul
         let inpNume = document.getElementById("inp-nume").value.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
         //validare input nume

@@ -200,10 +200,10 @@ function genereazaOferta() {
 
     let categorieNoua;
     do {
-      categorieNoua = categorii[Math.floor(Math.random() * categorii.length)];
-    } while (oferteJson.oferte[0] && oferteJson.oferte[0].categorie === categorieNoua);
+      categorieNoua = categorii[Math.floor(Math.random() * categorii.length)]; //aleg o categorie random
+    } while (oferteJson.oferte[0] && oferteJson.oferte[0].categorie === categorieNoua); // ma asigur ca nu este la fel cu anterioara
 
-    const reducere = reduceri[Math.floor(Math.random() * reduceri.length)];
+    const reducere = reduceri[Math.floor(Math.random() * reduceri.length)]; //generez random reducerea
     const now = new Date();
 
     const ofertaNoua = {
@@ -227,11 +227,11 @@ function genereazaOferta() {
   });
 }
 
-setInterval(genereazaOferta, T);
+setInterval(genereazaOferta, T); // "programez" generarea ofertelor si stergerea lor (in int cu T2) la intervalul de timp T
 const filePath = path.join(__dirname,"resurse/json/oferte.json");
 if (!fs.existsSync(filePath) || !fs.readFileSync(filePath, "utf8").trim()) {
   console.log("Fisier gol sau inexistent");
-  genereazaOferta(); // fortez generarea la start
+  genereazaOferta(); // fortez generarea la startul serverului daca cumva fisierul este gol
 }
 
 
@@ -269,7 +269,7 @@ app.get(["/", "/home", "/index"],function(req,res){
     fs.writeFileSync(scssPath, scssFileContent);
     compileazaScss(scssPath);
     
-    let oferte;
+    let oferte; // fac din nou o verificare pentru fisierul json gol 
     try {
     let data = fs.readFileSync(path.join(__dirname,"resurse/json/oferte.json"), "utf8").trim();
     if (!data) data = '{"oferte": []}';
@@ -282,8 +282,8 @@ app.get(["/", "/home", "/index"],function(req,res){
 
     res.render("pagini/index", {ip: req.ip, 
         imagini: obGlobal.obImagini.imagini,
-         nr_random_poze: nr_random_poze, 
-         durata_totala: durata_totala,
+        nr_random_poze: nr_random_poze, 
+        durata_totala: durata_totala,
         oferta: ofertaCurenta}
     );
 }) 

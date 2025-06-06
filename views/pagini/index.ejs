@@ -15,19 +15,20 @@
         <div id="grid-continut">
             <section id="anunturi">
                 <h2 id="text-animat">Anunțuri  <span class="fa-solid fa-exclamation fa-beat-fade"></span></h2>
-                <p>Magazinul fizic intră în <strong>renovare până în Mai</strong>. Toate comenzile cu ridicare în magazin vor primi livrare gratuită!</p>
+                <p>Magazinul fizic intră în <strong>renovare până în August</strong>. Toate comenzile cu ridicare în magazin vor primi livrare gratuită!</p>
                 <hr>
                 <p>Suntem în căutarea unor persoane pasionate și dedicate pentru a se alătura echipei noastre. Dacă îți place moda alternativă și vrei să faci parte dintr-o comunitate dinamică, avem loc pentru tine! Pentru mai multe detalii contactați-ne pe e-mail!</p>
+                <hr>
                 <% if (oferta) { %>
                 <div id="oferta">
                     <p id="text-oferta">Ofertă specială la categoria <%= oferta.categorie %>: <%= oferta.reducere %>% reducere!
                     <p>EXPIRĂ ÎN: <span id="countdown"></span></p>
                     <script>
-                        let dataFinalizare = new Date("<%= oferta['data-finalizare'] %>").getTime();
+                        let dataFinalizare = new Date("<%= oferta['data-finalizare'] %>").getTime(); //preiau data finalizarii din json
 
                         function updateCounter() {
                             const acum = new Date().getTime();
-                            const diferenta = dataFinalizare - acum;
+                            const diferenta = dataFinalizare - acum; // calculez diferenta
 
                             if (diferenta <= 0) {
                                 document.getElementById("countdown").innerText = "Expirată!";
@@ -41,14 +42,14 @@
 
                             const afisaj = `${ore}h ${minute}m ${secunde}s`;
                             const countdownEl = document.getElementById("countdown");
-                            countdownEl.innerText = afisaj;
+                            countdownEl.innerText = afisaj; //setez textul din tag cu valorile calculate mai sus
 
-                            if (diferenta <= 10_000) {
+                            if (diferenta <= 10000) { //daca sunt mai putin de 10 secunde alertez utilizatorul schimband culoarea
                                 countdownEl.style.color = "red";
                             }
                         }
 
-                        function fetchNouaOferta() {
+                        function fetchNouaOferta() { //se trimite un request HTTP de tip GET catre browser pentru a prelua noua oferta (prima) cu parametrii sai din JSON
                             fetch("/resurse/json/oferte.json")
                                 .then(r => r.json())
                                 .then(json => {
@@ -56,12 +57,14 @@
                                     const textOferta = `Ofertă specială la categoria ${ofertaNoua.categorie}: ${ofertaNoua.reducere}% reducere!`;
                                     document.getElementById("text-oferta").innerText = textOferta;
                                     dataFinalizare = new Date(ofertaNoua["data-finalizare"]).getTime();
-                                    updateCounter(); // reîncepe cronometru cu noua dată
+                                    updateCounter(); // reincepe cronometrul cu noua data
                                 })
                                 .catch(e => console.error("Eroare la preluarea noii oferte:", e));
                         }
 
-                        setInterval(updateCounter, 1000);
+                        setInterval(updateCounter, 1000); //pentru countdown, functia cronometrului ruleaza la fiecare secunda
+                        //pentru a-mi incarca imediat oferta in momentul deschiderii site-ului, in loc sa astepte o secunda
+                        //practic, momentul 0 este la 1 minut in fata
                         updateCounter();
                     </script>
                 </div>
