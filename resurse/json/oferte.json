@@ -1,0 +1,70 @@
+{
+  "oferte": [
+    {
+      "categorie": "INCALTAMINTE",
+      "data-incepere": "2025-06-06T08:23:00.569Z",
+      "data-finalizare": "2025-06-06T08:24:00.569Z",
+      "reducere": 25
+    },
+    {
+      "categorie": "PANTALONI",
+      "data-incepere": "2025-06-06T08:22:00.568Z",
+      "data-finalizare": "2025-06-06T08:23:00.568Z",
+      "reducere": 40
+    },
+    {
+      "categorie": "FUSTE",
+      "data-incepere": "2025-06-06T08:21:00.561Z",
+      "data-finalizare": "2025-06-06T08:22:00.561Z",
+      "reducere": 30
+    },
+    {
+      "categorie": "ROCHII",
+      "data-incepere": "2025-06-06T08:20:00.557Z",
+      "data-finalizare": "2025-06-06T08:21:00.557Z",
+      "reducere": 5
+    },
+    {
+      "categorie": "TRICOURI",
+      "data-incepere": "2025-06-06T08:19:00.547Z",
+      "data-finalizare": "2025-06-06T08:20:00.547Z",
+      "reducere": 50
+    },
+    {
+      "categorie": "FUSTE",
+      "data-incepere": "2025-06-06T08:18:00.539Z",
+      "data-finalizare": "2025-06-06T08:19:00.539Z",
+      "reducere": 45
+    },
+    {
+      "categorie": "TRICOURI",
+      "data-incepere": "2025-06-06T08:17:00.538Z",
+      "data-finalizare": "2025-06-06T08:18:00.538Z",
+      "reducere": 45
+    },
+    {
+      "categorie": "PANTALONI",
+      "data-incepere": "2025-06-06T08:16:00.528Z",
+      "data-finalizare": "2025-06-06T08:17:00.528Z",
+      "reducere": 15
+    },
+    {
+      "categorie": "ROCHII",
+      "data-incepere": "2025-06-06T08:15:00.520Z",
+      "data-finalizare": "2025-06-06T08:16:00.520Z",
+      "reducere": 30
+    },
+    {
+      "categorie": "INCALTAMINTE",
+      "data-incepere": "2025-06-06T08:14:00.517Z",
+      "data-finalizare": "2025-06-06T08:15:00.517Z",
+      "reducere": 5
+    },
+    {
+      "categorie": "FUSTE",
+      "data-incepere": "2025-06-06T08:13:00.508Z",
+      "data-finalizare": "2025-06-06T08:14:00.508Z",
+      "reducere": 45
+    }
+  ]
+}

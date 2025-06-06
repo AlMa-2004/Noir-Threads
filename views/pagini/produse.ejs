@@ -136,7 +136,7 @@
             
         </div>
     </div>
-        <p id="p-suma">Apăsați Alt+"c" pentru suma preturilor produselor afișate. </p>
+        <p id="p-suma">Apăsați Alt+"c" pentru suma prețurilor produselor afișate. </p>
         <section id="produse">
 
             <h2>Produse (<span id="numar-produse"><%= produse.length %></span>)</h2>
@@ -154,10 +154,17 @@
                             <p class="materiale" style = "display: none;">Materiale: <span class="val-materiale"><%- prod.materiale%></span></p>
                             </div>
                         <div id="container-pret">
-                            <p class="pret">Pret: 
-                                <span class="val-pret"><%- prod.pret%>
-                                </span></p>
-                             <% if (prod.celMaiIeftin) { %>
+                            <p class="pret">
+                                Pret: 
+                                <% if (oferta && oferta.categorie === prod.categorie) { %>
+                                <del style="text-decoration: line-through; text-decoration-color: red;"><%= prod.pret %> lei</del>
+                                <strong><%= (prod.pret * (1 - oferta.reducere / 100)).toFixed(2) %></strong>
+                                <% } else { %>
+                                <%= prod.pret %> lei
+                                <% } %>
+                            </p>
+
+                            <% if (prod.celMaiIeftin) { %>
                                 <div class="badge-container">
                                 <span class="badge">Cel mai ieftin din categoria sa!</span>
                                 </div>

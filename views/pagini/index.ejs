@@ -18,6 +18,11 @@
                 <p>Magazinul fizic intră în <strong>renovare până în Mai</strong>. Toate comenzile cu ridicare în magazin vor primi livrare gratuită!</p>
                 <hr>
                 <p>Suntem în căutarea unor persoane pasionate și dedicate pentru a se alătura echipei noastre. Dacă îți place moda alternativă și vrei să faci parte dintr-o comunitate dinamică, avem loc pentru tine! Pentru mai multe detalii contactați-ne pe e-mail!</p>
+                <% if (oferta) { %>
+                <div id="oferta">
+                    <p>Ofertă specială la categoria <%= oferta.categorie %>: <%= oferta.reducere %>% reducere!</p>
+                </div>
+                <% } %>
             </section>
             <section id="noutati">
                 <h2>Noutăți  <span class="fa-solid fa-exclamation fa-beat-fade"></h2>

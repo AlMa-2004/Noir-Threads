@@ -48,7 +48,14 @@
 
                 <div style="align-self: center;">
                     <table border="1" class="tabel-caracteristici" style="border-collapse: collapse;">
-                    <tr><td>Preț</td><td><%- prod.pret %> lei</td></tr>
+                    <tr><td>Preț</td><td>
+                        <% if (oferta && oferta.categorie === prod.categorie) { %>
+                        <del style="text-decoration: line-through; text-decoration-color: red;"><%= prod.pret %> lei</del>
+                        <strong><%= (prod.pret * (1 - oferta.reducere / 100)).toFixed(2) %></strong>
+                        <% } else { %>
+                        <%= prod.pret %> lei
+                        <% } %>
+                    </td></tr>
                     <tr><td>Firma</td><td><%- prod.firma %></td></tr>
                     <tr><td>Trupă</td><td><%- prod.trupa %></td></tr>
                     <tr><td>Culoare</td><td><%- prod.culoare %></td></tr>
@@ -76,28 +83,37 @@
         </article>
     </section>
     <section id="produse-similare" style="margin-top: 3rem;">
-        <h3>Produse similare</h3>
-        <% if (produseSimilare.length > 0) { %>
-            <div class="grid-produse">
-            <% for (let ps of produseSimilare) { %>
-                <article class="produs-similar" style="text-align: center;">
-                <h4>
-                    <a href="/produs/<%= ps.id %>"><%= ps.nume %></a>
-                </h4>
-                <div class="container-poza">
-                    <a href="/produs/<%= ps.id %>">
-                    <img src="/resurse/imagini/produse/<%= ps.cale_imagine %>/1.jpg" alt="Imagine <%= ps.nume %>" style="width: 150px; height: 150px; object-fit: cover;">
-                    </a>
-                </div>
-                <p>Preț: <%= ps.pret %> lei</p>
-                <p>Firma: <%= ps.firma %></p>
-                </article>
-            <% } %>
+    <h2>Produse similare</h2>
+    <% if (produseSimilare.length > 0) { %>
+        <div class="grid-produse">
+        <% for (let ps of produseSimilare) { %>
+            <article class="produs-similar">
+            <h4>
+                <a href="/produs/<%= ps.id %>"><%= ps.nume %></a>
+            </h4>
+            <div class="container-poza">
+                <a href="/produs/<%= ps.id %>">
+                <img src="/resurse/imagini/produse/<%= ps.cale_imagine %>/1.jpg" alt="Imagine <%= ps.nume %>">
+                </a>
             </div>
-        <% } else { %>
-            <p>Nu există produse similare disponibile.</p>
+            <p class="pret">
+                Pret: 
+                <% if (oferta && oferta.categorie === prod.categorie) { %>
+                <del style="text-decoration: line-through; text-decoration-color: red;"><%= ps.pret %> lei</del>
+                <strong><%= (ps.pret * (1 - oferta.reducere / 100)).toFixed(2) %></strong>
+                <% } else { %>
+                <%= ps.pret %> lei
+                <% } %>
+            </p>
+            <p>Categorie: <%= ps.categorie %></p>
+            </article>
         <% } %>
+        </div>
+    <% } else { %>
+        <p>Nu există produse similare disponibile.</p>
+    <% } %>
     </section>
+
 
     </main>
     <%- include("../fragmente/footer") %>

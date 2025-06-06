@@ -47,6 +47,38 @@
   overflow: hidden;
 }
 
+#produse-similare {
+  text-align: center;
+}
+
+#produse-similare .grid-produse {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap; 
+}
+
+#produse-similare .produs-similar {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 180px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+#produse-similare .produs-similar:hover {
+  transform: scale(1.05);
+}
+
+#produse-similare .container-poza img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+
 @media screen and (max-width: 1000px) {
   
    .carousel-inner img {

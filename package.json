@@ -36,5 +36,9 @@
     "pg": "^8.16.0",
     "sass": "^1.87.0",
     "sharp": "^0.34.1"
+  },
+  "nodemonConfig": {
+  "ignore": ["resurse/json/oferte.json"],
+  "ext": "js"
   }
 }

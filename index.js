@@ -176,6 +176,65 @@ function afisareEroare(res, identificator, titlu, text, imagine){
 })
 
 }
+
+const T = 60000; 
+function genereazaOferta() {
+
+  client.query("SELECT unnest(enum_range(NULL::categorie_enum)) AS categorie", function(err, rez){
+    if (err) { console.log(err); return; }
+
+    const categorii = rez.rows.map(r => r.categorie);
+    const reduceri = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50];
+
+    const filePath = path.join(__dirname, "resurse/json/oferte.json");
+    let oferteJson;
+
+    try {
+    let data = fs.readFileSync(filePath, "utf8").trim();
+    if (!data) data = '{"oferte": []}';
+    oferteJson = JSON.parse(data);
+    } catch (e) {
+    console.log("Fisier JSON corupt sau gol");
+    oferteJson = { oferte: [] };
+    }
+
+    let categorieNoua;
+    do {
+      categorieNoua = categorii[Math.floor(Math.random() * categorii.length)];
+    } while (oferteJson.oferte[0] && oferteJson.oferte[0].categorie === categorieNoua);
+
+    const reducere = reduceri[Math.floor(Math.random() * reduceri.length)];
+    const now = new Date();
+
+    const ofertaNoua = {
+      categorie: categorieNoua,
+      "data-incepere": now.toISOString(),
+      "data-finalizare": new Date(now.getTime() + T).toISOString(),
+      reducere: reducere
+    };
+
+    oferteJson.oferte.unshift(ofertaNoua);
+
+    // se sterg ofertele mai vechi de 10 minute
+    const T2 = 600000;
+    oferteJson.oferte = oferteJson.oferte.filter(oferta => {
+      const dataFin = new Date(oferta["data-finalizare"]);
+      return now - dataFin < T2;
+    });
+
+    fs.writeFileSync(path.join(__dirname, "resurse/json/oferte.json"), JSON.stringify(oferteJson, null, 2));
+    console.log("Ofertă nouă:", ofertaNoua);
+  });
+}
+
+setInterval(genereazaOferta, T);
+const filePath = path.join(__dirname,"resurse/json/oferte.json");
+if (!fs.existsSync(filePath) || !fs.readFileSync(filePath, "utf8").trim()) {
+  console.log("Fisier gol sau inexistent");
+  genereazaOferta(); // fortez generarea la start
+}
+
+
 //daca nu este specificat path-ul, va fi luat oricare
 app.use(function(req, res, next) {
     res.locals.optiuniMeniu = obGlobal.optiuniMeniu;
@@ -209,8 +268,24 @@ app.get(["/", "/home", "/index"],function(req,res){
 
     fs.writeFileSync(scssPath, scssFileContent);
     compileazaScss(scssPath);
+    
+    let oferte;
+    try {
+    let data = fs.readFileSync(path.join(__dirname,"resurse/json/oferte.json"), "utf8").trim();
+    if (!data) data = '{"oferte": []}';
+    oferte = JSON.parse(data);
+    } catch (e) {
+    console.log("Eroare la parsarea JSON:", e);
+    oferte = { oferte: [] };
+    }
+    const ofertaCurenta = oferte.oferte[0];
 
-    res.render("pagini/index", {ip: req.ip, imagini: obGlobal.obImagini.imagini, nr_random_poze: nr_random_poze, durata_totala: durata_totala});
+    res.render("pagini/index", {ip: req.ip, 
+        imagini: obGlobal.obImagini.imagini,
+         nr_random_poze: nr_random_poze, 
+         durata_totala: durata_totala,
+        oferta: ofertaCurenta}
+    );
 }) 
 
 app.get("/despre",function(req,res){
@@ -328,6 +403,18 @@ app.get("/produse", function (req, res) { //am nevoie de toate enumurile/valoril
                         return nume.charAt(0).toUpperCase() + nume.slice(1).toLowerCase();
                     }); // echivalent cu unnest
 
+                    let oferte;
+                    try {
+                    let data = fs.readFileSync(path.join(__dirname,"resurse/json/oferte.json"), "utf8").trim();
+                    if (!data) data = '{"oferte": []}';
+                    oferte = JSON.parse(data);
+                    } catch (e) {
+                    console.log("Eroare la parsarea JSON:", e);
+                    oferte = { oferte: [] };
+                    }
+
+                    const ofertaCurenta = oferte.oferte[0];
+
                     res.render("pagini/produse", {
                         produse: rezProd.rows,
                         firme: rezFirme.rows,
@@ -336,7 +423,8 @@ app.get("/produse", function (req, res) { //am nevoie de toate enumurile/valoril
                         materiale: materiale,
                         pretMax: pret_max,
                         pretMin: pret_min,
-                        coloane: coloane// numele fiecarui atribut din tabela produse
+                        coloane: coloane,// numele fiecarui atribut din tabela produse
+                        oferta: ofertaCurenta
                     });
                 });
             });
@@ -363,18 +451,30 @@ app.get("/produs/:id", function(req, res) {
         let produs = rez.rows[0];
 
         client.query(
-            "SELECT id, nume, cale_imagine, pret, firma FROM produse WHERE categorie=$1 AND id<>$2 LIMIT 4",
+            "SELECT id, nume, cale_imagine, pret, categorie FROM produse WHERE categorie=$1 AND id<>$2 LIMIT 4",
             [produs.categorie, idProdus],
             function(errSimilare, rezSimilare) {
                 if (errSimilare) {
                     console.log(errSimilare);
                     afisareEroare(res, 2);
                     return;
+                }   
+                let oferte;
+                try {
+                let data = fs.readFileSync(path.join(__dirname,"resurse/json/oferte.json"), "utf8").trim();
+                if (!data) data = '{"oferte": []}';
+                oferte = JSON.parse(data);
+                } catch (e) {
+                console.log("Eroare la parsarea JSON:", e);
+                oferte = { oferte: [] };
                 }
+
+                const ofertaCurenta = oferte.oferte[0];
 
                 res.render("pagini/produs", {
                     prod: produs,
-                    produseSimilare: rezSimilare.rows
+                    produseSimilare: rezSimilare.rows,
+                    oferta: ofertaCurenta
                 });
             }
         );
