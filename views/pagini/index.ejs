@@ -20,9 +20,54 @@
                 <p>Suntem în căutarea unor persoane pasionate și dedicate pentru a se alătura echipei noastre. Dacă îți place moda alternativă și vrei să faci parte dintr-o comunitate dinamică, avem loc pentru tine! Pentru mai multe detalii contactați-ne pe e-mail!</p>
                 <% if (oferta) { %>
                 <div id="oferta">
-                    <p>Ofertă specială la categoria <%= oferta.categorie %>: <%= oferta.reducere %>% reducere!</p>
+                    <p id="text-oferta">Ofertă specială la categoria <%= oferta.categorie %>: <%= oferta.reducere %>% reducere!
+                    <p>EXPIRĂ ÎN: <span id="countdown"></span></p>
+                    <script>
+                        let dataFinalizare = new Date("<%= oferta['data-finalizare'] %>").getTime();
+
+                        function updateCounter() {
+                            const acum = new Date().getTime();
+                            const diferenta = dataFinalizare - acum;
+
+                            if (diferenta <= 0) {
+                                document.getElementById("countdown").innerText = "Expirată!";
+                                setTimeout(fetchNouaOferta, 2000); // se cere oferta la fiecare 2 secunda
+                                return;
+                            }
+
+                            const secunde = Math.floor((diferenta / 1000) % 60);
+                            const minute = Math.floor((diferenta / 1000 / 60) % 60);
+                            const ore = Math.floor((diferenta / 1000 / 60 / 60));
+
+                            const afisaj = `${ore}h ${minute}m ${secunde}s`;
+                            const countdownEl = document.getElementById("countdown");
+                            countdownEl.innerText = afisaj;
+
+                            if (diferenta <= 10_000) {
+                                countdownEl.style.color = "red";
+                            }
+                        }
+
+                        function fetchNouaOferta() {
+                            fetch("/resurse/json/oferte.json")
+                                .then(r => r.json())
+                                .then(json => {
+                                    const ofertaNoua = json.oferte[0];
+                                    const textOferta = `Ofertă specială la categoria ${ofertaNoua.categorie}: ${ofertaNoua.reducere}% reducere!`;
+                                    document.getElementById("text-oferta").innerText = textOferta;
+                                    dataFinalizare = new Date(ofertaNoua["data-finalizare"]).getTime();
+                                    updateCounter(); // reîncepe cronometru cu noua dată
+                                })
+                                .catch(e => console.error("Eroare la preluarea noii oferte:", e));
+                        }
+
+                        setInterval(updateCounter, 1000);
+                        updateCounter();
+                    </script>
                 </div>
                 <% } %>
+
+
             </section>
             <section id="noutati">
                 <h2>Noutăți  <span class="fa-solid fa-exclamation fa-beat-fade"></h2>
